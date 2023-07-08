@@ -1,0 +1,75 @@
+knowledge.ores.lead=Lead is a dull and malleable metal, which doesn't appear to have much use without some sort of advanced technology to strengthen it.
+knowledge.ores.quartz=Quartz deposits can be found on occasion underground, though how they got here from the Nether, nobody knows...
+knowledge.commodities.page=Caminite is a very sturdy ceramic, mixed from a bit of clay and sand. The mixture yields, when baked, a material that you believe will be hard enough for your purposes throughout all of your mechanical ambitions.
+
+knowledge.stamper=Stamper
+knowledge.stamper.desc=Pound it flat
+
+knowledge.melter=Melter
+knowledge.melter.desc=Melting things down
+
+knowledge.mechanical_core=Mechanical Core
+knowledge.mechanical_core.desc=Metal to the Core
+
+knowledge.basic_ember_transfer=Basic Ember Transfer
+knowledge.basic_ember_transfer.desc=Send and Receive
+
+knowledge.golems=Ancient Golems
+knowledge.golems.desc=Antique Adversaries
+knowledge.golems.1=Rarely in the world, strange constructs resembling humanoids have been known to be found. These enigmatic golems will emit rays of pure heat, and possess unnatural strength, yet seem to require no fuel or sustenance. How such an automaton could come to be is beyond you, but perhaps the unknown materials and mechanisms within it may prove useful.
+
+knowledge.tinker_hammer=Tinker's Hammer
+knowledge.tinker_hammer.desc=Smashing
+knowledge.tinker_hammer.1=The Tinker Hammer is a very useful tool, for when you need to work with large machines, but a normal hammer simply won't cut it. In other words, it helps you with all your machine-tinkering desires.
+
+knowledge.golem_eye=Golem's Eye
+knowledge.golem_eye.desc=Advanced Filter
+knowledge.golem_eye.1=Sometimes filtering by items is not enough for advanced item transfer systems. An eye of a golem can be obtained by killing it with a pickaxe. You can then use the eye in hand to have it remember any 2 items alongside a filter characteristic based on what the two items have in common.
+
+knowledge.ember=Ember
+knowledge.ember.desc=Solid heat
+knowledge.ember.1=The Ember Bore's excavation yields several curious glowing crystals. These crystals come in several sizes, the larger Ember Crystal and the smaller Ember Shard. These crystals are clear evidence that the power of the Core of the world both exists and can be indirectly tapped: through the immolation of these crystals, you believe, you may be able to activate the power within them for other use.
+
+knowledge.gadgets=Gadgets
+knowledge.gadgets.desc=What's what?
+knowledge.gadgets.1=Evidenced by the existence of hot molten stone deep in the earth, or the glowing heat sustaining the strange golems you fight, you have come to believe that at the center of your world lies a powerful energy source. Using some copper and iron, you have found a way to create a device capable of measuring the density of this energy, henceforth referred to as "Ember", at a position in the world.
+
+knowledge.ember_activator=Ember Activator
+knowledge.ember_activator.desc=Extraction
+knowledge.ember_activator.1=The Ember Activator is an ingenious device, finally allowing you to extract usable energy from Ember Crystals and Shards. Simply insert said Crystals and Shards into the bottom of the device using a Hopper or other item transportation method, and soon, marked by a fiery burst, activated Ember will appear within the copper cage atop the machine.
+
+knowledge.ember_bore=Ember Bore
+knowledge.ember_bore.desc=Diggy Diggy Hole!
+knowledge.ember_bore.1=While bedrock may halt your downward advances, it will not halt your machines. The Ember Bore must be fueled with normal furnace fuel items, and must be placed at a position where the blades of the Bore can touch bedrock. When fueled, the Bore will dig up Ember Crystals from deeper into the earth, for your future use. Hoppers and other item transporters must be used to extract and insert fuel and crystals from the Bore.
+
+knowledge.piping=Pipes
+knowledge.piping.desc=Transportation
+knowledge.piping.1=One of the simplest mechanisms necessary for your ambitions is the pipe, a simple means of moving materials. You have developed both iron and lead pipes: Iron Pipes can be used to transport fluids, while Lead Pipes can be used to transport items. Pipes can only insert to tanks or inventories, however: to extract, you must craft a corresponding Pump, place it adjacent to the container, and power it with redstone.
+knowledge.piping.2=Items and Fluids in pipes follow simple rules to determine where they will go. They will always go forward, and will never bounce back or, heavens forbid, pop out of the pipe. At an intersection, they will always prioritize the opposite exit, so long as the other exits are weighed equally. When a tie must be broken, items and fluids will round-robin.
+knowledge.piping.3=Extractors have a number of special properties, listed here: They never connect to other Extractors. When turned off, they can receive items instead of only extracting from containers. When turned on by a redstone signal, they will never accept items from pipes. This makes Extractors useful as valves in pipe systems, for flow control.
+knowledge.piping.4=Pipes will automatically connect to other adjacent pipes. When this is not wanted, your Tinker's Hammer can be used to disconnect them. (Note that both sides can be disconnected individually) Sometimes, routing in a pipe network can go awry. When this happens, pipes will expel smoke to show that they are clogged. To unclog a pipe, simply right-click it with a stick.
+
+knowledge.adv_pipes.1=Normally, an item pipe system is push-only. This intricate nodule allows inventories to keep a stock of items in an inventory. Simply right-click with an item to set a filter. You can also link this node to a distant Item Extractor to automatically extract items from the extractor to satisfy the stock requirements.
+
+knowledge.storage=Storage
+knowledge.storage.desc=Hold up a second...
+knowledge.storage.1=A simple barrel of iron with an open top, the Bin can hold up to a stack of any item. It can also be used to automatically collect outputs from some machines.
+knowledge.storage.2=Liquids such as water or lava are common occurrences in your world. This tank, a simple construction of metal and caminite, should be able to hold a substantial quality of any fluid, and will retain its contents when broken and replaced.
+knowledge.storage.3=The Reservoir is a simple means of storing large quantities of fluids. While it will only store about 40 buckets' worth of fluid by default, its capacity can be extended by placing Caminite Rings atop the Reservoir base, by 40 buckets for each ring. The Reservoir may only be filled or drained through the port on its bottom, or through a Mechanical Core or Accessor attached to that port.
+
+knowledge.pressure_refinery=Pressure Refinery
+knowledge.pressure_refinery.desc=Steam Chamber
+knowledge.pressure_refinery.1=While the Activator can refine crystalline Ember, it produces only a modest amount. The Pressure Refinery is a means of getting much higher yields per crystal. It requires both water and Ember to be pumped into it, resulting in a default 1.5x yield from the Activator. However, if placed on a metal block with lava or fire around it, it can reach up to 3x yields depending on how many hot blocks there are around the base.
+
+knowledge.mini_boiler=Mini Boiler
+knowledge.mini_boiler.desc=Explosive heat
+knowledge.mini_boiler.1=Ember is a highly energetic substance, that produces heat both, when consumed and when produced. It would be a shame to let that heat go to waste. By attaching this pressure vessel to the side of an Ember-consuming or -producing machine, you can boil water into steam for other purposes. But beware that at high pressures, the boiler can easily rupture...
+
+knowledge.reaction_chamber=Reaction Chamber
+knowledge.reaction_chamber.desc=Combust, not comboom
+knowledge.reaction_chamber.1=By applying a Spark Plug to a hollow metal vessel you've created a device that can react certain fluids into other fluids. Its main purpose is burning fuel gas into large amounts of steam, but it can also be used to condense excess steam back into water. You can insert reactive fluid from any side and extract the result from any other side. Excess fluid will be safely vented.
+
+
+
+
+
