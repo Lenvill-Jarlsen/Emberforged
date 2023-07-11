@@ -146,6 +146,8 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302")
     implementation fg.deobf("codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal")
     implementation fg.deobf("curse.maven:minefantasyreforged-431996:4623363")
+    implementation fg.deobf("curse.maven:mysticalmechanics-300742:3006392")
+    implementation fg.deobf("curse.maven:embers-rekindled-300777:3695248")
 }
 
 fancyGradle {
@@ -217,22 +219,15 @@ sourceSets {
 
 jar {
     manifest {
-		// noinspection GroovyAssignabilityCheck
-		def attribute_map = [:]
-		if (project.use_coremod.toBoolean()) {
-			attribute_map['FMLCorePlugin'] = project.coremod_plugin_class_name
-			if (project.include_mod.toBoolean()) {
-				attribute_map['FMLCorePluginContainsFMLMod'] = true
-				attribute_map['ForceLoadAsMod'] = project.gradle.startParameter.taskNames[0] == 'build'
-			}
-		}
-		if (project.use_mixins.toBoolean()) {
-			attribute_map['TweakClass'] = 'org.spongepowered.asm.launch.MixinTweaker'
-		}
-        if (project.has_access_transformer.toBoolean()) {
-            attribute_map['FMLAT'] = project.archives_base_name + '_at.cfg'
-        }
-        attributes(attribute_map)
+        attributes([
+                "Specification-Title": archivesBaseName,
+                "Specification-Vendor": "Lenvill",
+                "Specification-Version": "1", // We are version 1 of ourselves
+                "Implementation-Title": archivesBaseName,
+                "Implementation-Version": "${mod_version}",
+                "Implementation-Vendor" :"Lenvill",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
     }
 }
 

@@ -4,15 +4,20 @@ knowledge.commodities.page=Caminite is a very sturdy ceramic, mixed from a bit o
 
 knowledge.stamper=Stamper
 knowledge.stamper.desc=Pound it flat
+knowledge.stamper.1=Now that you can generate Ember, you've found many different uses for it. One of these many uses is using the extreme heat to power a pneumatic system! By using the unique properties of Ember, along with some... dubious sculpting techniques, you've came up with a way to stamp imprints of objects out of pliable materials. You're not really sure how helpful this will be, but maybe there's a way to melt down materials, like metal, into a form where it can be reshaped...^The stamps can be made out of caminite plates.
 
 knowledge.melter=Melter
 knowledge.melter.desc=Melting things down
+knowledge.melter.1=Now that you can generate Ember, you've found many different uses for it. One of these many uses is using the extreme heat to melt metals into liquid form! You're not really sure how helpful this will be, but maybe there's a way to reform the metal after being melted...^The melter will also double the output of any ores put inside, assuming that ore has a liquid form
 
 knowledge.mechanical_core=Mechanical Core
 knowledge.mechanical_core.desc=Metal to the Core
+knowledge.mechanical_core.1=By a bit of dwarven ingenuity and good old hard work, you've managed to come up with a special type of machine base that can be built off of with Ember as an energy source, giving you access to a world of new inventions that otherwise would never have been obtainable. The mechanical core also can be used as an input/output extender for these machines.
 
 knowledge.basic_ember_transfer=Basic Ember Transfer
 knowledge.basic_ember_transfer.desc=Send and Receive
+knowledge.ember_transfer.1=Ember certainly looks cool, but it's not very useful stuck inside your activator. By using Ember emitters and Ember receivers, you can move Ember between different machines. Simply place the emitter on your source, your receiver on your destination, then link them by shift-right clicking the receiver, then right clicking the emitter. You're done! To turn on your emitter, simply add a redstone signal.^A lot of your Ember is going to waste, what with more your Activator producing more than it can hold. To remedy this egregious error, you've also invented the Copper Battery.
+knowledge.ember_transfer.2=This unique machine can hold Ember within it, ready for usage whenever you wish.
 
 knowledge.golems=Ancient Golems
 knowledge.golems.desc=Antique Adversaries
@@ -42,12 +47,12 @@ knowledge.ember_bore=Ember Bore
 knowledge.ember_bore.desc=Diggy Diggy Hole!
 knowledge.ember_bore.1=While bedrock may halt your downward advances, it will not halt your machines. The Ember Bore must be fueled with normal furnace fuel items, and must be placed at a position where the blades of the Bore can touch bedrock. When fueled, the Bore will dig up Ember Crystals from deeper into the earth, for your future use. Hoppers and other item transporters must be used to extract and insert fuel and crystals from the Bore.
 
-knowledge.piping=Pipes
-knowledge.piping.desc=Transportation
-knowledge.piping.1=One of the simplest mechanisms necessary for your ambitions is the pipe, a simple means of moving materials. You have developed both iron and lead pipes: Iron Pipes can be used to transport fluids, while Lead Pipes can be used to transport items. Pipes can only insert to tanks or inventories, however: to extract, you must craft a corresponding Pump, place it adjacent to the container, and power it with redstone.
-knowledge.piping.2=Items and Fluids in pipes follow simple rules to determine where they will go. They will always go forward, and will never bounce back or, heavens forbid, pop out of the pipe. At an intersection, they will always prioritize the opposite exit, so long as the other exits are weighed equally. When a tie must be broken, items and fluids will round-robin.
-knowledge.piping.3=Extractors have a number of special properties, listed here: They never connect to other Extractors. When turned off, they can receive items instead of only extracting from containers. When turned on by a redstone signal, they will never accept items from pipes. This makes Extractors useful as valves in pipe systems, for flow control.
-knowledge.piping.4=Pipes will automatically connect to other adjacent pipes. When this is not wanted, your Tinker's Hammer can be used to disconnect them. (Note that both sides can be disconnected individually) Sometimes, routing in a pipe network can go awry. When this happens, pipes will expel smoke to show that they are clogged. To unclog a pipe, simply right-click it with a stick.
+knowledge.pipes=Pipes
+knowledge.pipes.desc=Transportation
+knowledge.pipes.1=One of the simplest mechanisms necessary for your ambitions is the pipe, a simple means of moving materials. You have developed both iron and lead pipes: Iron Pipes can be used to transport fluids, while Lead Pipes can be used to transport items. Pipes can only insert to tanks or inventories, however: to extract, you must craft a corresponding Pump, place it adjacent to the container, and power it with redstone.
+knowledge.pipes.2=Items and Fluids in pipes follow simple rules to determine where they will go. They will always go forward, and will never bounce back or, heavens forbid, pop out of the pipe. At an intersection, they will always prioritize the opposite exit, so long as the other exits are weighed equally. When a tie must be broken, items and fluids will round-robin.
+knowledge.pipes.3=Extractors have a number of special properties, listed here: They never connect to other Extractors. When turned off, they can receive items instead of only extracting from containers. When turned on by a redstone signal, they will never accept items from pipes. This makes Extractors useful as valves in pipe systems, for flow control.
+knowledge.pipes.4=Pipes will automatically connect to other adjacent pipes. When this is not wanted, your Tinker's Hammer can be used to disconnect them. (Note that both sides can be disconnected individually) Sometimes, routing in a pipe network can go awry. When this happens, pipes will expel smoke to show that they are clogged. To unclog a pipe, simply right-click it with a stick.
 
 knowledge.adv_pipes.1=Normally, an item pipe system is push-only. This intricate nodule allows inventories to keep a stock of items in an inventory. Simply right-click with an item to set a filter. You can also link this node to a distant Item Extractor to automatically extract items from the extractor to satisfy the stock requirements.
 
@@ -68,8 +73,5 @@ knowledge.mini_boiler.1=Ember is a highly energetic substance, that produces hea
 knowledge.reaction_chamber=Reaction Chamber
 knowledge.reaction_chamber.desc=Combust, not comboom
 knowledge.reaction_chamber.1=By applying a Spark Plug to a hollow metal vessel you've created a device that can react certain fluids into other fluids. Its main purpose is burning fuel gas into large amounts of steam, but it can also be used to condense excess steam back into water. You can insert reactive fluid from any side and extract the result from any other side. Excess fluid will be safely vented.
-
-
-
 
 
