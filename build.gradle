@@ -144,6 +144,7 @@ dependencies {
         annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
     }
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302")
+    implementation fg.deobf("curse.maven:baubles-227083:2518667")
     implementation fg.deobf("codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal")
     implementation fg.deobf("curse.maven:minefantasyreforged-431996:4623363")
     implementation fg.deobf("curse.maven:mysticalmechanics-300742:3006392")
