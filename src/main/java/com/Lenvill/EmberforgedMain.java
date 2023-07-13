@@ -13,7 +13,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class EmberforgedMain {
     public static final String MODID = "emberforged";
     public static final String NAME = "Emberforged";
-    public static final String VERSION = "0.1.2";
+    public static final String VERSION = "0.1.3";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

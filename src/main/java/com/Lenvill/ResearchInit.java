@@ -11,10 +11,13 @@ import minefantasy.mfr.mechanics.knowledge.ResearchArtefacts;
 import minefantasy.mfr.recipe.CraftingManagerAnvil;
 import minefantasy.mfr.recipe.CraftingManagerCarpenter;
 import net.minecraft.init.Items;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.RegistryManager;
 
 import static minefantasy.mfr.init.MineFantasyKnowledgeList.composite_alloy;
 import static minefantasy.mfr.mechanics.knowledge.InformationList.engineering;
+
 
 public class ResearchInit {
     public static InformationBase golems;
@@ -56,6 +59,7 @@ public class ResearchInit {
         miniBoiler = (new InformationBase("mini_boiler", 13, -5, 1, RegistryManager.mini_boiler, emberActivator)).registerStat().setPage(engineering).addSkill(Skill.ENGINEERING, 50).addSkill(Skill.ARTISANRY, 30);
         reactionChamber = (new InformationBase("reaction_chamber", 14, -6, 1, RegistryManager.reaction_chamber, miniBoiler)).registerStat().setPage(engineering).addSkill(Skill.ENGINEERING, 50).addSkill(Skill.ARTISANRY, 30);
 
+
         initPages();
         initArtefacts();
     }
@@ -65,7 +69,7 @@ public class ResearchInit {
         //MineFantasyKnowledgeList.ores.addPages(new EntryPage[] {new EntryPageImage("LeadOre.png", 96, 96, "knowledge.ores.lead"), new EntryPageSmelting(new ItemStack(RegistryManager.ore_lead), new ItemStack(RegistryManager.ingot_lead))});
         //MineFantasyKnowledgeList.ores.addPages(new EntryPageImage("textures/gui/knowledge/image/" + "QuartzOre" + ".png", 96, 96, "knowledge.ores.quartz"));
 
-        golems.addPages(new EntryPageText("knowledge.golems.1"));
+            golems.addPages(new EntryPageText("knowledge.golems.1"));
 
         //golems.addPages(new EntryPageImage("textures/gui/knowledge/images/" + "AncientGolem" + ".png", 96, 96, "knowledge.golems.1"));
 
