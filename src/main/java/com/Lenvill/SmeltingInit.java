@@ -1,6 +1,9 @@
 package com.Lenvill;
 
+import minefantasy.mfr.api.refine.BigFurnaceRecipes;
+import minefantasy.mfr.config.ConfigHardcore;
 import minefantasy.mfr.init.MineFantasyItems;
+import minefantasy.mfr.recipe.SmeltingRecipesMF;
 import minefantasy.mfr.recipe.refine.BloomRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -21,26 +24,27 @@ public class SmeltingInit {
             removeSmeltingRecipe(RegistryManager.ore_tin);  // *
 
             for (ItemStack ore: OreDictionary.getOres("oreAluminum")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("aluminum"));
+                addsmeltall(ore, MineFantasyItems.bar("aluminum"));
             }
             for (ItemStack ore: OreDictionary.getOres("oreLead")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("lead"));
+                addsmeltall(ore, MineFantasyItems.bar("lead"));
             }
             for (ItemStack ore: OreDictionary.getOres("oreNickel")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("nickel"));
+                addsmeltall(ore, MineFantasyItems.bar("nickel"));
             }
 
             // I WANT TO REMOVE THESE -_-
-
+            /*
             for (ItemStack ore: OreDictionary.getOres("oreCopper")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("copper"));
+                addsmeltall(ore, MineFantasyItems.bar("copper"));
             }
             for (ItemStack ore: OreDictionary.getOres("oreSilver")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("silver"));
+                addsmeltall(ore, MineFantasyItems.bar("silver"));
             }
             for (ItemStack ore: OreDictionary.getOres("oreTin")) {
-                BloomRecipe.addRecipe(ore, MineFantasyItems.bar("tin"));
+                addsmeltall(ore, MineFantasyItems.bar("tin"));
             }
+             */
 /*
         BloomRecipe.addRecipe(RegistryManager.ore_aluminum, MineFantasyItems.bar("aluminum"));
         BloomRecipe.addRecipe(RegistryManager.ore_lead, MineFantasyItems.bar("lead"));
@@ -48,6 +52,12 @@ public class SmeltingInit {
     */
         }
 
+        private static void addsmeltall (ItemStack ore, ItemStack bar) {
+            if (ConfigHardcore.HCCreduceIngots) {
+                BloomRecipe.addRecipe(ore, bar);
+            }
+            BigFurnaceRecipes.addRecipe(ore, bar, 0);
+        }
 
         private static void removeSmeltingRecipe(Block ore) {
             Map<ItemStack, ItemStack> SmeltingRecipes = FurnaceRecipes.instance().getSmeltingList();

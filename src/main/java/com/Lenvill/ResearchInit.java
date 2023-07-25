@@ -59,58 +59,7 @@ public class ResearchInit {
         miniBoiler = (new InformationBase("mini_boiler", 13, -5, 1, RegistryManager.mini_boiler, emberActivator)).registerStat().setPage(engineering).addSkill(Skill.ENGINEERING, 50).addSkill(Skill.ARTISANRY, 30);
         reactionChamber = (new InformationBase("reaction_chamber", 14, -6, 1, RegistryManager.reaction_chamber, miniBoiler)).registerStat().setPage(engineering).addSkill(Skill.ENGINEERING, 50).addSkill(Skill.ARTISANRY, 30);
 
-
-        initPages();
         initArtefacts();
-    }
-
-    private static void initPages() {
-        //MineFantasyKnowledgeList.ores.addPages(new EntryPageText("knowledge.ores.3"));
-        //MineFantasyKnowledgeList.ores.addPages(new EntryPage[] {new EntryPageImage("LeadOre.png", 96, 96, "knowledge.ores.lead"), new EntryPageSmelting(new ItemStack(RegistryManager.ore_lead), new ItemStack(RegistryManager.ingot_lead))});
-        //MineFantasyKnowledgeList.ores.addPages(new EntryPageImage("textures/gui/knowledge/image/" + "QuartzOre" + ".png", 96, 96, "knowledge.ores.quartz"));
-
-            golems.addPages(new EntryPageText("knowledge.golems.1"));
-
-        //golems.addPages(new EntryPageImage("textures/gui/knowledge/images/" + "AncientGolem" + ".png", 96, 96, "knowledge.golems.1"));
-
-        tinkerHammer.addPages(
-            new EntryPageText("knowledge.tinker_hammer.1"),
-            //new EntryPageRecipeCarpenter(CraftingManagerCarpenter.getRecipeByName("tinker_hammer")),
-            new EntryPageRecipeAnvil(CraftingManagerAnvil.getRecipeByName("TinkerHammer"))
-        );
-
-        gadgets.addPages(
-            new EntryPageText("knowledge.gadgets.1")
-        );
-
-        pipes.addPages(new EntryPageText("knowledge.pipes.1"));
-        pipes.addPages(new EntryPageText("knowledge.pipes.2"));
-        pipes.addPages(new EntryPageText("knowledge.pipes.3"));
-        pipes.addPages(new EntryPageText("knowledge.pipes.4"));
-
-        golemEye.addPages(new EntryPageText("knowledge.golem_eye.1"));
-
-        storage.addPages(new EntryPageText("knowledge.storage.1"));
-        storage.addPages(new EntryPageText("knowledge.storage.2"));
-        storage.addPages(new EntryPageText("knowledge.storage.3"));
-
-        emberBore.addPages((new EntryPageText("knowledge.ember_bore.1")));
-
-        crystallizedEmber.addPages((new EntryPageText("knowledge.ember.1")));
-
-        emberActivator.addPages((new EntryPageText("knowledge.ember_activator.1")));
-
-        pressureRefinery.addPages((new EntryPageText("knowledge.pressure_refinery.1")));
-
-        miniBoiler.addPages((new EntryPageText("knowledge.mini_boiler.1")));
-
-        reactionChamber.addPages((new EntryPageText("knowledge.reaction_chamber.1")));
-
-        mechanicalCore.addPages(new EntryPageText("knowledge.mechanical_core.1"));
-        emberTransfer.addPages(new EntryPageText("knowledge.ember_transfer.1"));
-        emberTransfer.addPages(new EntryPageText("knowledge.ember_transfer.2"));
-        melter.addPages(new EntryPageText("knowledge.melter.1"));
-        stamper.addPages(new EntryPageText("knowledge.stamper.1"));
     }
 
     private static void initArtefacts() {
