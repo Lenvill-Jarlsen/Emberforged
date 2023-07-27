@@ -1935,7 +1935,7 @@ public class IOInit {
     private static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe) {
         try {
             String path = "MineFantasyReforged/custom/recipes/anvil_recipes/";
-            File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");
+            File file = new File(event.getModConfigurationDirectory(), path + "embers_" + recipeName + ".json");
             file.deleteOnExit();
             PrintWriter writer = new PrintWriter(file);
             writer.println(recipe);
