@@ -35,9 +35,9 @@ public class EmberforgedMain {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        ResearchInit.init();
-        PROXY.postInit();
         CraftingInit.removeRecipes();
         SmeltingInit.allsmelt();
+        ResearchInit.init();
+        PROXY.postInit();
     }
 }
