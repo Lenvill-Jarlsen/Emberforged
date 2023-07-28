@@ -2,7 +2,7 @@
 {
   "modid": "emberforged",
   "name": "Emberforged",
-  "description": "A mod Lenvill has slapped together.",
+  "description": "Emberforged provides compatability features between Minefantasy: Reforged and Embers: Rekindled, including adding Embers' ores to MFR's smelting mechanics and adding core Embers items to Minefantasy's Engineering skill tree. A fork of PIPPIP5789's EoMFR, compiled by Lenvill, with the help of ThatPolishKid.",
   "version": "${version}",
   "mcversion": "1.12.2",
   "url": "",
