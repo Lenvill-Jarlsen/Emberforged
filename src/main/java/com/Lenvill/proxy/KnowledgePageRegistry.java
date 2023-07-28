@@ -21,7 +21,7 @@ public class KnowledgePageRegistry {
         ResearchInit.tinkerHammer.addPages(
                 new EntryPageText("knowledge.tinker_hammer.1"),
                 //new EntryPageRecipeCarpenter(CraftingManagerCarpenter.getRecipeByName("tinker_hammer")),
-                new EntryPageRecipeAnvil(CraftingManagerAnvil.getRecipeByName("TinkerHammer"))
+                new EntryPageRecipeAnvil(CraftingManagerAnvil.getRecipeByName("embers_TinkerHammer"))
         );
 
         ResearchInit.gadgets.addPages(

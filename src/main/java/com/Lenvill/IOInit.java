@@ -10,7 +10,7 @@ public class IOInit {
 
     public static final String
             ALCHEMYPEDESTAL = "{\n" +
-            "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+            "  \"type\": \"ShapedAnvilRecipes\",\n" +
             "  \"skill\": \"artisanry\",\n" +
             "  \"research\": \"\",\n" +
             "  \"tool_type\": \"hammer\",\n" +
@@ -48,7 +48,7 @@ public class IOInit {
             "  }\n" +
             "}",
             ALCHEMYTABLET = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -86,7 +86,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             ASHENCLOAK = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -117,7 +117,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             BEAMCANNON = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -151,7 +151,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             BEAMSPLITTER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -186,7 +186,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             BIN = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -214,7 +214,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CASTERORB = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -246,7 +246,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CATALYZER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -279,7 +279,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CHARGER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -318,7 +318,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CINDERPLINTH = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -351,7 +351,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CLOCKWORKATTENUATOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -384,7 +384,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CLOCKWORKAXE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -422,7 +422,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             COMBUSTOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -456,7 +456,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             CRYSTALCELL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -490,7 +490,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             DAWNSTONEMAIL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -515,7 +515,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             DIFFRACTIONBARREL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -544,7 +544,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERACTIVATOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -575,7 +575,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERBELT = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -610,7 +610,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERBORE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"ember_production\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -644,7 +644,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERBULB = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -680,7 +680,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERCARTRIDGE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -716,7 +716,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERFUNNEL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -747,7 +747,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERGAUGE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Gadgets\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -778,7 +778,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERINJECTOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -816,7 +816,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERPULSER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -848,7 +848,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERRELAY = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -876,7 +876,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERSIPHON = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -910,7 +910,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             EMBERSTAFF = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -945,7 +945,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             FLUIDGAUGE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Gadgets\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -976,7 +976,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             FLUIDPIPE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Piping\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1003,7 +1003,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             FLUIDTRANSFER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Piping\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1035,7 +1035,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             GLIMMERLAMP = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1066,7 +1066,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             HEARTHCOIL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1101,7 +1101,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             IGNITIONCANNON = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1140,7 +1140,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             INFERNOFORGE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1181,7 +1181,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             ITEMTRANSFER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Piping\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1213,7 +1213,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             JETAUGMENT = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1249,7 +1249,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             LANTERN = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1281,7 +1281,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             MECHACCESSOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1311,7 +1311,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             MECHANICALCORE = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Mechanical Core\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1340,7 +1340,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             MECHANICALPUMP = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"Piping\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1374,7 +1374,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             MINIBOILER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1402,7 +1402,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             MIXER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1437,7 +1437,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             REACTOR = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1471,7 +1471,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             RESONATINGBELL = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1507,7 +1507,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             SPARKPLUG = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1539,7 +1539,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             STIRLING = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1576,7 +1576,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             SUPERHEATER = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1608,7 +1608,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             TANK = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1636,7 +1636,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             TinkerHammer = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"tinker_hammer\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
@@ -1668,7 +1668,7 @@ public class IOInit {
                     "  }\n" +
                     "}",
             TINKERLENS = "{\n" +
-                    "  \"type\": \"CustomToolOreDictAnvilRecipes\",\n" +
+                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
                     "  \"skill\": \"artisanry\",\n" +
                     "  \"research\": \"\",\n" +
                     "  \"tool_type\": \"hammer\",\n" +
