@@ -1,9 +1,7 @@
 package com.Lenvill.proxy;
 
 import com.Lenvill.ResearchInit;
-import minefantasy.mfr.client.knowledge.EntryPageRecipeAnvil;
 import minefantasy.mfr.client.knowledge.EntryPageText;
-import minefantasy.mfr.recipe.CraftingManagerAnvil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,9 +17,7 @@ public class KnowledgePageRegistry {
         //golems.addPages(new EntryPageImage("textures/gui/knowledge/images/" + "AncientGolem" + ".png", 96, 96, "knowledge.golems.1"));
 
         ResearchInit.tinkerHammer.addPages(
-                new EntryPageText("knowledge.tinker_hammer.1"),
-                //new EntryPageRecipeCarpenter(CraftingManagerCarpenter.getRecipeByName("tinker_hammer")),
-                new EntryPageRecipeAnvil(CraftingManagerAnvil.getRecipeByName("embers_TinkerHammer"))
+                new EntryPageText("knowledge.tinker_hammer.1")
         );
 
         ResearchInit.gadgets.addPages(

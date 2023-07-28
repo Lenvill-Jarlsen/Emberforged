@@ -1,15 +1,11 @@
 package com.Lenvill;
 
 import com.Lenvill.proxy.CommonProxy;
-import net.minecraft.block.Block;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod(modid = EmberforgedMain.MODID, name = EmberforgedMain.NAME, dependencies = EmberforgedMain.DEPENDENCIES, version = EmberforgedMain.VERSION)
 public class EmberforgedMain {
