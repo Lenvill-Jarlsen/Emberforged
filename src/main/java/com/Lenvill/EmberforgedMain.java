@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class EmberforgedMain {
     public static final String MODID = "emberforged";
     public static final String NAME = "Emberforged";
-    public static final String VERSION = "0.2.0";
+    public static final String VERSION = "${version}";
     public static final String DEPENDENCIES = "required-after:baubles";
 
     @SidedProxy(clientSide = "com.Lenvill.proxy.ClientProxy", serverSide = "com.Lenvill.proxy.CommonProxy")
