@@ -1,5 +1,6 @@
 package com.Lenvill;
 
+import minefantasy.mfr.config.ConfigHardcore;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
@@ -507,7 +508,7 @@ public class IOInit {
                     "  \"key\": {\n" +
                     "    \"P\": {\n" +
                     "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
+                    "      \"item\": \"minefantasyreforged:chain_mesh\"\n" +
                     "    }\n" +
                     "  },\n" +
                     "  \"result\": {\n" +
@@ -1706,18 +1707,9 @@ public class IOInit {
 
     public static void initTypes(FMLPreInitializationEvent event) {
         try {
-            //String tempPath = "MineFantasyReforged/custom/registry/";
-
-            //String tempPath = "MineFantasyReforged/custom/recipes/";
-            String tempPath2 = "MineFantasyReforged/custom/registry/emberforged/";
-            //if(!new File(tempPath2).mkdirs()) {
-            //System.exit(-1);
-            //}
-            //Files.createDirectory(Paths.get(tempPath2));
-            //tempPath += "/";
-            new File(event.getModConfigurationDirectory(), tempPath2).mkdirs();
-            File tempFile = new File(event.getModConfigurationDirectory(), tempPath2 + "metal_types" + ".json");
-            //tempFile.mkdirs();
+            String tempPath = "MineFantasyReforged/custom/registry/emberforged/";
+            new File(event.getModConfigurationDirectory(), tempPath).mkdirs();
+            File tempFile = new File(event.getModConfigurationDirectory(), tempPath + "metal_types" + ".json");
             PrintWriter tempWriter = new PrintWriter(tempFile);
 
             tempWriter.println("{\n" +
@@ -1878,72 +1870,175 @@ public class IOInit {
     }
 
     public static void initRecipes(FMLPreInitializationEvent event) {
-        RecipeWriter(event, "embers_AlchemyPedestal", ALCHEMYPEDESTAL);
-        RecipeWriter(event, "embers_AlchemyTablet", ALCHEMYTABLET);
-        RecipeWriter(event, "embers_AshenCloak", ASHENCLOAK);
-        RecipeWriter(event, "embers_BeamCannon", BEAMCANNON);
-        RecipeWriter(event, "embers_BeamSplitter", BEAMSPLITTER);
-        RecipeWriter(event, "embers_Bin", BIN);
-        RecipeWriter(event, "embers_CasterOrb", CASTERORB);
-        RecipeWriter(event, "embers_Catalyzer", CATALYZER);
-        RecipeWriter(event, "embers_Charger", CHARGER);
-        RecipeWriter(event, "embers_CinderPlinth", CINDERPLINTH);
-        RecipeWriter(event, "embers_ClockworkAttenuator", CLOCKWORKATTENUATOR);
-        RecipeWriter(event, "embers_ClockworkAxe", CLOCKWORKAXE);
-        RecipeWriter(event, "embers_Combustor", COMBUSTOR);
-        RecipeWriter(event, "embers_CrystalCell", CRYSTALCELL);
-        RecipeWriter(event, "embers_DawnstoneMail", DAWNSTONEMAIL);
-        RecipeWriter(event, "embers_DiffractionBarrel", DIFFRACTIONBARREL);
-        RecipeWriter(event, "embers_EmberActivator", EMBERACTIVATOR);
-        RecipeWriter(event, "embers_EmberBelt", EMBERBELT);
-        RecipeWriter(event, "embers_EmberBore", EMBERBORE);
-        RecipeWriter(event, "embers_EmberBulb", EMBERBULB);
-        RecipeWriter(event, "embers_EmberCartridge", EMBERCARTRIDGE);
-        RecipeWriter(event, "embers_EmberFunnel", EMBERFUNNEL);
-        RecipeWriter(event, "embers_EmberGauge", EMBERGAUGE);
-        RecipeWriter(event, "embers_EmberInjector", EMBERINJECTOR);
-        RecipeWriter(event, "embers_EmberPulser", EMBERPULSER);
-        RecipeWriter(event, "embers_EmberRelay", EMBERRELAY);
-        RecipeWriter(event, "embers_EmberSiphon", EMBERSIPHON);
-        RecipeWriter(event, "embers_EmberStaff", EMBERSTAFF);
-        RecipeWriter(event, "embers_FluidGauge", FLUIDGAUGE);
-        RecipeWriter(event, "embers_FluidPipe", FLUIDPIPE);
-        RecipeWriter(event, "embers_FluidTransfer", FLUIDTRANSFER);
-        RecipeWriter(event, "embers_GlimmerLamp", GLIMMERLAMP);
-        RecipeWriter(event, "embers_HearthCoil", HEARTHCOIL);
-        RecipeWriter(event, "embers_IgnitionCannon", IGNITIONCANNON);
-        RecipeWriter(event, "embers_InfernoForge", INFERNOFORGE);
-        RecipeWriter(event, "embers_ItemTransfer", ITEMTRANSFER);
-        RecipeWriter(event, "embers_JetAugment", JETAUGMENT);
-        RecipeWriter(event, "embers_Lantern", LANTERN);
-        RecipeWriter(event, "embers_MechAccessor", MECHACCESSOR);
-        RecipeWriter(event, "embers_MechanicalCore", MECHANICALCORE);
-        RecipeWriter(event, "embers_MechanicalPump", MECHANICALPUMP);
-        RecipeWriter(event, "embers_MiniBoiler", MINIBOILER);
-        RecipeWriter(event, "embers_Mixer", MIXER);
-        RecipeWriter(event, "embers_Reactor", REACTOR);
-        RecipeWriter(event, "embers_ResonatingBell", RESONATINGBELL);
-        RecipeWriter(event, "embers_SparkPlug", SPARKPLUG);
-        RecipeWriter(event, "embers_Stirling", STIRLING);
-        RecipeWriter(event, "embers_Superheater", SUPERHEATER);
-        RecipeWriter(event, "embers_Tank", TANK);
-        RecipeWriter(event, "embers_TinkerHammer", TinkerHammer);
-        RecipeWriter(event, "embers_TinkerLens", TINKERLENS);
+        if (Config.hcAlchemyPedestal) {
+            RecipeWriter(event, "embers_AlchemyPedestal", ALCHEMYPEDESTAL);
+        }
+        if (Config.hcAlchemyTablet) {
+            RecipeWriter(event, "embers_AlchemyTablet", ALCHEMYTABLET);
+        }
+        if (Config.hcAshenCloak) {
+            RecipeWriter(event, "embers_AshenCloak", ASHENCLOAK);
+        }
+        if (Config.hcBeamCannon) {
+            RecipeWriter(event, "embers_BeamCannon", BEAMCANNON);
+        }
+        if (Config.hcBeamSplitter) {
+            RecipeWriter(event, "embers_BeamSplitter", BEAMSPLITTER);
+        }
+        if (Config.hcBin) {
+            RecipeWriter(event, "embers_Bin", BIN);
+        }
+        if (Config.hcCasterOrb) {
+            RecipeWriter(event, "embers_CasterOrb", CASTERORB);
+        }
+        if (Config.hcCatalyzer) {
+            RecipeWriter(event, "embers_Catalyzer", CATALYZER);
+        }
+        if (Config.hcCharger) {
+            RecipeWriter(event, "embers_Charger", CHARGER);
+        }
+        if (Config.hcCinderPlinth) {
+            RecipeWriter(event, "embers_CinderPlinth", CINDERPLINTH);
+        }
+        if (Config.hcClockworkAttenuator) {
+            RecipeWriter(event, "embers_ClockworkAttenuator", CLOCKWORKATTENUATOR);
+        }
+        if (Config.hcClockworkAxe) {
+            RecipeWriter(event, "embers_ClockworkAxe", CLOCKWORKAXE);
+        }
+        if (Config.hcCombustor) {
+            RecipeWriter(event, "embers_Combustor", COMBUSTOR);
+        }
+        if (Config.hcCrystalCell) {
+            RecipeWriter(event, "embers_CrystalCell", CRYSTALCELL);
+        }
+        if (Config.hcDawnstoneMail) {
+            RecipeWriter(event, "embers_DawnstoneMail", DAWNSTONEMAIL);
+        }
+        if (Config.hcDiffractionBarrel) {
+            RecipeWriter(event, "embers_DiffractionBarrel", DIFFRACTIONBARREL);
+        }
+        if (Config.hcEmberActivator) {
+            RecipeWriter(event, "embers_EmberActivator", EMBERACTIVATOR);
+        }
+        if (Config.hcEmberBelt) {
+            RecipeWriter(event, "embers_EmberBelt", EMBERBELT);
+        }
+        if (Config.hcEmberBore) {
+            RecipeWriter(event, "embers_EmberBore", EMBERBORE);
+        }
+        if (Config.hcEmberBulb) {
+            RecipeWriter(event, "embers_EmberBulb", EMBERBULB);
+        }
+        if (Config.hcEmberCartridge) {
+            RecipeWriter(event, "embers_EmberCartridge", EMBERCARTRIDGE);
+        }
+        if (Config.hcEmberFunnel) {
+            RecipeWriter(event, "embers_EmberFunnel", EMBERFUNNEL);
+        }
+        if (Config.hcEmberGauge) {
+            RecipeWriter(event, "embers_EmberGauge", EMBERGAUGE);
+        }
+        if (Config.hcEmberInjector) {
+            RecipeWriter(event, "embers_EmberInjector", EMBERINJECTOR);
+        }
+        if (Config.hcEmberPulser) {
+            RecipeWriter(event, "embers_EmberPulser", EMBERPULSER);
+        }
+        if (Config.hcEmberRelay) {
+            RecipeWriter(event, "embers_EmberRelay", EMBERRELAY);
+        }
+        if (Config.hcEmberSiphon) {
+            RecipeWriter(event, "embers_EmberSiphon", EMBERSIPHON);
+        }
+        if (Config.hcEmberStaff) {
+            RecipeWriter(event, "embers_EmberStaff", EMBERSTAFF);
+        }
+        if (Config.hcFluidGauge) {
+            RecipeWriter(event, "embers_FluidGauge", FLUIDGAUGE);
+        }
+        if (Config.hcFluidPipe) {
+            RecipeWriter(event, "embers_FluidPipe", FLUIDPIPE);
+        }
+        if (Config.hcFluidTransfer) {
+            RecipeWriter(event, "embers_FluidTransfer", FLUIDTRANSFER);
+        }
+        if (Config.hcGlimmerLamp) {
+            RecipeWriter(event, "embers_GlimmerLamp", GLIMMERLAMP);
+        }
+        if (Config.hcHearthCoil) {
+            RecipeWriter(event, "embers_HearthCoil", HEARTHCOIL);
+        }
+        if (Config.hcIgnitionCannon) {
+            RecipeWriter(event, "embers_IgnitionCannon", IGNITIONCANNON);
+        }
+        if (Config.hcInfernoForge) {
+            RecipeWriter(event, "embers_InfernoForge", INFERNOFORGE);
+        }
+        if (Config.hcItemTransfer) {
+            RecipeWriter(event, "embers_ItemTransfer", ITEMTRANSFER);
+        }
+        if (Config.hcJetAugment) {
+            RecipeWriter(event, "embers_JetAugment", JETAUGMENT);
+        }
+        if (Config.hcLantern) {
+            RecipeWriter(event, "embers_Lantern", LANTERN);
+        }
+        if (Config.hcMechAccessor) {
+            RecipeWriter(event, "embers_MechAccessor", MECHACCESSOR);
+        }
+        if (Config.hcMechanicalCore) {
+            RecipeWriter(event, "embers_MechanicalCore", MECHANICALCORE);
+        }
+        if (Config.hcMechanicalPump) {
+            RecipeWriter(event, "embers_MechanicalPump", MECHANICALPUMP);
+        }
+        if (Config.hcMiniBoiler) {
+            RecipeWriter(event, "embers_MiniBoiler", MINIBOILER);
+        }
+        if (Config.hcMixer) {
+            RecipeWriter(event, "embers_Mixer", MIXER);
+        }
+        if (Config.hcReactor) {
+            RecipeWriter(event, "embers_Reactor", REACTOR);
+        }
+        if (Config.hcResonatingBell) {
+            RecipeWriter(event, "embers_ResonatingBell", RESONATINGBELL);
+        }
+        if (Config.hcSparkPlug) {
+            RecipeWriter(event, "embers_SparkPlug", SPARKPLUG);
+        }
+        if (Config.hcStirling) {
+            RecipeWriter(event, "embers_Stirling", STIRLING);
+        }
+        if (Config.hcSuperheater) {
+            RecipeWriter(event, "embers_Superheater", SUPERHEATER);
+        }
+        if (Config.hcTank) {
+            RecipeWriter(event, "embers_Tank", TANK);
+        }
+        if (Config.hcTinkerHammer) {
+            RecipeWriter(event, "embers_TinkerHammer", TinkerHammer);
+        }
+        if (Config.hcTinkerLens) {
+            RecipeWriter(event, "embers_TinkerLens", TINKERLENS);
+        }
     }
 
     //Function to standardize recipe writing
-    private static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe) {
-        try {
-            String path = "MineFantasyReforged/custom/recipes/anvil_recipes/";
-            File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");
-            file.deleteOnExit();
-            PrintWriter writer = new PrintWriter(file);
-            writer.println(recipe);
-            writer.flush();
+    public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe) {
+        if (Config.enableChanges) {
+            try {
+                String path = "MineFantasyReforged/custom/recipes/anvil_recipes/";
+                File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");
+                file.deleteOnExit();
+                PrintWriter writer = new PrintWriter(file);
+                writer.println(recipe);
+                writer.flush();
 
-            writer.close();
-        }
-        catch(IOException e) {
+                writer.close();
+            }
+            catch (IOException e) {}
         }
     }
 }
