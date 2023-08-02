@@ -45,11 +45,6 @@ public class SmeltingInit {
                 addsmeltall(ore, MineFantasyItems.bar("tin"));
             }
              */
-/*
-        BloomRecipe.addRecipe(RegistryManager.ore_aluminum, MineFantasyItems.bar("aluminum"));
-        BloomRecipe.addRecipe(RegistryManager.ore_lead, MineFantasyItems.bar("lead"));
-        BloomRecipe.addRecipe(RegistryManager.ore_nickel, MineFantasyItems.bar("nickel"));
-    */
         }
 
         private static void addsmeltall (ItemStack ore, ItemStack bar) {
@@ -60,15 +55,17 @@ public class SmeltingInit {
         }
 
         private static void removeSmeltingRecipe(Block ore) {
-            Map<ItemStack, ItemStack> SmeltingRecipes = FurnaceRecipes.instance().getSmeltingList();
-            ItemStack oreItem = null;
-            for(ItemStack item : SmeltingRecipes.keySet()) {
-                if(item.getItem() == Item.getItemFromBlock(ore)) {
-                    oreItem = item;
+            if (ConfigHardcore.HCCreduceIngots) {
+                Map<ItemStack, ItemStack> SmeltingRecipes = FurnaceRecipes.instance().getSmeltingList();
+                ItemStack oreItem = null;
+                for (ItemStack item : SmeltingRecipes.keySet()) {
+                    if (item.getItem() == Item.getItemFromBlock(ore)) {
+                        oreItem = item;
+                    }
                 }
-            }
-            if(oreItem != null) {
-                FurnaceRecipes.instance().getSmeltingList().remove(oreItem);
+                if (oreItem != null) {
+                    FurnaceRecipes.instance().getSmeltingList().remove(oreItem);
+                }
             }
         }
 }
