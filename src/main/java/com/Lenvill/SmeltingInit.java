@@ -17,11 +17,11 @@ import java.util.Map;
 public class SmeltingInit {
         public static void allsmelt() {
             removeSmeltingRecipe(RegistryManager.ore_aluminum);
-            removeSmeltingRecipe(RegistryManager.ore_copper); // *
+            removeSmeltingRecipe(RegistryManager.ore_copper);
             removeSmeltingRecipe(RegistryManager.ore_lead);
             removeSmeltingRecipe(RegistryManager.ore_nickel);
-            removeSmeltingRecipe(RegistryManager.ore_silver); // *
-            removeSmeltingRecipe(RegistryManager.ore_tin);  // *
+            removeSmeltingRecipe(RegistryManager.ore_silver);
+            removeSmeltingRecipe(RegistryManager.ore_tin);
 
             for (ItemStack ore: OreDictionary.getOres("oreAluminum")) {
                 addsmeltall(ore, MineFantasyItems.bar("aluminum"));

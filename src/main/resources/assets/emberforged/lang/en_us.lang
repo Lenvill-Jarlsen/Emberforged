@@ -1,3 +1,15 @@
+fluid.molten_steel=Molten Steel
+fluid.molten_pig_iron=Molten Pig Iron
+fluid.molten_black_steel=Molten Black Steel
+fluid.molten_blue_steel=Molten Blue Steel
+fluid.molten_red_steel=Molten Red Steel
+fluid.molten_adamantium=Molten Adamantium
+fluid.molten_mithril=Molten Mithril
+fluid.molten_ignotumite=Molten Ignotumite
+fluid.molten_mithium=Molten Mithium
+fluid.molten_enderforge=Molten Enderforged
+fluid.molten_tungsten=Molten Tungsten
+
 knowledge.ores.lead=Lead is a dull and malleable metal, which doesn't appear to have much use without some sort of advanced technology to strengthen it.
 knowledge.ores.quartz=Quartz deposits can be found on occasion underground, though how they got here from the Nether, nobody knows...
 knowledge.commodities.page=Caminite is a very sturdy ceramic, mixed from a bit of clay and sand. The mixture yields, when baked, a material that you believe will be hard enough for your purposes throughout all of your mechanical ambitions.
