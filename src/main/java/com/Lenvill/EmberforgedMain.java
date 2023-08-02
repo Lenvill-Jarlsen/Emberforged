@@ -14,7 +14,7 @@ public class EmberforgedMain {
     public static final String MODID = "emberforged";
     public static final String NAME = "Emberforged";
     public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required-after:baubles";
+    public static final String DEPENDENCIES = "required-after:baubles;" + "required-after:embers;" + "required-after:minefantasyreforged;";
 
     @SidedProxy(clientSide = "com.Lenvill.proxy.ClientProxy", serverSide = "com.Lenvill.proxy.CommonProxy")
     public static CommonProxy PROXY;
