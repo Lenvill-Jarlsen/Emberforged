@@ -1,131 +1,140 @@
+import org.ajoberstar.grgit.gradle.GrgitPlugin
+import org.apache.tools.ant.filters.ReplaceTokens
+
 buildscript {
     repositories {
-        maven {
-			name 'MixinGradle'
-			url 'https://repo.spongepowered.org/repository/maven-public'
-		}
-        maven { url = 'https://maven.minecraftforge.net' } // old url was 'https://files.minecraftforge.net/maven'
+        gradlePluginPortal()
         mavenCentral()
+        maven {
+            name 'MinecraftForge'
+            url 'https://maven.minecraftforge.net/'
+        }
+        maven {
+            name 'Garden of Fancy'
+            url 'https://maven.gofancy.wtf/releases'
+        }
+        //fallback for fancygradle maven
+        //mavenLocal()
+        maven {
+            name 'MixinGradle'
+            url 'https://repo.spongepowered.org/repository/maven-public/'
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
-        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.2-0'
-		if (project.use_mixins.toBoolean()) {
-			classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-		}
+        classpath 'net.minecraftforge.gradle:ForgeGradle:6.+'
+        classpath 'org.ajoberstar.grgit:grgit-gradle:3.1.1'
+        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.3-0'
+        classpath 'org.spongepowered:mixingradle:0.7.+'
+
+    }
+
+    repositories.each {
+        if (it instanceof MavenArtifactRepository && it.url.toString() == "https://files.minecraftforge.net/maven") {
+            it.url = "https://maven.minecraftforge.net"
+        }
     }
 }
 
-plugins {
-    id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'wtf.gofancy.fancygradle' version '1.1.+'
+apply plugin: 'net.minecraftforge.gradle'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: GrgitPlugin
+apply plugin: 'wtf.gofancy.fancygradle'
+apply plugin: 'org.spongepowered.mixin'
+
+fancyGradle {
+    patches {
+        mergetool
+        resources
+        codeChickenLib
+        coremods
+        asm
+    }
 }
 
-// apply plugin: 'org.spongepowered.mixin'
-if (project.use_mixins.toBoolean()) {
-	apply plugin: 'org.spongepowered.mixin'
-}
+//// Project Settings ////
 
-version = project.mod_version
-group = project.maven_group
-archivesBaseName = project.archives_base_name
+group = "${project.mod_group}" // groupId
+archivesBaseName = "${project.jar_name}" // artifactId - modid
+version = "${project.mc_version}-${project.mod_version}"
 
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
-
-
-if (project.use_intellij_idea.toBoolean()) {
-	apply {
-        plugin 'java'
-        plugin 'idea'
-    }
-
-
-    idea {
-        module {
-            downloadJavadoc = true
-            downloadSources = true
-        }
-    }
-}
-
-if (project.use_eclipse.toBoolean()) {
-	apply {
-        plugin 'java'
-        plugin 'eclipse'
-    }
-
-
-    eclipse {
-        module {
-            downloadJavadoc = true
-            downloadSources = true
-        }
-    }
-}
-
 
 minecraft {
 
-    mappings channel: 'stable', version: '39-1.12'
-
-	if (project.has_access_transformer.toBoolean()) {
-		accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-	}
+    mappings channel: project.mappings_channel, version: "${project.mappings_version}-${project.mappings_mc_version}"
+    accessTransformer = file('src/main/resources/META-INF/minefantasyreforged_at.cfg')
 
     runs {
         client {
-            workingDirectory project.file('run')
-			if (project.use_coremod.toBoolean()) {
-				jvmArg '-Dfml.coreMods.load=' + coremod_plugin_class_name
-			}
-			if (project.use_mixins.toBoolean()) {
-				jvmArg '-Dmixin.hotSwap=true'
-				jvmArg '-Dmixin.checks.interfaces=true'
-				jvmArg '-Dmixin.debug=true'
-			}
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            environment 'MC_VERSION', '1.12.2'
+            workingDirectory project.file('run\\client')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'info'
+
+            jvmArg "-Dfml.coreMods.load=minefantasy.mfr.core.MixinLoader"
+            jvmArg "-Dmixin.hotSwap=true"
+            jvmArg "-Dmixin.checks.interfaces=true"
         }
 
         server {
-            workingDirectory project.file('run')
-            if (project.use_coremod.toBoolean()) {
-				jvmArg '-Dfml.coreMods.load=' + coremod_plugin_class_name
-			}
-			if (project.use_mixins.toBoolean()) {
-				jvmArg '-Dmixin.hotSwap=true'
-				jvmArg '-Dmixin.checks.interfaces=true'
-			}
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            environment 'MC_VERSION', '1.12.2'
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'info'
+
+            jvmArg "-Dfml.coreMods.load=minefantasy.mfr.core.MixinLoader"
+            jvmArg "-Dmixin.hotSwap=true"
+            jvmArg "-Dmixin.checks.interfaces=true"
         }
     }
 }
 
 
 repositories {
-	maven { 
-		url = 'https://maven.cleanroommc.com' 
-	}
+    google()
+    mavenCentral()
     maven {
-        url = 'https://repo.spongepowered.org/maven'
-    }
-    maven {
-        url = "https://chickenbones.net/maven"
-    }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "http://dvs1.progwml6.com/files/maven"
-        allowInsecureProtocol = true
-    }
-    maven {
-        url "https://cursemaven.com"
+        url = uri('https://www.cursemaven.com')
         content {
-            includeGroup "curse.maven"
+            includeGroup 'curse.maven'
         }
+    }
+    maven {
+        name = 'Modrinth'
+        url = uri('https://api.modrinth.com/maven')
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    maven {
+        name = 'Sponge'
+        url = uri('https://repo.spongepowered.org/maven')
+    }
+    maven {
+        url = uri('https://maven.blamejared.com')
+    }
+    maven {
+        url = uri('https://m2.dv8tion.net/releases')
+    }
+    maven {
+        url = uri('https://jitpack.io')
+    }
+    maven {
+        url "https://maven.cleanroommc.com"
+    }
+    maven {
+        url "https://chickenbones.net/maven/"
+    }
+    flatDir {
+        dirs 'build/libs'
     }
     flatDir {
         // location for sources
@@ -136,30 +145,25 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-
-    if (project.use_mixins.toBoolean()) {
-        compileOnly 'zone.rong:mixinbooter:7.0'
-        runtimeOnly 'zone.rong:mixinbooter:7.0'
-
-        annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
-    }
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302")
     implementation fg.deobf("curse.maven:baubles-227083:2518667")
     implementation fg.deobf("codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal")
     implementation fg.deobf("curse.maven:minefantasy-reforged-431996:4659433")
     implementation fg.deobf("curse.maven:mysticalmechanics-300742:3006392")
     implementation fg.deobf("curse.maven:embers-rekindled-300777:3695248")
-}
 
-fancyGradle {
-    patches {
-        resources
-        coremods
-        asm
-        codeChickenLib
+    annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
+    annotationProcessor 'com.google.guava:guava:32.1.2-jre'
+    annotationProcessor 'com.google.code.gson:gson:2.8.9'
+    implementation ('zone.rong:mixinbooter:9.1') {
+        transitive = false
     }
+    annotationProcessor ('zone.rong:mixinbooter:9.1') {
+        transitive = false
+    }
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
-
+/*
 if (project.build_deobfJar.toBoolean()) {
     // Create deobf dev jars
     task deobfJar(type: Jar) {
@@ -187,82 +191,184 @@ if (project.build_sourceJar.toBoolean()) {
         archiveClassifier.set("sources")
         from sourceSets.main.allJava
     }
-}
-
-// Loading resources, works even on IDE client runs
-sourceSets {
-    main {
-        if (project.use_mixins.toBoolean()) {
-            ext.refMap = 'mixins.' + archives_base_name + '.refmap.json'
-        }
-
-        java {
-            srcDirs = ["src/main/java"]
-        }
-
-        resources {
-            srcDirs = ["src/main/java", "src/main/resources"]
-        }
-    }
-
-    test {
-        java {
-            srcDirs = ["src/test/java"]
-        }
-        resources {
-            srcDirs = ["src/test/resources"]
-        }
-    }
-
-    // at compile time, put resources in same directories as classes
-    main.output.setResourcesDir(main.java.outputDir)
-}
+} */
 
 jar {
     manifest {
         attributes([
+                "Maven-Artifact": "${project.mod_group}:${project.archivesBaseName}:${project.version}",
                 "Specification-Title": archivesBaseName,
                 "Specification-Vendor": "Lenvill",
                 "Specification-Version": "1", // We are version 1 of ourselves
-                "Implementation-Title": archivesBaseName,
-                "Implementation-Version": "${mod_version}",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
                 "Implementation-Vendor" :"Lenvill",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                "Built-On": "${project.mc_version}-${project.forge_version}",
+                "FMLCorePlugin": "minefantasy.mfr.core.MixinLoader",
+                "FMLCorePluginContainsFMLMod": true,
+                "ForceLoadAsMod": true, //Seems to do the opposite of what it claims to do while in dev enviroment, uncomment for build
+                "FMLAT": "minefantasyreforged_at.cfg"
         ])
     }
 }
 
-artifacts {
-    if (project.build_deobfJar.toBoolean()) {
-        archives deobfJar
-    }
-    if (project.build_apiJar.toBoolean()) {
-        archives apiZip
-    }
-    if (project.build_sourceJar.toBoolean()) {
-        archives sourcesJar
+task sourceJar(type: Jar, dependsOn: classes) {
+    description = 'Creates a JAR containing the source code.'
+    from sourceSets.main.allSource
+    manifest {
+        attributes([
+                "Maven-Artifact": "${project.mod_group}:${project.archivesBaseName}:${project.version}",
+                "Specification-Title": archivesBaseName,
+                "Specification-Vendor": "Lenvill",
+                "Specification-Version": "1",
+                "Implementation-Title": archivesBaseName + '-sources',
+                "Implementation-Version": "${project.mod_version}",
+                "Implementation-Vendor": "Lenvill",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                "Built-On": "${project.mc_version}-${project.forge_version}",
+                "FMLCorePlugin": "minefantasy.mfr.core.MixinLoader",
+                "FMLCorePluginContainsFMLMod": true,
+                "ForceLoadAsMod": true, //Seems to do the opposite of what it claims to do while in dev enviroment, uncomment for build
+                "FMLAT": "minefantasyreforged_at.cfg"
+        ])
     }
 }
 
+//// Project manifest data ////
+
+// Example configuration to allow publishing using the maven-publish task
+// This is the preferred method to reobfuscate your jar file
 jar.finalizedBy('reobfJar')
+// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
+// publish.dependsOn('reobfJar')
+
+if (System.getenv('USE_ALPHAS').equals('true')) {
+    println 'getenv'
+    task setupGithubActions() {
+        def getVersion = {
+            //TAG-offset-hash
+            def raw = grgit.describe(longDescr: true, tags: true, match: ["${project.mc_version}-[0-9].[0-9].[0-9]", "${project.mc_version}-[0-9][0-9].[0-9][0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9][0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9][0-9].[0-9]", "${project.mc_version}-[0-9][0-9].[0-9].[0-9]"])
+            def desc = (raw == null ? '0.0-0-unknown' : grgit.describe(longDescr: true, tags: true, match: ["${project.mc_version}-[0-9].[0-9].[0-9]", "${project.mc_version}-[0-9][0-9].[0-9][0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9][0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9].[0-9][0-9]", "${project.mc_version}-[0-9].[0-9][0-9].[0-9]", "${project.mc_version}-[0-9][0-9].[0-9].[0-9]"])).split('-') as List
+            def hash = desc.remove(desc.size() - 1)
+            def offset = desc.remove(desc.size() - 1)
+            def tag = desc.join('-')
+            return "${tag}.${offset}".toString().replace("${project.mc_version}-", "") //Bake the response instead of making it dynamic
+        }
+        project.mod_version = getVersion();
+        version = project.mc_version + '-' + getVersion();
+        def getLastTag = {
+            def raw = grgit.describe(longDescr: true, tags: true)
+            def desc = (raw == null ? 'HEAD' : grgit.describe(longDescr: true, tags: true)).split('-') as List
+            desc.remove(desc.size() - 1)
+            desc.remove(desc.size() - 1)
+            def tag = desc.join('-')
+            return tag;
+        }
+        def rawLog = grgit.log(includes: ['HEAD'], excludes: [getLastTag()]);
+        def log = "";
+        for (org.ajoberstar.grgit.Commit commit: rawLog) {
+            log = log + "[`" + commit.abbreviatedId + "`](https://github.com/${project.github}/commit/" + commit.id + ") " + commit.shortMessage + " - " + commit.author.name + "\\n";
+        }
+        doLast {
+            exec {
+                commandLine "echo", "##[set-output name=jar_name;]${project.jar_name}";
+            }
+            if(project.hasProperty('curse_project_id')) {
+                exec {
+                    commandLine "echo", "##[set-output name=curse_project_id;]${project.curse_project_id}";
+                }
+                exec {
+                    commandLine "echo", "##[set-output name=curse_versions;]${project.curse_versions}";
+                }
+                if(project.hasProperty('curse_relations')) {
+                    exec {
+                        commandLine "echo", "##[set-output name=curse_relations;]${project.curse_relations}";
+                    }
+                }
+            }
+            exec {
+                commandLine "echo", "##[set-output name=version;]${project.version}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=name;]${project.name}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=url;]${project.url}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=commitlog;]" + "{\"content\":\"" + (project.hasProperty('hook_content') ? project.hook_content : "") + "\",\"embeds\":[{\"author\":{\"name\":\"ThatPolishKid99\",\"url\":\"https://www.curseforge.com/minecraft/mc-mods/minefantasy-reforged\",\"title\":\"${project.mod_id}-alpha-${project.version}\",\"url\":\"https://github.com/${project.github}/releases/tag/alpha-${project.version}\",\"color\":14700288,\"description\":\"" + log + "\"}]}";
+            }
+        }
+    }
+} else {
+    task setupGithubActions() {
+        doLast {
+            exec {
+                commandLine "echo", "##[set-output name=jar_name;]${project.jar_name}";
+            }
+            if(project.hasProperty('curse_project_id')) {
+                exec {
+                    commandLine "echo", "##[set-output name=curse_project_id;]${project.curse_project_id}";
+                }
+                exec {
+                    commandLine "echo", "##[set-output name=curse_versions;]${project.curse_versions}";
+                }
+                if(project.hasProperty('curse_relations')) {
+                    exec {
+                        commandLine "echo", "##[set-output name=curse_relations;]${project.curse_relations}";
+                    }
+                }
+            }
+            exec {
+                commandLine "echo", "##[set-output name=version;]${project.version}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=name;]${project.name}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=url;]${project.url}";
+            }
+        }
+    }
+    version = "${project.mc_version}-${project.mod_version}"
+}
 
 processResources {
-    // required to allow file expansion later
-    duplicatesStrategy = 'include'
-
     // this will ensure that this task is redone when the versions change.
-    inputs.property 'version', version
+    inputs.property "version", version.toString()
+    inputs.property "mc_version", project.mc_version.toString()
 
-    // replace stuff in mcmod.info, nothing else
+
+    // replace tokens in mcmod.info, and pack.mcmeta
     from(sourceSets.main.resources.srcDirs) {
+        include 'pack.mcmeta'
         include 'mcmod.info'
-
-        // replace version and mcversion
-        expand 'version': version
+        // replace tokens in mcmod.info
+        expand 'version': version.toString(),
+                'mc_version': project.mc_version.toString(),
+                'mod_id': project.mod_id,
+                'name': project.name,
+                'description': project.description,
+                'url': project.url,
+                'update_url': project.update_url
     }
 
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+    duplicatesStrategy = 'include'
+}
+
+// replace @TOKENS@ in main file
+task replaceTokens(type: Sync) {
+    println 'replaceTokens'
+    from sourceSets.main.java
+    inputs.property 'version', project.mc_version.toString()
+    filter(ReplaceTokens, tokens: [VERSION: version.toString()])
+    filter(ReplaceTokens, tokens: [MCVERSION: "${project.mc_version}".toString()])
+    into "$buildDir/src"
+}
+
+compileJava {
+    source = replaceTokens.outputs
 }
