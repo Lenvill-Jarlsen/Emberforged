@@ -1,0 +1,27 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "#BAR_IRON"
+    },
+    "P": {
+      "item": "#PLATE_IRON"
+    }
+  },
+  "result": {
+    "item": "embers:pipe"
+  }
+}

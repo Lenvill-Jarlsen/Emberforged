@@ -48,6 +48,10 @@ public class CraftingInit {
         if (Config.enableChanges) {
             ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
 
+            recipeRegistry.remove(RegistryManager.pickaxe_clockwork.getRegistryName());
+            recipeRegistry.remove(RegistryManager.grandhammer.getRegistryName());
+            recipeRegistry.remove(RegistryManager.ember_jar.getRegistryName());
+
             if (Config.hcAlchemyPedestal) {
                 recipeRegistry.remove(RegistryManager.alchemy_pedestal.getRegistryName());
             }
