@@ -13,15 +13,14 @@
   "pattern": [
     "I I",
     " P ",
-    " A "
+    " D "
   ],
   "key": {
     "P": {
       "item": "#PLATE_IRON"
     },
     "I": {
-      "type": "forge:ore_dict",
-      "ore": "ingotAluminum"
+      "item": "#BAR_ALUMINUM"
     },
     "D": {
       "item": "embers:aspectus_silver"

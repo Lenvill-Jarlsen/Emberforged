@@ -9,11 +9,11 @@
   "recipe_hammer": -1,
   "skill_xp": 1,
   "vanilla_xp": 0.5,
-  "output_hot": false,
+  "output_hot": true,
   "pattern": [
-    "PEP",
-    "DSD",
-    " S "
+    "   DP",
+    "DSSSE",
+    "   DP"
   ],
   "key": {
     "D": {
@@ -28,7 +28,7 @@
       "item": "embers:shard_ember"
     },
     "S": {
-      "item": "minecraft:stick"
+      "item": "#TIMBER_REFINED"
     }
   },
   "result": {
