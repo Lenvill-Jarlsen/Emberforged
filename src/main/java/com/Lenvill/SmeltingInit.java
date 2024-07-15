@@ -31,18 +31,6 @@ public class SmeltingInit {
             for (ItemStack ore: OreDictionary.getOres("oreNickel")) {
                 addsmeltall(ore, MineFantasyItems.bar("nickel"));
             }
-
-            // I WANT TO REMOVE THESE -_-
-
-            for (ItemStack ore: OreDictionary.getOres("oreCopper")) {
-                addsmeltall(ore, MineFantasyItems.bar("copper"));
-            }
-            for (ItemStack ore: OreDictionary.getOres("oreSilver")) {
-                addsmeltall(ore, MineFantasyItems.bar("silver"));
-            }
-            for (ItemStack ore: OreDictionary.getOres("oreTin")) {
-                addsmeltall(ore, MineFantasyItems.bar("tin"));
-            }
              */
         }
 

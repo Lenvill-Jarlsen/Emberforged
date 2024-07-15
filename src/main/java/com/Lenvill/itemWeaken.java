@@ -5,10 +5,10 @@ import teamroots.embers.RegistryManager;
 import minefantasy.mfr.util.Utils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class itemWeaken {
 
+    //Remember to include the new version of the item in the .lang file
     public static void weakenList() {
 
         weakenItem(RegistryManager.pickaxe_copper, 5);
