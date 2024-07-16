@@ -16,106 +16,71 @@ import teamroots.embers.recipe.RecipeRegistry;
 import static minefantasy.mfr.init.MineFantasyItems.PLATE;
 
 public class StampInit {
+
     public static void initStamps() {
-        //Removing Ember's ingot recipes from the stamper.
-        stampRemover(RegistryManager.fluid_molten_iron);
-        stampRemover(RegistryManager.fluid_molten_gold);
 
-        stampRemover(RegistryManager.fluid_molten_copper);
-        stampRemover(RegistryManager.fluid_molten_dawnstone);
-        stampRemover(RegistryManager.fluid_molten_lead);
-        stampRemover(RegistryManager.fluid_molten_silver);
+        //Removes old embers recipes and adds in new MFR equivalents
+        stampTransformer(RegistryManager.fluid_molten_copper, "copper");
+        stampTransformer(RegistryManager.fluid_molten_tin, "tin");
+        stampTransformer(RegistryManager.fluid_molten_bronze, "bronze");
 
-        stampRemover(RegistryManager.fluid_molten_tin);
-        stampRemover(RegistryManager.fluid_molten_bronze);
-        stampRemover(RegistryManager.fluid_molten_nickel);
-        stampRemover(RegistryManager.fluid_molten_electrum);
-        stampRemover(RegistryManager.fluid_molten_aluminum);
+        stampTransformer(RegistryManager.fluid_molten_iron, "iron");
 
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_copper, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_tin, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_silver, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_iron, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_gold, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_bronze, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_nickel, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_electrum, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_lead, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_dawnstone, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-        //RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_aluminum, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
-/*
-        //PIP's failed (?) attempt to remove Ember's plate stamp recipes
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_copper, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_copper, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_aluminum, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_aluminum, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_bronze, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_bronze, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_electrum, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_electrum, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_gold, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_gold, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_iron, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_iron, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_lead, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_lead, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_dawnstone, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_dawnstone, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_nickel, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_nickel, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_silver, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_silver, 1)));
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistryManager.fluid_molten_tin, RecipeRegistry.INGOT_AMOUNT * ConfigManager.stampPlateAmount), new ItemStack(RegistryManager.plate_tin, 1)));
-*/
-        //Adding MFR's bar to the stamper in place of the ingot recipes
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_copper, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("copper")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_tin, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("tin")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_silver, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("silver")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_iron, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("iron")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_gold, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("gold")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_bronze, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("bronze")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_nickel, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("nickel")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_electrum, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("electrum")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_lead, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("lead")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_dawnstone, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("dawnstone")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_aluminum, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("aluminum")));
+        stampTransformer(RegistryManager.fluid_molten_silver, "silver");
+        stampTransformer(RegistryManager.fluid_molten_gold, "gold");
 
-        //Adding bar stamping capabilities for all of MFR's metals.
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_steel, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("steel")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_pig_iron, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("pig_iron")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_black_steel, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("black_steel")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_blue_steel, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("blue_steel")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_red_steel, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("red_steel")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_adamantium, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("adamantium")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_mithril, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("mithril")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_ignotumite, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("ignotumite")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_mithium, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("mithium")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_enderforge, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("ender")));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_tungsten, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar("tungsten")));
+        stampTransformer(RegistryManager.fluid_molten_dawnstone, "dawnstone");
+        stampTransformer(RegistryManager.fluid_molten_lead, "lead");
 
-/*
-        //PIP's failed (?) attempt to add plate recipes to the stamper
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_copper, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("copper", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_aluminum, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("aluminum", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_dawnstone, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("dawnstone", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_lead, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("lead", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_electrum, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("electrum", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_bronze, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("bronze", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_nickel, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("nickel", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_gold, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("gold", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_iron, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("iron", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_silver, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("silver", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_tin, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("tin", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_steel, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("steel", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_pig_iron, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("pig_iron", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_black_steel, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("black_steel", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_blue_steel, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("blue_steel", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_red_steel, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("red_steel", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_adamantium, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("adamantium", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_mithril, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("mithril", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_ignotumite, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("ignotumite", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_mithium, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("mithium", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_enderforge, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("ender", 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_tungsten, RecipeRegistry.INGOT_AMOUNT * 2), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack("tungsten", 1)));
+        if(ConfigManager.enableAluminum) {
+            stampTransformer(RegistryManager.fluid_molten_aluminum, "aluminum");
+        }
+        if(ConfigManager.enableElectrum) {
+            stampTransformer(RegistryManager.fluid_molten_electrum, "electrum");
+        }
+        if(ConfigManager.enableNickel) {
+            stampTransformer(RegistryManager.fluid_molten_nickel, "nickel");
+        }
 
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(RegistryManager.fluid_molten_bronze, RecipeRegistry.INGOT_AMOUNT * 3), Ingredient.fromItem(RegistryManager.stamp_gear), new ItemStack(MineFantasyItems.BRONZE_GEARS, 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(FluidInit.molten_tungsten, RecipeRegistry.INGOT_AMOUNT * 3), Ingredient.fromItem(RegistryManager.stamp_gear), new ItemStack(MineFantasyItems.TUNGSTEN_GEARS, 1)));
-        */
-
+        //Add support for MFR metals not covered in Embers
+        stampAdder(FluidInit.molten_steel, "steel");
+        stampAdder(FluidInit.molten_pig_iron, "pig_iron");
+        stampAdder(FluidInit.molten_black_steel, "black_steel");
+        stampAdder(FluidInit.molten_blue_steel, "blue_steel");
+        stampAdder(FluidInit.molten_red_steel, "red_steel");
+        stampAdder(FluidInit.molten_adamantium, "adamantium");
+        stampAdder(FluidInit.molten_mithril, "mithril");
+        stampAdder(FluidInit.molten_ignotumite, "ignotumite");
+        stampAdder(FluidInit.molten_mithium, "mithium");
+        stampAdder(FluidInit.molten_enderforge, "ender");
+        stampAdder(FluidInit.molten_tungsten, "tungsten");
     }
 
     //Function to standardize the removal of recipes from the stamper
     private static void stampRemover(Fluid fluid) {
+        int plateAmount = ConfigManager.stampPlateAmount * RecipeRegistry.INGOT_AMOUNT;
         RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
+        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, plateAmount), new ItemStack(RegistryManager.stamp_plate, 1)));
+    }
+
+    //Function to standardize the addition of recipes to the stamper
+    private static void stampAdder(Fluid fluid, String material) {
+        int plateAmount = 2 * RecipeRegistry.INGOT_AMOUNT;
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar(material)));
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, plateAmount), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack(material, 1)));
+    }
+
+    //Combo function to just make everything super easy
+    private static void stampTransformer(Fluid fluid, String material) {
+        int plateAmount = ConfigManager.stampPlateAmount * RecipeRegistry.INGOT_AMOUNT;
+        int mfrPlateAmount = 2 * RecipeRegistry.INGOT_AMOUNT;
+
+        //Bars first
+        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), new ItemStack(RegistryManager.stamp_bar, 1)));
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar(material)));
+
+        //Then plates
+        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, plateAmount), new ItemStack(RegistryManager.stamp_plate, 1)));;
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, mfrPlateAmount), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack(material, 1)));
     }
 }
