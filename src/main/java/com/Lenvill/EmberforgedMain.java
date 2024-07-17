@@ -32,7 +32,7 @@ public class EmberforgedMain {
         //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
         if (ConfigHardcore.HCCWeakItems) {
-            itemWeaken.weakenList();
+            ItemWeaken.weakenList();
         }
     }
 

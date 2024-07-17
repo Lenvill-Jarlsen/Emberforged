@@ -6,7 +6,7 @@ import minefantasy.mfr.util.Utils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class itemWeaken {
+public class ItemWeaken {
 
     //Remember to include the new version of the item in the .lang file
     public static void weakenList() {
