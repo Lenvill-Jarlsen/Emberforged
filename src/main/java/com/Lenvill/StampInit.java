@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
 import teamroots.embers.recipe.ItemStampingRecipe;
@@ -80,7 +79,7 @@ public class StampInit {
         RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(RegistryManager.stamp_bar), MineFantasyItems.bar(material)));
 
         //Then plates
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, plateAmount), new ItemStack(RegistryManager.stamp_plate, 1)));;
+        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, plateAmount), new ItemStack(RegistryManager.stamp_plate, 1)));
         RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, mfrPlateAmount), Ingredient.fromItem(RegistryManager.stamp_plate), ((ItemMetalComponent) PLATE).createComponentItemStack(material, 1)));
     }
 }

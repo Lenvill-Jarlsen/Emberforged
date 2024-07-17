@@ -9,6 +9,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = EmberforgedMain.MODID, name = EmberforgedMain.NAME, dependencies = EmberforgedMain.DEPENDENCIES, version = EmberforgedMain.VERSION)
 public class EmberforgedMain {
@@ -19,6 +21,8 @@ public class EmberforgedMain {
 
     @SidedProxy(clientSide = "com.Lenvill.proxy.ClientProxy", serverSide = "com.Lenvill.proxy.CommonProxy")
     public static CommonProxy PROXY;
+
+    public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

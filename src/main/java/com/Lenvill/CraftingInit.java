@@ -8,6 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
 import teamroots.embers.compat.BaublesIntegration;
 
@@ -18,39 +19,25 @@ import java.util.function.Predicate;
 
 public class CraftingInit {
 
-    //Here if I decide to use it later
-    private static void mfrRemoveRecipes(final Item output) {
-        mfrRemoveRecipes(recipe -> {
-            final ItemStack recipeOutput = recipe.getRecipeOutput();
-            return !recipeOutput.isEmpty() && recipeOutput.getItem() == output;
-        });
-    }
-
-    private static int mfrRemoveRecipes(final Predicate<IRecipe> predicate) {
-        final IForgeRegistry<IRecipe> registry = ForgeRegistries.RECIPES;
-        final List<IRecipe> toRemove = new ArrayList<>();
-
-        for (final IRecipe recipe : registry) {
-            if (predicate.test(recipe)) {
-                toRemove.add(recipe);
+    public static void addRecipes() {
+        if (Config.enableChanges) {
+            if (ConfigManager.enableAluminum) {
+                //Print aluminum smelt recipe
+                //Print aluminum sparkplug recipe
+            }
+            if (ConfigManager.enableNickel) {
+                //Print Nickel Smelt recipe
+            }
+            if (ConfigManager.enableElectrum) {
+                //Electrum Crucible Recipe
+                //Electrum Clockwork Attenuated
             }
         }
-
-        toRemove.forEach(recipe -> {
-            final ResourceLocation registryName = Objects.requireNonNull(recipe.getRegistryName());
-            final IRecipe replacement = new DummyRecipe().setRegistryName(registryName);
-            registry.register(replacement);
-        });
-
-        return 0;
     }
+
     public static void removeRecipes() {
         if (Config.enableChanges) {
             ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
-
-            recipeRegistry.remove(RegistryManager.pickaxe_clockwork.getRegistryName());
-            recipeRegistry.remove(RegistryManager.grandhammer.getRegistryName());
-            recipeRegistry.remove(RegistryManager.ember_jar.getRegistryName());
 
             if (Config.hcAlchemyPedestal) {
                 recipeRegistry.remove(RegistryManager.alchemy_pedestal.getRegistryName());
@@ -70,6 +57,9 @@ public class CraftingInit {
             if (Config.hcBin) {
                 recipeRegistry.remove(RegistryManager.bin.getRegistryName());
             }
+            if(Config.hcCaminiteBlend) {
+                recipeRegistry.remove(RegistryManager.blend_caminite.getRegistryName());
+            }
             if (Config.hcCasterOrb) {
                 recipeRegistry.remove(RegistryManager.caster_orb.getRegistryName());
             }
@@ -87,6 +77,9 @@ public class CraftingInit {
             }
             if (Config.hcClockworkAxe) {
                 recipeRegistry.remove(RegistryManager.axe_clockwork.getRegistryName());
+            }
+            if(Config.hcClockworkPickaxe) {
+                recipeRegistry.remove(RegistryManager.pickaxe_clockwork.getRegistryName());
             }
             if (Config.hcCombustor) {
                 recipeRegistry.remove(RegistryManager.combustor.getRegistryName());
@@ -124,6 +117,9 @@ public class CraftingInit {
             if (Config.hcEmberInjector) {
                 recipeRegistry.remove(RegistryManager.ember_injector.getRegistryName());
             }
+            if(Config.hcEmberJar) {
+                recipeRegistry.remove(RegistryManager.ember_jar.getRegistryName());
+            }
             if (Config.hcEmberPulser) {
                 recipeRegistry.remove(RegistryManager.ember_pulser.getRegistryName());
             }
@@ -147,6 +143,9 @@ public class CraftingInit {
             }
             if (Config.hcGlimmerLamp) {
                 recipeRegistry.remove(RegistryManager.glimmer_lamp.getRegistryName());
+            }
+            if(Config.hcGrandhammer) {
+                recipeRegistry.remove(RegistryManager.grandhammer.getRegistryName());
             }
             if (Config.hcHearthCoil) {
                 recipeRegistry.remove(RegistryManager.heat_coil.getRegistryName());
@@ -206,5 +205,32 @@ public class CraftingInit {
                 recipeRegistry.remove(RegistryManager.tinker_lens.getRegistryName());
             }
         }
+    }
+
+    //Here if I decide to use it later
+    private static void mfrRemoveRecipes(final Item output) {
+        mfrRemoveRecipes(recipe -> {
+            final ItemStack recipeOutput = recipe.getRecipeOutput();
+            return !recipeOutput.isEmpty() && recipeOutput.getItem() == output;
+        });
+    }
+
+    private static int mfrRemoveRecipes(final Predicate<IRecipe> predicate) {
+        final IForgeRegistry<IRecipe> registry = ForgeRegistries.RECIPES;
+        final List<IRecipe> toRemove = new ArrayList<>();
+
+        for (final IRecipe recipe : registry) {
+            if (predicate.test(recipe)) {
+                toRemove.add(recipe);
+            }
+        }
+
+        toRemove.forEach(recipe -> {
+            final ResourceLocation registryName = Objects.requireNonNull(recipe.getRegistryName());
+            final IRecipe replacement = new DummyRecipe().setRegistryName(registryName);
+            registry.register(replacement);
+        });
+
+        return 0;
     }
 }

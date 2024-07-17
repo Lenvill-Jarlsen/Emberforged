@@ -1,6 +1,5 @@
 package com.Lenvill;
 
-import minefantasy.mfr.config.ConfigHardcore;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import teamroots.embers.ConfigManager;
 
@@ -189,6 +188,7 @@ public class IOInit {
                 "}");
             tempWriter.flush();
             tempWriter.close();
+            EmberforgedMain.LOG.info("Emberforged Registry Generated");
         }
         catch(IOException e) {
         }
@@ -204,10 +204,10 @@ public class IOInit {
      */
 
     //Function to standardize recipe writing
-    public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe) {
+    public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe, String recipeType) {
         if (Config.enableChanges) {
             try {
-                String path = "MineFantasyReforged/custom/recipes/anvil_recipes/";
+                String path = "MineFantasyReforged/custom/recipes/emberforged/" + recipeType;
                 File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");
                 file.deleteOnExit();
                 PrintWriter writer = new PrintWriter(file);
