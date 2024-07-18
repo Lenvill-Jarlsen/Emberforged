@@ -28,24 +28,24 @@ public class IOInit {
 
             MaterialProperties dawnstone_properties = new MaterialProperties();
                 dawnstone_properties.setTier(5);
-                dawnstone_properties.setDurability(6.0);
-                dawnstone_properties.setFlexibility(1.5);
-                dawnstone_properties.setSharpness(3.8);
-                dawnstone_properties.setHardness(3.3);
+                dawnstone_properties.setDurability(6.5);
+                dawnstone_properties.setFlexibility(1.0);
+                dawnstone_properties.setSharpness(3.7);
+                dawnstone_properties.setHardness(3.4);
                 dawnstone_properties.setResistance(60);
-                dawnstone_properties.setDensity(3.2);
+                dawnstone_properties.setDensity(3.3);
                 dawnstone_properties.setMelting_point(2500);
                 dawnstone_properties.setRarity(0);
-                dawnstone_properties.setEnchantability(15);
+                dawnstone_properties.setEnchantability(25);
                 dawnstone_properties.setCraft_tier(4);
                 dawnstone_properties.setCraft_time_modifier(10.0);
                 dawnstone_properties.setUnbreakable(false);
             dawnstone.setProperties(dawnstone_properties);
 
             MaterialArmorStats dawnstone_armor_stats = new MaterialArmorStats();
-                dawnstone_armor_stats.setCutting(1.0);
-                dawnstone_armor_stats.setBlunt(1.0);
-                dawnstone_armor_stats.setPiercing(1.0);
+                dawnstone_armor_stats.setCutting(1.1);
+                dawnstone_armor_stats.setBlunt(1.1);
+                dawnstone_armor_stats.setPiercing(1.1);
             dawnstone.setArmour_stats(dawnstone_armor_stats);
 
             MaterialColor dawnstonecolor = new MaterialColor();
@@ -97,13 +97,13 @@ public class IOInit {
                     aluminum_properties.setTier(0);
                     aluminum_properties.setDurability(1.2);
                     aluminum_properties.setFlexibility(0.7);
-                    aluminum_properties.setSharpness(0.0);
-                    aluminum_properties.setHardness(1.2);
-                    aluminum_properties.setResistance(10);
-                    aluminum_properties.setDensity(2.0);
+                    aluminum_properties.setSharpness(1.0);
+                    aluminum_properties.setHardness(2.0);
+                    aluminum_properties.setResistance(20);
+                    aluminum_properties.setDensity(1.0);
                     aluminum_properties.setMelting_point(800);
-                    aluminum_properties.setRarity(-1);
-                    aluminum_properties.setEnchantability(1);
+                    aluminum_properties.setRarity(0);
+                    aluminum_properties.setEnchantability(2);
                     aluminum_properties.setCraft_tier(-1);
                     aluminum_properties.setCraft_time_modifier(2.0);
                     aluminum_properties.setUnbreakable(false);
@@ -164,18 +164,18 @@ public class IOInit {
                 Material nickel = new Material("nickel", "ingotNickel");
 
                 MaterialProperties nickel_properties = new MaterialProperties();
-                    nickel_properties.setTier(0);
-                    nickel_properties.setDurability(1.2);
+                    nickel_properties.setTier(1);
+                    nickel_properties.setDurability(1.5);
                     nickel_properties.setFlexibility(0.8);
-                    nickel_properties.setSharpness(0.5);
-                    nickel_properties.setHardness(1.0);
+                    nickel_properties.setSharpness(1.5);
+                    nickel_properties.setHardness(2.0);
                     nickel_properties.setResistance(50);
                     nickel_properties.setDensity(3.0);
-                    nickel_properties.setMelting_point(1200);
+                    nickel_properties.setMelting_point(1400);
                     nickel_properties.setRarity(0);
                     nickel_properties.setEnchantability(9);
-                    nickel_properties.setCraft_tier(0);
-                    nickel_properties.setCraft_time_modifier(2.0);
+                    nickel_properties.setCraft_tier(1);
+                    nickel_properties.setCraft_time_modifier(3.0);
                     nickel_properties.setUnbreakable(false);
                 nickel.setProperties(nickel_properties);
 

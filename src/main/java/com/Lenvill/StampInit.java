@@ -1,12 +1,17 @@
 package com.Lenvill;
 
 import com.Lenvill.fluids.FluidInit;
+import minefantasy.mfr.init.MineFantasyBlocks;
 import minefantasy.mfr.init.MineFantasyItems;
+import minefantasy.mfr.init.MineFantasyOreDict;
 import minefantasy.mfr.item.ItemMetalComponent;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.OreIngredient;
 import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
 import teamroots.embers.recipe.ItemStampingRecipe;
@@ -53,6 +58,13 @@ public class StampInit {
         stampAdder(FluidInit.molten_mithium, "mithium");
         stampAdder(FluidInit.molten_enderforge, "ender");
         stampAdder(FluidInit.molten_tungsten, "tungsten");
+
+        //And some other misc stamper recipes
+        Item limestone = Item.getItemFromBlock(MineFantasyBlocks.LIMESTONE);
+        Ingredient limestoneI = Ingredient.fromItem(limestone);
+        Ingredient stampFlat = Ingredient.fromItem(RegistryManager.stamp_flat);
+        //OreIngredient limestoneO = stoneLimestone;
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(limestoneI,null, stampFlat,new ItemStack(MineFantasyItems.FLUX,4)));
     }
 
     //Function to standardize the removal of recipes from the stamper

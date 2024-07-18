@@ -17,9 +17,6 @@
             {
                 "type": "forge:ore_dict",
                 "ore": "oreAluminium"
-            },
-            {
-                "item": "embers:ore_aluminum"
             }
         ]
     },

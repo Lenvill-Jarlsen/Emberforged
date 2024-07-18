@@ -1,12 +1,10 @@
 package com.Lenvill;
 
 import minefantasy.mfr.config.ConfigHardcore;
-import minefantasy.mfr.init.MineFantasyItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.oredict.OreDictionary;
 import teamroots.embers.RegistryManager;
 
 import java.util.Map;
@@ -19,6 +17,15 @@ public class SmeltingInit {
             removeSmeltingRecipe(RegistryManager.ore_nickel);
             removeSmeltingRecipe(RegistryManager.ore_silver);
             removeSmeltingRecipe(RegistryManager.ore_tin);
+
+            if(Config.hcCaminiteFiring || ConfigHardcore.preventCeramic) {
+                removeSmeltingRecipe(RegistryManager.stamp_bar_raw);
+                removeSmeltingRecipe(RegistryManager.stamp_plate_raw);
+                removeSmeltingRecipe(RegistryManager.stamp_gear_raw);
+                removeSmeltingRecipe(RegistryManager.stamp_flat_raw);
+                removeSmeltingRecipe(RegistryManager.blend_caminite);
+                removeSmeltingRecipe(RegistryManager.plate_caminite_raw);
+            }
 
             /*
             // Rendered obsolete by the data-driven update
@@ -59,4 +66,17 @@ public class SmeltingInit {
                 }
             }
         }
+
+    private static void removeSmeltingRecipe(Item ore) {
+        Map<ItemStack, ItemStack> SmeltingRecipes = FurnaceRecipes.instance().getSmeltingList();
+        ItemStack oreItem = null;
+        for (ItemStack item : SmeltingRecipes.keySet()) {
+            if (item.getItem() == ore) {
+                oreItem = item;
+            }
+        }
+        if (oreItem != null) {
+            FurnaceRecipes.instance().getSmeltingList().remove(oreItem);
+        }
+    }
 }

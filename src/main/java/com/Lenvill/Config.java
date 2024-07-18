@@ -9,24 +9,23 @@ import java.io.File;
 public class Config {
     public static Configuration config;
     public static boolean enableChanges;
+
+    public static boolean hcCaminiteFiring;
+
     public static boolean hcAlchemyPedestal;
     public static boolean hcAlchemyTablet;
     public static boolean hcAshenCloak;
     public static boolean hcBeamCannon;
     public static boolean hcBeamSplitter;
     public static boolean hcBin;
-
     public static boolean hcCaminiteBlend;
-
     public static boolean hcCasterOrb;
     public static boolean hcCatalyzer;
     public static boolean hcCharger;
     public static boolean hcCinderPlinth;
     public static boolean hcClockworkAttenuator;
     public static boolean hcClockworkAxe;
-
     public static boolean hcClockworkPickaxe;
-
     public static boolean hcCombustor;
     public static boolean hcCrystalCell;
     public static boolean hcDawnstoneMail;
@@ -39,9 +38,7 @@ public class Config {
     public static boolean hcEmberFunnel;
     public static boolean hcEmberGauge;
     public static boolean hcEmberInjector;
-
     public static boolean hcEmberJar;
-
     public static boolean hcEmberPulser;
     public static boolean hcEmberRelay;
     public static boolean hcEmberSiphon;
@@ -50,9 +47,7 @@ public class Config {
     public static boolean hcFluidPipe;
     public static boolean hcFluidTransfer;
     public static boolean hcGlimmerLamp;
-
     public static boolean hcGrandhammer;
-
     public static boolean hcHearthCoil;
     public static boolean hcIgnitionCannon;
     public static boolean hcInfernoForge;
@@ -91,24 +86,22 @@ public class Config {
         enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes");
 
         //Recipe Toggle Options
+        hcCaminiteFiring = config.getBoolean("hcStampFiring","Recipe Toggle",true,"Whether Emberforged will disable cooking the Bar Stamps in a furnace and require using an oven atop a forge.");
+
         hcAlchemyPedestal = config.getBoolean("hcAlchemyPedestal","Recipe Toggle",true,"Whether Emberforged will disable the default Alchemy Pedestal recipe.");
         hcAlchemyTablet = config.getBoolean("hcAlchemyTablet","Recipe Toggle",true,"Whether Emberforged will disable the default Alchemy Tablet recipe.");
         hcAshenCloak = config.getBoolean("hcAshenCloak","Recipe Toggle",true,"Whether Emberforged will disable the default Ashen Cloak recipe.");
         hcBeamCannon = config.getBoolean("hcBeamCannon","Recipe Toggle",true,"Whether Emberforged will disable the default Beam Cannon recipe.");
         hcBeamSplitter = config.getBoolean("hcBeamSplitter","Recipe Toggle",true,"Whether Emberforged will disable the default Beam Splitter recipe.");
         hcBin = config.getBoolean("hcBin","Recipe Toggle",true,"Whether Emberforged will disable the default Bin recipe.");
-
         hcCaminiteBlend = config.getBoolean("hcCaminiteBlend","Recipe Toggle",true,"Whether Emberforged will disable the default Caminite Blend recipe.");
-
         hcCasterOrb = config.getBoolean("hcCasterOrb","Recipe Toggle",true,"Whether Emberforged will disable the default Caster Orb recipe.");
         hcCatalyzer = config.getBoolean("hcCatalyzer","Recipe Toggle",true,"Whether Emberforged will disable the default Catalyzer recipe.");
         hcCharger = config.getBoolean("hcCharger","Recipe Toggle",true,"Whether Emberforged will disable the default Charger recipe.");
         hcCinderPlinth = config.getBoolean("hcCinderPlinth","Recipe Toggle",true,"Whether Emberforged will disable the default Cinder Plinth recipe.");
         hcClockworkAttenuator = config.getBoolean("hcClockworkAttenuator","Recipe Toggle",true,"Whether Emberforged will disable the default Clockwork Attenuator recipe.");
         hcClockworkAxe = config.getBoolean("hcClockworkAxe","Recipe Toggle",true,"Whether Emberforged will disable the default Clockwork Axe recipe.");
-
         hcClockworkPickaxe = config.getBoolean("hcClockworkPickaxe","Recipe Toggle",true,"Whether Emberforged will disable the default Clockwork Pickaxe recipe.");
-
         hcCombustor = config.getBoolean("hcCombustor","Recipe Toggle",true,"Whether Emberforged will disable the default Combustor recipe.");
         hcCrystalCell = config.getBoolean("hcCrystalCell","Recipe Toggle",true,"Whether Emberforged will disable the default Crystal Cell recipe.");
         hcDawnstoneMail = config.getBoolean("hcDawnstoneMail","Recipe Toggle",true,"Whether Emberforged will disable the default Dawnstone Mail recipe.");
@@ -121,9 +114,7 @@ public class Config {
         hcEmberFunnel = config.getBoolean("hcEmberFunnel","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Funnel recipe.");
         hcEmberGauge = config.getBoolean("hcEmberGauge","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Guage recipe.");
         hcEmberInjector = config.getBoolean("hcEmberInjector","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Injector recipe.");
-
         hcEmberJar = config.getBoolean("hcEmberJar","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Jar recipe.");
-
         hcEmberPulser = config.getBoolean("hcEmberPulser","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Pulser recipe.");
         hcEmberRelay = config.getBoolean("hcEmberRelay","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Relay recipe.");
         hcEmberSiphon = config.getBoolean("hcEmberSiphon","Recipe Toggle",true,"Whether Emberforged will disable the default Ember Siphon recipe.");
@@ -132,9 +123,7 @@ public class Config {
         hcFluidPipe = config.getBoolean("hcFluidPipe","Recipe Toggle",true,"Whether Emberforged will disable the default Fluid Pipe recipe.");
         hcFluidTransfer = config.getBoolean("hcFluidTransfer","Recipe Toggle",true,"Whether Emberforged will disable the default Fluid Transfer recipe.");
         hcGlimmerLamp = config.getBoolean("hcGlimmerLamp","Recipe Toggle",true,"Whether Emberforged will disable the default Glimmer Lamp recipe.");
-
         hcGrandhammer = config.getBoolean("hcGrandhammer","Recipe Toggle",true,"Whether Emberforged will disable the default Grandhammer recipe.");
-
         hcHearthCoil = config.getBoolean("hcHearthCoil","Recipe Toggle",true,"Whether Emberforged will disable the default Hearth Coil recipe.");
         hcIgnitionCannon = config.getBoolean("hcIgnitionCannon","Recipe Toggle",true,"Whether Emberforged will disable the default Ignition Cannon recipe.");
         hcInfernoForge = config.getBoolean("hcInfernoForge","Recipe Toggle",true,"Whether Emberforged will disable the default Inferno Forge recipe.");
