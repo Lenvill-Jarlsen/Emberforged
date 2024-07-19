@@ -8,6 +8,7 @@ import minefantasy.mfr.item.ItemMetalComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -60,11 +61,8 @@ public class StampInit {
         stampAdder(FluidInit.molten_tungsten, "tungsten");
 
         //And some other misc stamper recipes
-        Item limestone = Item.getItemFromBlock(MineFantasyBlocks.LIMESTONE);
-        Ingredient limestoneI = Ingredient.fromItem(limestone);
         Ingredient stampFlat = Ingredient.fromItem(RegistryManager.stamp_flat);
-        //OreIngredient limestoneO = stoneLimestone;
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(limestoneI,null, stampFlat,new ItemStack(MineFantasyItems.FLUX,4)));
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(new OreIngredient("stoneLimestone"),null, stampFlat,new ItemStack(MineFantasyItems.FLUX,4)));
     }
 
     //Function to standardize the removal of recipes from the stamper
