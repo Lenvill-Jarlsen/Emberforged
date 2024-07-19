@@ -2,17 +2,17 @@ package com.Lenvill.mfrAPI;
 
 public class MaterialProperties {
     int tier;
-    double durability;
-    double flexibility;
-    double sharpness;
-    double hardness;
-    double resistance;
-    double density;
+    float durability;
+    float flexibility;
+    float sharpness;
+    float hardness;
+    float resistance;
+    float density;
     int melting_point;
     int rarity;
     int enchantability;
     int craft_tier;
-    double craft_time_modifier;
+    float craft_time_modifier;
     boolean unbreakable;
 
     //Getters
@@ -20,27 +20,27 @@ public class MaterialProperties {
         return tier;
     }
 
-    public double getDurability() {
+    public float getDurability() {
         return durability;
     }
 
-    public double getFlexibility() {
+    public float getFlexibility() {
         return flexibility;
     }
 
-    public double getSharpness() {
+    public float getSharpness() {
         return sharpness;
     }
 
-    public double getHardness() {
+    public float getHardness() {
         return hardness;
     }
 
-    public double getResistance() {
+    public float getResistance() {
         return resistance;
     }
 
-    public double getDensity() {
+    public float getDensity() {
         return density;
     }
 
@@ -60,7 +60,7 @@ public class MaterialProperties {
         return craft_tier;
     }
 
-    public double getCraft_time_modifier() {
+    public float getCraft_time_modifier() {
         return craft_time_modifier;
     }
 
@@ -73,27 +73,27 @@ public class MaterialProperties {
         this.tier = tier;
     }
 
-    public void setDurability(double durability) {
+    public void setDurability(float durability) {
         this.durability = durability;
     }
 
-    public void setFlexibility(double flexibility) {
+    public void setFlexibility(float flexibility) {
         this.flexibility = flexibility;
     }
 
-    public void setSharpness(double sharpness) {
+    public void setSharpness(float sharpness) {
         this.sharpness = sharpness;
     }
 
-    public void setHardness(double hardness) {
+    public void setHardness(float hardness) {
         this.hardness = hardness;
     }
 
-    public void setResistance(double resistance) {
+    public void setResistance(float resistance) {
         this.resistance = resistance;
     }
 
-    public void setDensity(double density) {
+    public void setDensity(float density) {
         this.density = density;
     }
 
@@ -113,7 +113,7 @@ public class MaterialProperties {
         this.craft_tier = craft_tier;
     }
 
-    public void setCraft_time_modifier(double craft_time_modifier) {
+    public void setCraft_time_modifier(float craft_time_modifier) {
         this.craft_time_modifier = craft_time_modifier;
     }
 

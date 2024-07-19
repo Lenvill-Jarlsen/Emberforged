@@ -28,7 +28,9 @@ public class EmberforgedMain {
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new Config());
         Config.init(event.getSuggestedConfigurationFile());
-        //IOInit.initTypes(event);
+        if(Config.registerMetals){
+            IOInit.initTypes(event);
+        }
         //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
         if (ConfigHardcore.HCCWeakItems) {

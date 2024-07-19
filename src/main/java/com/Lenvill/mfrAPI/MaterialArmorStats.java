@@ -1,34 +1,34 @@
 package com.Lenvill.mfrAPI;
 
 public class MaterialArmorStats {
-    double cutting;
-    double blunt;
-    double piercing;
+    float cutting;
+    float blunt;
+    float piercing;
 
     //Getters
-    public double getCutting() {
+    public float getCutting() {
         return cutting;
     }
 
-    public double getBlunt() {
+    public float getBlunt() {
         return blunt;
     }
 
-    public double getPiercing() {
+    public float getPiercing() {
         return piercing;
     }
 
 
     //Setters
-    public void setCutting(double cutting) {
+    public void setCutting(float cutting) {
         this.cutting = cutting;
     }
 
-    public void setBlunt(double blunt) {
+    public void setBlunt(float blunt) {
         this.blunt = blunt;
     }
 
-    public void setPiercing(double piercing) {
+    public void setPiercing(float piercing) {
         this.piercing = piercing;
     }
 }

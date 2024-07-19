@@ -5,9 +5,6 @@
             {
                 "type": "forge:ore_dict",
                 "ore": "oreLead"
-            },
-            {
-                "item": "embers:ore_lead"
             }
         ]
     },
@@ -17,9 +14,6 @@
             {
                 "type": "forge:ore_dict",
                 "ore": "oreAluminium"
-            },
-            {
-                "item": "embers:ore_aluminum"
             }
         ]
     },
@@ -29,9 +23,6 @@
             {
                 "type": "forge:ore_dict",
                 "ore": "oreNickel"
-            },
-            {
-                "item": "embers:ore_nickel"
             }
         ]
     }

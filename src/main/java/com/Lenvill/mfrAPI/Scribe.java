@@ -20,4 +20,7 @@ public class Scribe {
         metals.add(material);
     }
 
+    public Object[] getMetals() {
+        return metals.toArray();
+    }
 }

@@ -7,9 +7,9 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 import java.util.function.BooleanSupplier;
 
-public class AluminumToggle implements IConditionFactory {
+public class EnableChanges implements IConditionFactory {
     @Override
     public BooleanSupplier parse(JsonContext context, JsonObject json) {
-        return () -> Config.aluminumToggle;
+        return () -> Config.enableChanges;
     }
 }

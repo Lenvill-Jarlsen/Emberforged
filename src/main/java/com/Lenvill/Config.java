@@ -1,14 +1,24 @@
 package com.Lenvill;
 
+import com.Lenvill.recipe.factories.ElectrumToggle;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import teamroots.embers.ConfigManager;
 
 import java.io.File;
 
 public class Config {
     public static Configuration config;
     public static boolean enableChanges;
+
+    public static boolean registerMetals;
+
+    public static boolean aluminumToggle = false;
+
+    public static boolean electrumToggle = false;
+
+    public static boolean nickelToggle = false;
 
     public static boolean hcCaminiteFiring;
 
@@ -75,6 +85,16 @@ public class Config {
             config = new Configuration(configFile);
             load();
         }
+
+        if(enableChanges && ConfigManager.enableAluminum){
+            aluminumToggle = true;
+        }
+        if(enableChanges && ConfigManager.enableElectrum){
+            electrumToggle = true;
+        }
+        if(enableChanges && ConfigManager.enableNickel){
+            nickelToggle = true;
+        }
     }
 
     public static void load() {
@@ -84,6 +104,7 @@ public class Config {
 
         //Main Config Options
         enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes");
+        registerMetals = config.getBoolean(" registerMetals","Main",true,"Whether or not Emberforged will register its metals. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
 
         //Recipe Toggle Options
         hcCaminiteFiring = config.getBoolean("hcStampFiring","Recipe Toggle",true,"Whether Emberforged will disable cooking the Bar Stamps in a furnace and require using an oven atop a forge.");
