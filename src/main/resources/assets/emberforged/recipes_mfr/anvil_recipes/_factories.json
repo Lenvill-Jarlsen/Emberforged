@@ -2,7 +2,7 @@
     "conditions": {
         "aluminumtoggle": "com.Lenvill.recipe.factories.AluminumToggle",
         "nickeltoggle": "com.Lenvill.recipe.factories.NickelToggle",
-		"electrumtoggle": "com.Lenvill.recipe.factories.ElectrumToggle",
+        "altsparkplugtoggle": "com.Lenvill.recipe.factories.AltSparkPlugToggle",
         "enablechanges": "com.Lenvill.recipe.factories.EnableChanges"
     }
 }

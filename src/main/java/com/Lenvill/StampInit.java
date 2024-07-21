@@ -25,17 +25,31 @@ public class StampInit {
     public static void initStamps() {
 
         //Removes old embers recipes and adds in new MFR equivalents
-        stampTransformer(RegistryManager.fluid_molten_copper, "copper");
-        stampTransformer(RegistryManager.fluid_molten_tin, "tin");
-        stampTransformer(RegistryManager.fluid_molten_bronze, "bronze");
+        if(Config.enableChanges) {
+            stampTransformer(RegistryManager.fluid_molten_copper, "copper");
 
-        stampTransformer(RegistryManager.fluid_molten_iron, "iron");
+            if(ConfigManager.enableTin) {
+                stampTransformer(RegistryManager.fluid_molten_tin, "tin");
+            }else{
+                stampAdder(RegistryManager.fluid_molten_tin, "tin");
+            }
 
-        stampTransformer(RegistryManager.fluid_molten_silver, "silver");
-        stampTransformer(RegistryManager.fluid_molten_gold, "gold");
+            if (ConfigManager.enableBronze) {
+                stampTransformer(RegistryManager.fluid_molten_bronze, "bronze");
+            }else{
+                stampAdder(RegistryManager.fluid_molten_tin, "tin");
+            }
 
-        stampTransformer(RegistryManager.fluid_molten_dawnstone, "dawnstone");
-        stampTransformer(RegistryManager.fluid_molten_lead, "lead");
+            stampTransformer(RegistryManager.fluid_molten_iron, "iron");
+
+            stampTransformer(RegistryManager.fluid_molten_silver, "silver");
+
+            stampTransformer(RegistryManager.fluid_molten_gold, "gold");
+
+            stampTransformer(RegistryManager.fluid_molten_dawnstone, "dawnstone");
+
+            stampTransformer(RegistryManager.fluid_molten_lead, "lead");
+        }
 
         if(ConfigManager.enableAluminum) {
             stampTransformer(RegistryManager.fluid_molten_aluminum, "aluminum");

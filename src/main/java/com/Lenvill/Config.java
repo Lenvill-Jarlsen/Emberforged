@@ -9,18 +9,18 @@ import java.io.File;
 
 public class Config {
     public static Configuration config;
-    public static boolean enableChanges;
 
-    public static boolean registerMetals;
-
+    //These Booleans only exist in the code to control more complex toggles
+    public static boolean altSparkPlugToggle = false;
     public static boolean aluminumToggle = false;
-
     public static boolean electrumToggle = false;
-
     public static boolean nickelToggle = false;
 
-    public static boolean hcCaminiteFiring;
+    //Main Config Options
+    public static boolean enableChanges;
+    public static boolean registerMetals;
 
+    //Recipe Toggles Options
     public static boolean hcAlchemyPedestal;
     public static boolean hcAlchemyTablet;
     public static boolean hcAshenCloak;
@@ -28,6 +28,7 @@ public class Config {
     public static boolean hcBeamSplitter;
     public static boolean hcBin;
     public static boolean hcCaminiteBlend;
+    public static boolean hcCaminiteFiring;
     public static boolean hcCasterOrb;
     public static boolean hcCatalyzer;
     public static boolean hcCharger;
@@ -94,6 +95,9 @@ public class Config {
         if(enableChanges && ConfigManager.enableNickel){
             nickelToggle = true;
         }
+        if(enableChanges && !ConfigManager.enableAluminum){
+            altSparkPlugToggle = true;
+        }
     }
 
     public static void load() {
@@ -103,11 +107,9 @@ public class Config {
 
         //Main Config Options
         enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes");
-        registerMetals = config.getBoolean(" registerMetals","Main",true,"Whether or not Emberforged will register its metals. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
+        registerMetals = config.getBoolean("registerMetals","Main",true,"Whether or not Emberforged will register its metals. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
 
         //Recipe Toggle Options
-        hcCaminiteFiring = config.getBoolean("hcStampFiring","Recipe Toggle",true,"Whether Emberforged will disable cooking the Bar Stamps in a furnace and require using an oven atop a forge.");
-
         hcAlchemyPedestal = config.getBoolean("hcAlchemyPedestal","Recipe Toggle",true,"Whether Emberforged will disable the default Alchemy Pedestal recipe.");
         hcAlchemyTablet = config.getBoolean("hcAlchemyTablet","Recipe Toggle",true,"Whether Emberforged will disable the default Alchemy Tablet recipe.");
         hcAshenCloak = config.getBoolean("hcAshenCloak","Recipe Toggle",true,"Whether Emberforged will disable the default Ashen Cloak recipe.");
@@ -115,6 +117,7 @@ public class Config {
         hcBeamSplitter = config.getBoolean("hcBeamSplitter","Recipe Toggle",true,"Whether Emberforged will disable the default Beam Splitter recipe.");
         hcBin = config.getBoolean("hcBin","Recipe Toggle",true,"Whether Emberforged will disable the default Bin recipe.");
         hcCaminiteBlend = config.getBoolean("hcCaminiteBlend","Recipe Toggle",true,"Whether Emberforged will disable the default Caminite Blend recipe.");
+        hcCaminiteFiring = config.getBoolean("hcStampFiring","Recipe Toggle",true,"Whether Emberforged will disable cooking the Bar Stamps in a furnace and require using an oven atop a forge.");
         hcCasterOrb = config.getBoolean("hcCasterOrb","Recipe Toggle",true,"Whether Emberforged will disable the default Caster Orb recipe.");
         hcCatalyzer = config.getBoolean("hcCatalyzer","Recipe Toggle",true,"Whether Emberforged will disable the default Catalyzer recipe.");
         hcCharger = config.getBoolean("hcCharger","Recipe Toggle",true,"Whether Emberforged will disable the default Charger recipe.");

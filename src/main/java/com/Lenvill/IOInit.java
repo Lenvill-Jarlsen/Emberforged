@@ -191,6 +191,11 @@ public class IOInit {
             ((Material)m).toMetalMaterial();
         }
 
+        EmberforgedMain.LOG.info("Emberforged Registry Generated");
+        Gson gson = new Gson();
+        String metal_types = gson.toJson(ledger);
+        EmberforgedMain.LOG.info(metal_types);
+
         /*
 
         Ye olde method for printing the json objects to a json file in the config file
@@ -202,14 +207,12 @@ public class IOInit {
             File tempFile = new File(event.getModConfigurationDirectory(), tempPath + "metal_types" + ".json");
             PrintWriter tempWriter = new PrintWriter(tempFile);
 
-            Gson gson = new Gson();
-            String metal_types = gson.toJson(ledger);
-            EmberforgedMain.LOG.info(metal_types);
+
 
             tempWriter.println(metal_types);
             tempWriter.flush();
             tempWriter.close();
-            EmberforgedMain.LOG.info("Emberforged Registry Generated");
+
 
         }
         catch(IOException e) {
