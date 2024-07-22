@@ -2,6 +2,7 @@ package com.Lenvill;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import teamroots.embers.ConfigManager;
 
@@ -15,6 +16,7 @@ public class Config {
     public static boolean aluminumToggle = false;
     public static boolean electrumToggle = false;
     public static boolean nickelToggle = false;
+    public static boolean baublesToggle = false;
 
     //Main Config Options
     public static boolean enableChanges;
@@ -78,6 +80,10 @@ public class Config {
     public static boolean hcTinkerHammer;
     public static boolean hcTinkerLens;
 
+    public static boolean isBaublesIntegrationEnabled() {
+        return enableChanges && ConfigManager.enableBaublesIntegration && Loader.isModLoaded("baubles");
+    }
+
     public static void init(File configFile)
     {
         if(config == null)
@@ -97,6 +103,9 @@ public class Config {
         }
         if(enableChanges && !ConfigManager.enableAluminum){
             altSparkPlugToggle = true;
+        }
+        if(isBaublesIntegrationEnabled()){
+            baublesToggle = true;
         }
     }
 

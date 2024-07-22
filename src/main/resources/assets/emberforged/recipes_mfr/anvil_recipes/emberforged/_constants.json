@@ -15,6 +15,14 @@
             "nbt": "{mf_custom_materials:{main_material:\"lead\"}}"
         }
 	},
+    {
+        "name": "BAR_ALUMINUM",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:bar",
+            "nbt": "{mf_custom_materials:{main_material:\"aluminum\"}}"
+        }
+    },
 	{
 		"name": "PLATE_DAWNSTONE",
         "ingredient": {
@@ -125,6 +133,14 @@
             "type": "minecraft:item_nbt",
             "item": "minefantasyreforged:bar",
             "nbt": "{mf_custom_materials:{main_material:\"copper\"}}"
+        }
+    },
+    {
+        "name": "BAR_TIN",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:bar",
+            "nbt": "{mf_custom_materials:{main_material:\"tin\"}}"
         }
     },
     {

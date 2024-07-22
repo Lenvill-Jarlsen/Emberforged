@@ -1,17 +1,12 @@
 package com.Lenvill;
 
 import com.Lenvill.fluids.FluidInit;
-import minefantasy.mfr.init.MineFantasyBlocks;
 import minefantasy.mfr.init.MineFantasyItems;
-import minefantasy.mfr.init.MineFantasyOreDict;
 import minefantasy.mfr.item.ItemMetalComponent;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
 import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
@@ -37,7 +32,7 @@ public class StampInit {
             if (ConfigManager.enableBronze) {
                 stampTransformer(RegistryManager.fluid_molten_bronze, "bronze");
             }else{
-                stampAdder(RegistryManager.fluid_molten_tin, "tin");
+                stampAdder(RegistryManager.fluid_molten_bronze, "bronze");
             }
 
             stampTransformer(RegistryManager.fluid_molten_iron, "iron");

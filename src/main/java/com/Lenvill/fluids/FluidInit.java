@@ -1,10 +1,16 @@
 package com.Lenvill.fluids;
 
 import minefantasy.mfr.init.MineFantasyItems;
+import minefantasy.mfr.item.ItemMetalComponent;
+import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreIngredient;
+import teamroots.embers.ConfigManager;
+import teamroots.embers.RegistryManager;
 import teamroots.embers.recipe.ItemMeltingRecipe;
 import teamroots.embers.recipe.RecipeRegistry;
 
@@ -70,37 +76,64 @@ public class FluidInit {
     }
 
     private static void addFluidRecipes() {
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.STEEL_INGOT), new FluidStack(molten_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.PIG_IRON_INGOT), new FluidStack(molten_pig_iron, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.BLACK_STEEL_INGOT), new FluidStack(molten_black_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.BLUE_STEEL_INGOT), new FluidStack(molten_blue_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.RED_STEEL_INGOT), new FluidStack(molten_red_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.ADAMANTIUM_INGOT), new FluidStack(molten_adamantium, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.MITHRIL_INGOT), new FluidStack(molten_mithril, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.IGNOTUMITE_INGOT), new FluidStack(molten_ignotumite, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.MITHIUM_INGOT), new FluidStack(molten_mithium, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.ENDER_INGOT), new FluidStack(molten_enderforge, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.TUNGSTEN_INGOT), new FluidStack(molten_tungsten, RecipeRegistry.INGOT_AMOUNT)));
+        meltAdd(MineFantasyItems.STEEL_INGOT, molten_steel);
+        meltAdd(MineFantasyItems.PIG_IRON_INGOT, molten_pig_iron);
+        meltAdd(MineFantasyItems.BLACK_STEEL_INGOT, molten_black_steel);
+        meltAdd(MineFantasyItems.BLUE_STEEL_INGOT, molten_blue_steel);
+        meltAdd(MineFantasyItems.RED_STEEL_INGOT, molten_red_steel);
+        meltAdd(MineFantasyItems.ADAMANTIUM_INGOT, molten_adamantium);
+        meltAdd(MineFantasyItems.MITHRIL_INGOT, molten_mithril);
+        meltAdd(MineFantasyItems.IGNOTUMITE_INGOT, molten_ignotumite);
+        meltAdd(MineFantasyItems.MITHIUM_INGOT, molten_mithium);
+        meltAdd(MineFantasyItems.ENDER_INGOT, molten_enderforge);
+        meltAdd(MineFantasyItems.TUNGSTEN_INGOT, molten_tungsten);
 
+        meltAdd("tin", RegistryManager.fluid_molten_tin);
+        meltAdd("copper", RegistryManager.fluid_molten_copper);
+        meltAdd("bronze", RegistryManager.fluid_molten_bronze);
+        meltAdd("iron", RegistryManager.fluid_molten_iron);
+        meltAdd("pig_iron", molten_pig_iron);
+        meltAdd("steel", molten_steel);
+        meltAdd("black_steel", molten_black_steel);
+        meltAdd("blue_steel", molten_blue_steel);
+        meltAdd("red_steel", molten_red_steel);
 
-        //JOptionPane.showMessageDialog(null, MineFantasyMaterials.BLUE_STEEL.name);
-        //JOptionPane.showMessageDialog(null, MineFantasyMaterials.BLACK_STEEL.name);
-        //RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromStacks(MineFantasyItems.bar(MineFantasyMaterials.BLUE_STEEL.name).), new FluidStack(molten_blue_steel, RecipeRegistry.INGOT_AMOUNT)));
-        //RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromStacks(MineFantasyItems.bar(MineFantasyMaterials.BLACK_STEEL.name)), new FluidStack(molten_black_steel, RecipeRegistry.INGOT_AMOUNT)));
-        //Melter.add(, Ingredient.fromItem(((ItemMetalComponent) BAR).createComponentItemStack("copper", 1).getItem()));
-    /*
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromStacks(((ItemMetalComponent) BAR).createComponentItemStack("steel", 1)), new FluidStack(molten_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromStacks(((ItemMetalComponent) BAR).createComponentItemStack("mithril", 1)), new FluidStack(molten_mithril, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(((ItemMetalComponent) BAR).createComponentItemStack("copper", 1).getItem()), new FluidStack(molten_black_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("blue_steel").getItem()), new FluidStack(molten_blue_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("red_steel").getItem()), new FluidStack(molten_red_steel, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("adamantium").getItem()), new FluidStack(molten_adamantium, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("mithril").getItem()), new FluidStack(molten_mithril, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("ignotumite").getItem()), new FluidStack(molten_ignotumite, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("mithium").getItem()), new FluidStack(molten_mithium, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("enderforge").getItem()), new FluidStack(molten_enderforge, RecipeRegistry.INGOT_AMOUNT)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(MineFantasyItems.bar("tungsten").getItem()), new FluidStack(molten_tungsten, RecipeRegistry.INGOT_AMOUNT)));
-    */
+        meltAdd("silver", RegistryManager.fluid_molten_silver);
+        meltAdd("silver", RegistryManager.fluid_molten_gold);
+
+        meltAdd("adamantium", molten_adamantium);
+        meltAdd("mithril", molten_mithril);
+        meltAdd("ignotumite", molten_ignotumite);
+        meltAdd("mithium", molten_mithium);
+        meltAdd("ender", molten_enderforge);
+        meltAdd("tungsten", molten_tungsten);
+
+        meltAdd("dawnstone", RegistryManager.fluid_molten_dawnstone);
+        meltAdd("lead", RegistryManager.fluid_molten_lead);
+
+        if(ConfigManager.enableAluminum) {
+            meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
+        }
+        if(ConfigManager.enableElectrum) {
+            meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
+        }
+        if(ConfigManager.enableNickel) {
+            meltAdd("nickel", RegistryManager.fluid_molten_nickel);
+        }
+    }
+
+    private static void meltAdd(String material, Fluid fluid){
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(MineFantasyItems.bar(material)),new FluidStack(fluid, 144)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.CHAIN_MESH).createComponentItemStack(material, 1)),new FluidStack(fluid, 144)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack(material, 1)),new FluidStack(fluid, 144)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SPLINT_MESH).createComponentItemStack(material, 1)),new FluidStack(fluid, 144)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.METAL_HUNK).createComponentItemStack(material, 1)),new FluidStack(fluid, 36)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.PLATE).createComponentItemStack(material, 1)),new FluidStack(fluid, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.PLATE_HUGE).createComponentItemStack(material, 1)),new FluidStack(fluid, 576)));
+    }
+
+    private static void meltAdd(Item item, Fluid fluid) {
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(item),new FluidStack(fluid, 144)));
     }
 
 }

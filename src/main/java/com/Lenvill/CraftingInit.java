@@ -18,27 +18,38 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public class CraftingInit {
-
-    public static void addRecipes() {
-        if (Config.enableChanges) {
-            if (ConfigManager.enableAluminum) {
-                //Print aluminum smelt recipe
-                //Print aluminum sparkplug recipe
-            }
-            if (ConfigManager.enableNickel) {
-                //Print Nickel Smelt recipe
-            }
-            if (ConfigManager.enableElectrum) {
-                //Electrum Crucible Recipe
-                //Electrum Clockwork Attenuated
-            }
-        }
+    public static ResourceLocation getRL(String name){
+        return new ResourceLocation("embers",name);
     }
 
     public static void removeRecipes() {
         if (Config.enableChanges) {
             ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
 
+            //Remove Ember's Plates
+            if(ConfigManager.enableAluminum) {
+                recipeRegistry.remove(getRL("ingotaluminium_plate"));
+            }
+            if(ConfigManager.enableBronze) {
+                recipeRegistry.remove(getRL("ingotbronze_plate"));
+            }
+            recipeRegistry.remove(getRL("ingotcopper_plate"));
+            recipeRegistry.remove(getRL("ingotdawnstone_plate"));
+            if(ConfigManager.enableElectrum) {
+                recipeRegistry.remove(getRL("ingotelectrum_plate"));
+            }
+            recipeRegistry.remove(RegistryManager.plate_gold.getRegistryName());
+            recipeRegistry.remove(RegistryManager.plate_iron.getRegistryName());
+            recipeRegistry.remove(getRL("ingotlead_plate"));
+            if(ConfigManager.enableNickel) {
+                recipeRegistry.remove(getRL("ingotnickel_plate"));
+            }
+            recipeRegistry.remove(getRL("ingotsilver_plate"));
+            if(ConfigManager.enableTin) {
+                recipeRegistry.remove(getRL("ingottin_plate"));
+            }
+
+            //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
                 recipeRegistry.remove(RegistryManager.alchemy_pedestal.getRegistryName());
             }

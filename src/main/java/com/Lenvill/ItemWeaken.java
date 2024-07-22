@@ -35,7 +35,6 @@ public class ItemWeaken {
         weakenItem(RegistryManager.sword_dawnstone, 100);
         weakenItem(RegistryManager.hoe_dawnstone, 100);
 
-
         if(ConfigManager.enableAluminum) {
             weakenItem(RegistryManager.pickaxe_aluminum, 10);
             weakenItem(RegistryManager.axe_aluminum, 10);
