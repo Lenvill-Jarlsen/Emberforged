@@ -194,7 +194,7 @@ public class IOInit {
         EmberforgedMain.LOG.info("Emberforged Registry Generated");
         Gson gson = new Gson();
         String metal_types = gson.toJson(ledger);
-        EmberforgedMain.LOG.info(metal_types);
+        //EmberforgedMain.LOG.info(metal_types);
 
         /*
 

@@ -41,7 +41,7 @@ public class EmberforgedMain {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         System.out.println();
-        //AlchemyInit.preInit(event);
+        AlchemyInit.preInit(event);
     }
 
     @Mod.EventHandler
@@ -53,3 +53,18 @@ public class EmberforgedMain {
         StampInit.initStamps();
     }
 }
+
+/*
+TO-DO list:
+    2.0 Plans:
+        Finish rewriting all recipes that use Embers plates to use MFR plates
+    2.x Updates:
+        Rewrite Embers Recipes to feel more thematic to MFR
+        Further expand research integration
+        Make baubles optional
+    3.0 Plans:
+        Read from MFR's material registry and auto-generate liquids for every metal on there
+            (And prevent the generation of duplicate liquid metals)
+        Auto-generate basic melting and stamping recipes for every metal
+        Add the ability to add custom Embers recipes via JSON files
+ */

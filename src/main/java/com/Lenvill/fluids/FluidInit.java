@@ -122,7 +122,7 @@ public class FluidInit {
         }
     }
 
-    private static void meltAdd(String material, Fluid fluid){
+    private static void meltAdd(String material, Fluid fluid) {
         RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(MineFantasyItems.bar(material)),new FluidStack(fluid, 144)));
         RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.CHAIN_MESH).createComponentItemStack(material, 1)),new FluidStack(fluid, 144)));
         RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack(material, 1)),new FluidStack(fluid, 144)));
