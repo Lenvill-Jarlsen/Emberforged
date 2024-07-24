@@ -63,6 +63,8 @@ TO-DO list:
         Further expand research integration
         Make baubles optional
     3.0 Plans:
+        Replace the existing alchemy table with one that works with NBT
+            Pull from existing recipe Registry
         Read from MFR's material registry and auto-generate liquids for every metal on there
             (And prevent the generation of duplicate liquid metals)
         Auto-generate basic melting and stamping recipes for every metal
