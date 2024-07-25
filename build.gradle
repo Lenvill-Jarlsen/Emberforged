@@ -66,6 +66,10 @@ minecraft {
     }
 }
 
+sourceSets.all {
+    it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next()
+}
+
 
 repositories {
     google()

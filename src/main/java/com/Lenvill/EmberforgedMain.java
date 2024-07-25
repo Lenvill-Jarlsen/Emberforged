@@ -1,6 +1,7 @@
 package com.Lenvill;
 
 import com.Lenvill.fluids.FluidInit;
+import com.Lenvill.item.EmberforgedItems;
 import com.Lenvill.proxy.CommonProxy;
 import minefantasy.mfr.config.ConfigHardcore;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +34,7 @@ public class EmberforgedMain {
         }
         //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
+        EmberforgedItems.initItems();
         if (ConfigHardcore.HCCWeakItems) {
             ItemWeaken.weakenList();
         }

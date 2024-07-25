@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "emberforged:items/runed_bronze_gear"
+  }
+}

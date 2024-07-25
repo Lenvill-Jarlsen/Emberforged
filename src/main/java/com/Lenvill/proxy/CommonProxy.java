@@ -1,5 +1,7 @@
 package com.Lenvill.proxy;
 
+import net.minecraft.item.Item;
+
 public class CommonProxy {
 
     public void preInit() {
@@ -11,6 +13,10 @@ public class CommonProxy {
     }
 
     public void postInit() {
+        //NOOP for commonProxy
+    }
+
+    public void registerItemRenderer(Item item, int meta, String id) {
         //NOOP for commonProxy
     }
 }

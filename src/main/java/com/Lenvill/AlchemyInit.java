@@ -72,8 +72,6 @@ public class AlchemyInit {
         //alchemyRemover(new ItemStack(RegistryManager.ashen_cloth, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1));
         if(ConfigManager.enableBronze) {
             //alchemyRemover(new ItemStack(RegistryManager.ingot_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1));
-        }else{
-            //alchemyRemover(new ItemStack(MineFantasyItems.BRONZE_INGOT, 1), null, null, null, null);
         }
 
         /*
