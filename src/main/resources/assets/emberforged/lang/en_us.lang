@@ -1,3 +1,4 @@
+#NEW MOLTEN FLUIDS
 fluid.molten_steel=Molten Steel
 fluid.molten_pig_iron=Molten Pig Iron
 fluid.molten_black_steel=Molten Black Steel
@@ -9,6 +10,14 @@ fluid.molten_ignotumite=Molten Ignotumite
 fluid.molten_mithium=Molten Mithium
 fluid.molten_enderforge=Molten Enderforged
 fluid.molten_tungsten=Molten Tungsten
+
+#NEW INGREDIENTS
+item.runed_dawnstone_plate.name=Runed Dawnstone Plate
+item.runed_copper_plate.name=Runed Copper Plate
+item.runed_iron_plate.name=Runed Iron Plate
+item.runed_silver_plate.name=Runed Silver Plate
+item.runed_lead_scales.name=Gilded Lead Scales
+item.runed_bronze_gear.name=Runed Bronze Gears
 
 #EMBERS ITEMS PREFIX OVERRIDES
 item.crude_copper_pickaxe.name=Crude Copper Pickaxe
@@ -65,6 +74,7 @@ item.crude_tin_shovel.name=Crude Tin Shovel
 item.crude_tin_hoe.name=Crude Tin Hoe
 item.crude_tin_sword.name=Crude Tin Sword
 
+#KNOWLEDGE ENTRIES
 knowledge.ores.lead=Lead is a dull and malleable metal, which doesn't appear to have much use without some sort of advanced technology to strengthen it.
 knowledge.ores.quartz=Quartz deposits can be found on occasion underground, though how they got here from the Nether, nobody knows...
 knowledge.commodities.page=Caminite is a very sturdy ceramic, mixed from a bit of clay and sand. The mixture yields, when baked, a material that you believe will be hard enough for your purposes throughout all of your mechanical ambitions.

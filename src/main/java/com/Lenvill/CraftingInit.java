@@ -49,6 +49,8 @@ public class CraftingInit {
                 recipeRegistry.remove(getRL("ingottin_plate"));
             }
 
+            recipeRegistry.remove(RegistryManager.item_pipe.getRegistryName());
+
             //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
                 recipeRegistry.remove(RegistryManager.alchemy_pedestal.getRegistryName());

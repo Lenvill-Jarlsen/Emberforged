@@ -6,6 +6,46 @@
             "ore": "sand"
         }
     },
+		{
+		"name": "PLATE_DAWNSTONE",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:plate",
+            "nbt": "{mf_custom_materials:{main_material:\"dawnstone\"}}"
+        }
+	},
+		{
+		"name": "LEAD_SCALES",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:scale_mesh",
+            "nbt": "{mf_custom_materials:{main_material:\"lead\"}}"
+        }
+	},
+		{
+		"name": "PLATE_SILVER",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:plate",
+            "nbt": "{mf_custom_materials:{main_material:\"silver\"}}"
+        }
+	},
+	{
+		"name": "PLATE_COPPER",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:plate",
+            "nbt": "{mf_custom_materials:{main_material:\"copper\"}}"
+        }
+	},
+	{
+		"name": "PLATE_LEAD",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:plate",
+            "nbt": "{mf_custom_materials:{main_material:\"lead\"}}"
+        }
+	},
     {
         "name": "STICK_WOOD",
         "ingredient": {

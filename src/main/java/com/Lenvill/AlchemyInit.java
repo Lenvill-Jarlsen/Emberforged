@@ -1,34 +1,29 @@
 package com.Lenvill;
 
+import com.Lenvill.item.EmberforgedItems;
 import com.google.common.collect.Lists;
 import minefantasy.mfr.init.MineFantasyItems;
-import minefantasy.mfr.item.ItemMetalComponent;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
 import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
 import teamroots.embers.api.alchemy.AspectList;
 import teamroots.embers.recipe.AlchemyRecipe;
-import teamroots.embers.recipe.RecipeRegistry;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static minefantasy.mfr.init.MineFantasyItems.PLATE;
 import static teamroots.embers.recipe.RecipeRegistry.alchemyRecipes;
 
 public class AlchemyInit {
 
     public static void preInit(FMLInitializationEvent event) {
-        Ingredient mfr_copper_plate = Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("copper"));
-        Ingredient mfr_iron_plate = Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("iron"));
-        Ingredient mfr_dawnstone_plate = Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("dawnstone"));;
-        Ingredient lead_sword = Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "birch"));
+        Ingredient mfr_copper_plate = Ingredient.fromItem(EmberforgedItems.runed_copper_plate);
+        Ingredient mfr_iron_plate = Ingredient.fromItem(EmberforgedItems.runed_iron_plate);
+        Ingredient mfr_dawnstone_plate = Ingredient.fromItem(EmberforgedItems.runed_dawnstone_plate);
+        Ingredient runed_scales = Ingredient.fromItem(EmberforgedItems.gilded_lead_scales);
+        Ingredient runed_gears = Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS);
+        Ingredient lead_sword = Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
 
         if(Config.enableChanges) {
             alchemyOutputRemover(new ItemStack(RegistryManager.blasting_core));
@@ -36,21 +31,22 @@ public class AlchemyInit {
             alchemyOutputRemover(new ItemStack(RegistryManager.focal_lens));
             alchemyOutputRemover(new ItemStack(RegistryManager.intelligent_apparatus));
             alchemyOutputRemover(new ItemStack(RegistryManager.shifting_scales));
-            alchemyOutputRemover(new ItemStack(RegistryManager.wildfire_core, 1));
-            alchemyOutputRemover(new ItemStack(RegistryManager.winding_gears, 1));
+            alchemyOutputRemover(new ItemStack(RegistryManager.tyrfing));
+            alchemyOutputRemover(new ItemStack(RegistryManager.wildfire_core));
+            alchemyOutputRemover(new ItemStack(RegistryManager.winding_gears));
 
             alchemyOutputRemover(new ItemStack(RegistryManager.ember_pipe, 8));
         }
 
-        alchemyAdder(new ItemStack(RegistryManager.blasting_core,1), "copper", 16, 24, Ingredient.fromItem(Items.GUNPOWDER), mfr_iron_plate, mfr_iron_plate, mfr_iron_plate, Ingredient.fromStacks(MineFantasyItems.bar("copper")));
-        alchemyAdder(new ItemStack(RegistryManager.flame_barrier,1), "dawnstone", 16, 32, "silver", 16, 32, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, mfr_dawnstone_plate, mfr_dawnstone_plate, Ingredient.fromStacks(MineFantasyItems.bar("silver")));
-        alchemyAdder(new ItemStack(RegistryManager.focal_lens,1), "copper", 8, 16, "silver", 32, 64, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("silver")), mfr_dawnstone_plate, Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("silver")));
-        alchemyAdder(new ItemStack(RegistryManager.intelligent_apparatus,1), "copper", 24, 48, "lead", 40, 64, mfr_copper_plate, Ingredient.fromItem(RegistryManager.archaic_circuit), Ingredient.fromStacks(MineFantasyItems.bar("copper")), Ingredient.fromItem(RegistryManager.archaic_circuit), Ingredient.fromStacks(MineFantasyItems.bar("copper")));
-        alchemyAdder(new ItemStack(RegistryManager.shifting_scales,1), "lead", 32, 128, Ingredient.fromItem(RegistryManager.ashen_cloth), Ingredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack("lead")), Ingredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack("lead")), Ingredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack("lead")), Ingredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack("lead")));
-        alchemyAdder(new ItemStack(RegistryManager.wildfire_core,1), "iron", 32, 48, "silver", 24, 32, Ingredient.fromItem(RegistryManager.ancient_motive_core), Ingredient.fromStacks(MineFantasyItems.bar("dawnstone")), Ingredient.fromItem(RegistryManager.ember_cluster), Ingredient.fromStacks(MineFantasyItems.bar("dawnstone")), mfr_copper_plate);
-        alchemyAdder(new ItemStack(RegistryManager.winding_gears,1), "copper", 32, 128, Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS), Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("bronze")), Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("bronze")), Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("bronze")), Ingredient.fromStacks(((ItemMetalComponent) PLATE).createComponentItemStack("bronze")));
+        alchemyAdder(new ItemStack(RegistryManager.blasting_core,1), "copper", 16, 24, Ingredient.fromItem(Items.GUNPOWDER), mfr_iron_plate, mfr_iron_plate, mfr_iron_plate, new OreIngredient("ingotCopper"));
+        alchemyAdder(new ItemStack(RegistryManager.flame_barrier,1), "dawnstone", 16, 32, "silver", 16, 32, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, mfr_dawnstone_plate, mfr_dawnstone_plate, new OreIngredient("ingotSilver"));
+        alchemyAdder(new ItemStack(RegistryManager.focal_lens,1), "copper", 8, 16, "silver", 32, 64, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate));
+        alchemyAdder(new ItemStack(RegistryManager.intelligent_apparatus,1), "copper", 24, 48, "lead", 40, 64, mfr_copper_plate, Ingredient.fromItem(RegistryManager.archaic_circuit), new OreIngredient("ingotCopper"), Ingredient.fromItem(RegistryManager.archaic_circuit), new OreIngredient("ingotCopper"));
+        alchemyAdder(new ItemStack(RegistryManager.shifting_scales,1), "lead", 32, 128, Ingredient.fromItem(RegistryManager.ashen_cloth), runed_scales, runed_scales, runed_scales, runed_scales);
+        alchemyAdder(new ItemStack(RegistryManager.wildfire_core,1), "iron", 32, 48, "silver", 24, 32, Ingredient.fromItem(RegistryManager.ancient_motive_core), new OreIngredient("ingotDawnstone"), Ingredient.fromItem(RegistryManager.ember_cluster), new OreIngredient("ingotDawnstone"), mfr_copper_plate);
+        alchemyAdder(new ItemStack(RegistryManager.winding_gears,1), "copper", 32, 128, Ingredient.fromItem(MineFantasyItems.BRONZE_INGOT), runed_gears, runed_gears, runed_gears, runed_gears);
 
-        alchemyAdder(new ItemStack(RegistryManager.tyrfing,1), "silver", 64, 96, "lead", 64, 96, lead_sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), Ingredient.fromStacks(MineFantasyItems.bar("lead")), Ingredient.fromStacks(MineFantasyItems.bar("lead")));
+        alchemyAdder(new ItemStack(RegistryManager.tyrfing,1), "silver", 64, 96, "lead", 64, 96, lead_sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), new OreIngredient("ingotLead"), new OreIngredient("ingotLead"));
 
         //The volitile Ember Conduit, as it is wierd
         alchemyRecipes.add(new AlchemyRecipe(
@@ -61,7 +57,7 @@ public class AlchemyInit {
                         .setRange("silver", 8, 16)
                         .setRange("lead", 8, 16),
                 Ingredient.fromItem(RegistryManager.wildfire_core),
-                Lists.newArrayList(Ingredient.fromStacks(MineFantasyItems.bar("silver")), mfr_dawnstone_plate, Ingredient.fromStacks(MineFantasyItems.bar("silver")), mfr_dawnstone_plate),
+                Lists.newArrayList(new OreIngredient("ingotSilver"), mfr_dawnstone_plate, new OreIngredient("ingotSilver"), mfr_dawnstone_plate),
                 new ItemStack(RegistryManager.ember_pipe, 8))
         );
 

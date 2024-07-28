@@ -44,6 +44,7 @@ public class EmberforgedMain {
     public void init(FMLInitializationEvent event) {
         System.out.println();
         AlchemyInit.preInit(event);
+        FluidInit.addFluidRecipes();
     }
 
     @Mod.EventHandler

@@ -18,7 +18,7 @@ public class EmberforgedItems {
     public static Item runed_copper_plate = null;
     public static Item runed_iron_plate = null;
     public static Item runed_silver_plate = null;
-    public static Item runed_lead_scales = null;
+    public static Item gilded_lead_scales = null;
     public static Item runed_bronze_gear = null;
 
     public static void initItems() {
@@ -26,8 +26,8 @@ public class EmberforgedItems {
         runed_copper_plate = new ItemBaseMFR("runed_copper_plate").setCreativeTab(MineFantasyTabs.tabMaterials);
         runed_iron_plate = new ItemBaseMFR("runed_iron_plate").setCreativeTab(MineFantasyTabs.tabMaterials);
         runed_silver_plate = new ItemBaseMFR("runed_silver_plate").setCreativeTab(MineFantasyTabs.tabMaterials);
-        runed_lead_scales = new ItemBaseMFR("runed_lead_scales").setCreativeTab(MineFantasyTabs.tabMaterials);
-        runed_bronze_gear = new ItemBaseMFR("runed_bronze_gear").setCreativeTab(MineFantasyTabs.tabMaterials);
+        gilded_lead_scales = new ItemBaseMFR("gilded_lead_scales").setCreativeTab(MineFantasyTabs.tabMaterials);
+        //runed_bronze_gear = new ItemBaseMFR("runed_bronze_gear").setCreativeTab(MineFantasyTabs.tabMaterials);
     }
 
     @SubscribeEvent
@@ -38,8 +38,8 @@ public class EmberforgedItems {
         registry.register(runed_copper_plate);
         registry.register(runed_iron_plate);
         registry.register(runed_silver_plate);
-        registry.register(runed_lead_scales);
-        registry.register(runed_bronze_gear);
+        registry.register(gilded_lead_scales);
+        //registry.register(runed_bronze_gear);
         //event.getRegistry().registerAll(ITEMS.toArray(new Item[0]));
     }
 }

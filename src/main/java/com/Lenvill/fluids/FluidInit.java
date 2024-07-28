@@ -1,5 +1,6 @@
 package com.Lenvill.fluids;
 
+import com.Lenvill.item.EmberforgedItems;
 import minefantasy.mfr.init.MineFantasyItems;
 import minefantasy.mfr.item.ItemMetalComponent;
 import net.minecraft.item.Item;
@@ -33,7 +34,6 @@ public class FluidInit {
     public static void preInitFluids(FMLPreInitializationEvent event) {
         initFluids();
         registerFluids();
-        addFluidRecipes();
     }
 
     private static void initFluids() {
@@ -75,7 +75,7 @@ public class FluidInit {
         FluidRegistry.addBucketForFluid(molten_tungsten);
     }
 
-    private static void addFluidRecipes() {
+    public static void addFluidRecipes() {
         meltAdd(MineFantasyItems.STEEL_INGOT, molten_steel);
         meltAdd(MineFantasyItems.PIG_IRON_INGOT, molten_pig_iron);
         meltAdd(MineFantasyItems.BLACK_STEEL_INGOT, molten_black_steel);
@@ -99,7 +99,7 @@ public class FluidInit {
         meltAdd("red_steel", molten_red_steel);
 
         meltAdd("silver", RegistryManager.fluid_molten_silver);
-        meltAdd("silver", RegistryManager.fluid_molten_gold);
+        meltAdd("gold", RegistryManager.fluid_molten_gold);
 
         meltAdd("adamantium", molten_adamantium);
         meltAdd("mithril", molten_mithril);
@@ -120,6 +120,13 @@ public class FluidInit {
         if(ConfigManager.enableNickel) {
             meltAdd("nickel", RegistryManager.fluid_molten_nickel);
         }
+
+        //A couple of specific recipes
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_dawnstone_plate),new FluidStack(RegistryManager.fluid_molten_dawnstone, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_copper_plate),new FluidStack(RegistryManager.fluid_molten_copper, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_iron_plate),new FluidStack(RegistryManager.fluid_molten_iron, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_silver_plate),new FluidStack(RegistryManager.fluid_molten_silver, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.gilded_lead_scales),new FluidStack(RegistryManager.fluid_molten_lead, 144)));
     }
 
     private static void meltAdd(String material, Fluid fluid) {
