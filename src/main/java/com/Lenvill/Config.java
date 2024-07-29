@@ -13,6 +13,7 @@ public class Config {
 
     //These Booleans only exist in the code to control more complex toggles
     public static boolean altSparkPlugToggle = false;
+    public static boolean altClockworkAttenuatorToggle = false;
     public static boolean aluminumToggle = false;
     public static boolean electrumToggle = false;
     public static boolean nickelToggle = false;
@@ -20,6 +21,7 @@ public class Config {
 
     //Main Config Options
     public static boolean enableChanges;
+    public static boolean disableEmbersPlates;
     public static boolean registerMetals;
 
     //Recipe Toggles Options
@@ -104,6 +106,9 @@ public class Config {
         if(enableChanges && !ConfigManager.enableAluminum){
             altSparkPlugToggle = true;
         }
+        if(enableChanges && !ConfigManager.enableElectrum){
+            altClockworkAttenuatorToggle = true;
+        }
         if(isBaublesIntegrationEnabled()){
             baublesToggle = true;
         }
@@ -111,11 +116,12 @@ public class Config {
 
     public static void load() {
         //Here are the category declairations
-        config.addCustomCategoryComment("Recipe Toggle", "Enable or disable features.");
+        config.addCustomCategoryComment("Recipe Toggle", "Enable or disable the presence of default/vanilla style recipes.");
         config.addCustomCategoryComment("Main", "General config options for Emberforged.");
 
         //Main Config Options
-        enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes");
+        enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes. Look in Minefantasy Reforged's 'Crafting' config file to disable individual anvil recipes");
+        disableEmbersPlates = config.getBoolean("disableEmbersPlates","Main",true,"Makes Ember's plates uncraftable. You should be using MFRs plates anyway.");
         registerMetals = config.getBoolean("registerMetals","Main",true,"Whether or not Emberforged will register its metals. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
 
         //Recipe Toggle Options

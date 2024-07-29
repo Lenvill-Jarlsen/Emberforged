@@ -3,6 +3,7 @@
         "aluminumtoggle": "com.Lenvill.recipe.factories.AluminumToggle",
         "nickeltoggle": "com.Lenvill.recipe.factories.NickelToggle",
         "altsparkplugtoggle": "com.Lenvill.recipe.factories.AltSparkPlugToggle",
+        "altclockworkattenuatortoggle": "com.Lenvill.recipe.factories.AltClockworkAttenuatorToggle",
         "enablechanges": "com.Lenvill.recipe.factories.EnableChanges"
     }
 }

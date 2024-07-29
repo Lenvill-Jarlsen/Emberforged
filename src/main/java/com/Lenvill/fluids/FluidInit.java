@@ -88,37 +88,37 @@ public class FluidInit {
         meltAdd(MineFantasyItems.ENDER_INGOT, molten_enderforge);
         meltAdd(MineFantasyItems.TUNGSTEN_INGOT, molten_tungsten);
 
-        meltAdd("tin", RegistryManager.fluid_molten_tin);
-        meltAdd("copper", RegistryManager.fluid_molten_copper);
-        meltAdd("bronze", RegistryManager.fluid_molten_bronze);
-        meltAdd("iron", RegistryManager.fluid_molten_iron);
-        meltAdd("pig_iron", molten_pig_iron);
-        meltAdd("steel", molten_steel);
-        meltAdd("black_steel", molten_black_steel);
-        meltAdd("blue_steel", molten_blue_steel);
-        meltAdd("red_steel", molten_red_steel);
+        //meltAdd("tin", RegistryManager.fluid_molten_tin);
+        //meltAdd("copper", RegistryManager.fluid_molten_copper);
+        //meltAdd("bronze", RegistryManager.fluid_molten_bronze);
+        //meltAdd("iron", RegistryManager.fluid_molten_iron);
+        //meltAdd("pig_iron", molten_pig_iron);
+        //meltAdd("steel", molten_steel);
+        //meltAdd("black_steel", molten_black_steel);
+        //meltAdd("blue_steel", molten_blue_steel);
+        //meltAdd("red_steel", molten_red_steel);
 
-        meltAdd("silver", RegistryManager.fluid_molten_silver);
-        meltAdd("gold", RegistryManager.fluid_molten_gold);
+        //meltAdd("silver", RegistryManager.fluid_molten_silver);
+        //meltAdd("gold", RegistryManager.fluid_molten_gold);
 
-        meltAdd("adamantium", molten_adamantium);
-        meltAdd("mithril", molten_mithril);
-        meltAdd("ignotumite", molten_ignotumite);
-        meltAdd("mithium", molten_mithium);
-        meltAdd("ender", molten_enderforge);
-        meltAdd("tungsten", molten_tungsten);
+        //meltAdd("adamantium", molten_adamantium);
+        //meltAdd("mithril", molten_mithril);
+        //meltAdd("ignotumite", molten_ignotumite);
+        //meltAdd("mithium", molten_mithium);
+        //meltAdd("ender", molten_enderforge);
+        //meltAdd("tungsten", molten_tungsten);
 
-        meltAdd("dawnstone", RegistryManager.fluid_molten_dawnstone);
-        meltAdd("lead", RegistryManager.fluid_molten_lead);
+        //meltAdd("dawnstone", RegistryManager.fluid_molten_dawnstone);
+        //meltAdd("lead", RegistryManager.fluid_molten_lead);
 
         if(ConfigManager.enableAluminum) {
-            meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
+            //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
         if(ConfigManager.enableElectrum) {
-            meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
+            //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
         if(ConfigManager.enableNickel) {
-            meltAdd("nickel", RegistryManager.fluid_molten_nickel);
+            //meltAdd("nickel", RegistryManager.fluid_molten_nickel);
         }
 
         //A couple of specific recipes
@@ -142,5 +142,4 @@ public class FluidInit {
     private static void meltAdd(Item item, Fluid fluid) {
         RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(Ingredient.fromItem(item),new FluidStack(fluid, 144)));
     }
-
 }

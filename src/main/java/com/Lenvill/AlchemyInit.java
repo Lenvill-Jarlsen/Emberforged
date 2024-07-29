@@ -6,12 +6,17 @@ import minefantasy.mfr.init.MineFantasyItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.NBTBase;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.oredict.OreIngredient;
-import teamroots.embers.ConfigManager;
 import teamroots.embers.RegistryManager;
 import teamroots.embers.api.alchemy.AspectList;
 import teamroots.embers.recipe.AlchemyRecipe;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import static teamroots.embers.recipe.RecipeRegistry.alchemyRecipes;
 
@@ -61,23 +66,6 @@ public class AlchemyInit {
                 new ItemStack(RegistryManager.ember_pipe, 8))
         );
 
-        //alchemyRemover(new ItemStack(RegistryManager.ancient_motive_core), new ItemStack(RegistryManager.ingot_dawnstone, 1), new ItemStack(RegistryManager.ember_cluster, 1), new ItemStack(RegistryManager.ingot_dawnstone, 1), new ItemStack(RegistryManager.plate_copper, 1));
-        //alchemyRemover(new ItemStack(Items.GUNPOWDER, 1), new ItemStack(RegistryManager.plate_iron, 1), new ItemStack(RegistryManager.plate_iron, 1),new ItemStack(RegistryManager.plate_iron, 1),new ItemStack(RegistryManager.ingot_copper, 1));
-        //alchemyRemover(new ItemStack(RegistryManager.crystal_ember, 1), new ItemStack(RegistryManager.plate_dawnstone, 1), new ItemStack(RegistryManager.plate_dawnstone, 1), new ItemStack(RegistryManager.plate_dawnstone, 1), new ItemStack(RegistryManager.ingot_silver, 1));
-        //alchemyRemover(new ItemStack(RegistryManager.crystal_ember, 1), new ItemStack(RegistryManager.plate_dawnstone, 1), new ItemStack(RegistryManager.plate_silver, 1), new ItemStack(RegistryManager.plate_dawnstone, 1), new ItemStack(RegistryManager.plate_silver, 1));
-        //alchemyRemover(new ItemStack(RegistryManager.ashen_cloth, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1), new ItemStack(RegistryManager.plate_lead, 1));
-        if(ConfigManager.enableBronze) {
-            //alchemyRemover(new ItemStack(RegistryManager.ingot_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1), new ItemStack(RegistryManager.plate_bronze, 1));
-        }
-
-        /*
-        TO-DO:
-            Intelligent Apparatus
-            Volatile Ember Conduit
-
-            Tyrfing
-         */
-
         //RecipeRegistry.alchemyRecipes.add(new AlchemyRecipe(new AspectList.AspectRangeList().setRange("iron", 32, 48).setRange("silver", 24, 32), Ingredient.fromItem(RegistryManager.ancient_motive_core), Lists.newArrayList(Ingredient.fromItem(RegistryManager.ingot_dawnstone), Ingredient.fromItem(RegistryManager.ember_cluster), Ingredient.fromItem(RegistryManager.ingot_dawnstone), Ingredient.fromItem((((ItemMetalComponent) PLATE).createComponentItemStack("copper")).getItem())), new ItemStack(RegistryManager.wildfire_core,1)));
         //RecipeRegistry.alchemyRecipes.add(new AlchemyRecipe(new AspectList.AspectRangeList().setRange("copper", 16, 24), Ingredient.fromItem(Items.GUNPOWDER), Lists.newArrayList(Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("copper", 1).getItem()), Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("iron", 1).getItem()), Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("iron", 1).getItem()), Ingredient.fromItem(RegistryManager.ingot_copper)), new ItemStack(RegistryManager.blasting_core,1)));
         //RecipeRegistry.alchemyRecipes.add(new AlchemyRecipe(new AspectList.AspectRangeList().setRange("dawnstone", 16, 32).setRange("silver", 16, 32), Ingredient.fromItem(RegistryManager.crystal_ember), Lists.newArrayList(Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("dawnstone", 1).getItem()), Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("dawnstone", 1).getItem()), Ingredient.fromItem(((ItemMetalComponent) PLATE).createComponentItemStack("dawnstone", 1).getItem()), Ingredient.fromItem(RegistryManager.ingot_silver)), new ItemStack(RegistryManager.flame_barrier,1)));
@@ -100,5 +88,38 @@ public class AlchemyInit {
             }
         }
     }
+
+    /*
+    public boolean matches(ItemStack center, List<ItemStack> test) {
+        EmberforgedMain.LOG.info("Match function called");
+
+        if (!centerIngredient.apply(center)) return false;
+
+        ArrayList<Ingredient> oIngredients = new ArrayList<>(outsideIngredients);
+
+        while (test.size() > oIngredients.size()) {
+            oIngredients.add(Ingredient.EMPTY);
+        }
+
+        for (ItemStack stack : test) {
+            Optional<Ingredient> foundNbtMatch = oIngredients.stream().filter(i -> Arrays.stream(i.getMatchingStacks()).filter(i2 -> {
+                if (!i2.getEnchantmentTagList().isEmpty()) {
+                    for(NBTBase n0 : i2.getEnchantmentTagList()) {
+                        for(NBTBase n1 : stack.getEnchantmentTagList()) {
+                            return n0.equals(n1);
+                        }
+                    }
+                }
+                return false;
+            }).isParallel()).findFirst();
+            // remove if present, otherwise we need to check non NBT tag
+            foundNbtMatch.ifPresent(oIngredients::remove);
+            // Check non NBT tag match
+            Optional<Ingredient> found = oIngredients.stream().filter(x -> x.apply(stack)).findFirst();
+            if (found.isPresent()) { oIngredients.remove(found.get()); } else { return false; }
+        }
+        return true;
+    }
+     */
 
 }

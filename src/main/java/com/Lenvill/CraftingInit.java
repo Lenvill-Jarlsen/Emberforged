@@ -27,29 +27,33 @@ public class CraftingInit {
             ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
 
             //Remove Ember's Plates
-            if(ConfigManager.enableAluminum) {
-                recipeRegistry.remove(getRL("ingotaluminium_plate"));
-            }
-            if(ConfigManager.enableBronze) {
-                recipeRegistry.remove(getRL("ingotbronze_plate"));
-            }
-            recipeRegistry.remove(getRL("ingotcopper_plate"));
-            recipeRegistry.remove(getRL("ingotdawnstone_plate"));
-            if(ConfigManager.enableElectrum) {
-                recipeRegistry.remove(getRL("ingotelectrum_plate"));
-            }
-            recipeRegistry.remove(RegistryManager.plate_gold.getRegistryName());
-            recipeRegistry.remove(RegistryManager.plate_iron.getRegistryName());
-            recipeRegistry.remove(getRL("ingotlead_plate"));
-            if(ConfigManager.enableNickel) {
-                recipeRegistry.remove(getRL("ingotnickel_plate"));
-            }
-            recipeRegistry.remove(getRL("ingotsilver_plate"));
-            if(ConfigManager.enableTin) {
-                recipeRegistry.remove(getRL("ingottin_plate"));
+            if(Config.disableEmbersPlates) {
+                if (ConfigManager.enableAluminum) {
+                    recipeRegistry.remove(getRL("ingotaluminium_plate"));
+                }
+                if (ConfigManager.enableBronze) {
+                    recipeRegistry.remove(getRL("ingotbronze_plate"));
+                }
+                recipeRegistry.remove(getRL("ingotcopper_plate"));
+                recipeRegistry.remove(getRL("ingotdawnstone_plate"));
+                if (ConfigManager.enableElectrum) {
+                    recipeRegistry.remove(getRL("ingotelectrum_plate"));
+                }
+                recipeRegistry.remove(RegistryManager.plate_gold.getRegistryName());
+                recipeRegistry.remove(RegistryManager.plate_iron.getRegistryName());
+                recipeRegistry.remove(getRL("ingotlead_plate"));
+                if (ConfigManager.enableNickel) {
+                    recipeRegistry.remove(getRL("ingotnickel_plate"));
+                }
+                recipeRegistry.remove(getRL("ingotsilver_plate"));
+                if (ConfigManager.enableTin) {
+                    recipeRegistry.remove(getRL("ingottin_plate"));
+                }
             }
 
             recipeRegistry.remove(RegistryManager.item_pipe.getRegistryName());
+            recipeRegistry.remove(RegistryManager.breaker.getRegistryName());
+            recipeRegistry.remove(RegistryManager.item_request.getRegistryName());
 
             //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
@@ -73,6 +77,13 @@ public class CraftingInit {
             if(Config.hcCaminiteBlend) {
                 recipeRegistry.remove(RegistryManager.blend_caminite.getRegistryName());
             }
+            if(Config.hcCaminiteFiring){
+                recipeRegistry.remove(RegistryManager.plate_caminite_raw.getRegistryName());
+                recipeRegistry.remove(RegistryManager.stamp_bar_raw.getRegistryName());
+                recipeRegistry.remove(RegistryManager.stamp_flat_raw.getRegistryName());
+                recipeRegistry.remove(RegistryManager.stamp_plate_raw.getRegistryName());
+                recipeRegistry.remove(RegistryManager.stamp_gear_raw.getRegistryName());
+            }
             if (Config.hcCasterOrb) {
                 recipeRegistry.remove(RegistryManager.caster_orb.getRegistryName());
             }
@@ -85,7 +96,7 @@ public class CraftingInit {
             if (Config.hcCinderPlinth) {
                 recipeRegistry.remove(RegistryManager.cinder_plinth.getRegistryName());
             }
-            if (Config.hcClockworkAttenuator) {
+            if (Config.hcClockworkAttenuator && !ConfigManager.enableElectrum) {
                 recipeRegistry.remove(RegistryManager.clockwork_attenuator.getRegistryName());
             }
             if (Config.hcClockworkAxe) {
@@ -185,7 +196,7 @@ public class CraftingInit {
                 recipeRegistry.remove(RegistryManager.mech_core.getRegistryName());
             }
             if (Config.hcMechanicalPump) {
-                recipeRegistry.remove(RegistryManager.pump.getRegistryName());
+                recipeRegistry.remove(RegistryManager.mechanical_pump.getRegistryName());
             }
             if (Config.hcMiniBoiler) {
                 recipeRegistry.remove(RegistryManager.mini_boiler.getRegistryName());

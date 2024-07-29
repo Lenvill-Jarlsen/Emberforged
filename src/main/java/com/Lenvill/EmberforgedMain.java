@@ -65,6 +65,7 @@ TO-DO list:
         Rewrite Embers Recipes to feel more thematic to MFR
         Further expand research integration
         Make baubles optional
+        Support Mystical Mechanics
     3.0 Plans:
         Replace the existing alchemy table with one that works with NBT
             Pull from existing recipe Registry
