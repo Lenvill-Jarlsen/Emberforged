@@ -1,7 +1,7 @@
 {
   "type": "anvil_shaped_recipe",
   "skill": "artisanry",
-  "research": "",
+  "research": "reaction_chamber",
   "tool_type": "hammer",
   "is_tool_recipe": false,
   "anvil_tier": -1,
@@ -12,24 +12,24 @@
   "output_hot": false,
   "pattern": [
     "PPP",
-    "IBI",
-    " M "
+    "P P",
+    "BSB"
   ],
   "key": {
-    "I": {
-      "item": "#BAR_IRON"
-    },
     "P": {
-      "item": "#PLATE_COPPER"
+        "type": "minecraft:item_nbt",
+        "item": "minefantasyreforged:plate",
+        "nbt": "{mf_custom_materials:{main_material:\"bronze\"}}"
+
     },
     "B": {
-      "item": "#BLOCK_COPPER"
+      "item": "#BAR_BRONZE"
     },
-    "M": {
-      "item": "embers:mech_core"
+    "S": {
+      "item": "embers:spark_plug"
     }
   },
   "result": {
-    "item": "embers:heat_coil"
+    "item": "embers:reaction_chamber"
   }
 }

@@ -47,6 +47,23 @@
             "nbt": "{mf_custom_materials:{main_material:\"lead\"}}"
         }
 	},
+		{
+		"name": "PLATE_SILVER",
+        "ingredient": {
+            "type": "minecraft:item_nbt",
+            "item": "minefantasyreforged:plate",
+            "nbt": "{mf_custom_materials:{main_material:\"lead\"}}"
+        }
+	},
+	    {
+        "name": "BLOCK_COPPER",
+        "ingredient": [
+            {
+                "type": "forge:ore_dict",
+                "ore": "blockCopper"
+            }
+        ]
+    },
 	{
         "name": "STICK_WOOD",
         "ingredient": {

@@ -13,6 +13,7 @@ import minefantasy.mfr.recipe.CraftingManagerCarpenter;
 import net.minecraft.init.Items;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import teamroots.embers.config.ConfigMaterial;
 import teamroots.embers.register.BlockRegister;
 import teamroots.embers.register.ItemRegister;
 
@@ -66,7 +67,9 @@ public class ResearchInit {
     private static void initArtefacts() {
         ResearchArtefacts.addArtefact(MineFantasyItems.COMPOSITE_ALLOY_INGOT, tinkerHammer);
         ResearchArtefacts.addArtefact(MineFantasyItems.COPPER_INGOT, gadgets);
-        ResearchArtefacts.addArtefact(ItemRegister.INGOT_COPPER, gadgets);
+        if(ConfigMaterial.COPPER.isNotOff()) {
+            ResearchArtefacts.addArtefact(ItemRegister.INGOT_COPPER, gadgets);
+        }
         ResearchArtefacts.addArtefact(ItemRegister.PLATE_CAMINITE, pipes);
         ResearchArtefacts.addArtefact(MineFantasyItems.COMPOSITE_ALLOY_INGOT, mechanicalCore);
         ResearchArtefacts.addArtefact(ItemRegister.CRYSTAL_EMBER, emberTransfer);

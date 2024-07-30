@@ -29,7 +29,7 @@
       "item": "embers:stairs_caminite_brick"
     },
     "B": {
-      "item": "embers:block_copper"
+      "item": "#BLOCK_COPPER"
     }
   },
   "result": {

@@ -29,7 +29,7 @@
       "item": "embers:wildfire_core"
     },
     "C": {
-      "item": "embers:block_copper"
+      "item": "#BLOCK_COPPER"
     },
     "D": {
       "item": "embers:block_dawnstone"

@@ -53,7 +53,7 @@ public class CraftingInit {
                     //recipeRegistry.remove(getRL("plate_gold"));
                     manualRemover(ItemRegister.PLATE_GOLD);
                 }
-                if (ConfigMaterial.IRON.isNotOff()) {
+                if (ConfigMaterial.IRON.mustLoad()) {
                     //recipeRegistry.remove(getRL("plate_iron"));
                     manualRemover(ItemRegister.PLATE_IRON);
                 }
@@ -78,6 +78,7 @@ public class CraftingInit {
             recipeRegistry.remove(getRL("item_pipe"));
             recipeRegistry.remove(getRL("breaker"));
             recipeRegistry.remove(getRL("item_request"));
+            recipeRegistry.remove(getRL("reaction_chamber"));
 
             //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
@@ -148,7 +149,7 @@ public class CraftingInit {
                 recipeRegistry.remove(getRL("ember_belt"));
             }
             if (Config.hcEmberBore) {
-                //recipeRegistry.remove(getRL("ember_bore"));
+                recipeRegistry.remove(getRL("ember_bore"));
             }
             if (Config.hcEmberBulb) {
                 recipeRegistry.remove(getRL("ember_bulb"));

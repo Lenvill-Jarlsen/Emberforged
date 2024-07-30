@@ -29,7 +29,7 @@
       "item": "embers:shard_ember"
     },
     "B": {
-      "item": "embers:block_copper"
+      "item": "#BLOCK_COPPER"
     }
   },
   "result": {
