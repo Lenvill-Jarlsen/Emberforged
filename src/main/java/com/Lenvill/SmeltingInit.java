@@ -5,26 +5,40 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.config.ConfigMaterial;
+import teamroots.embers.register.BlockRegister;
+import teamroots.embers.register.ItemRegister;
 
 import java.util.Map;
 
 public class SmeltingInit {
         public static void allsmelt() {
-            removeSmeltingRecipe(RegistryManager.ore_aluminum);
-            removeSmeltingRecipe(RegistryManager.ore_copper);
-            removeSmeltingRecipe(RegistryManager.ore_lead);
-            removeSmeltingRecipe(RegistryManager.ore_nickel);
-            removeSmeltingRecipe(RegistryManager.ore_silver);
-            removeSmeltingRecipe(RegistryManager.ore_tin);
+            if(ConfigMaterial.ALUMINUM.mustLoad()) {
+                removeSmeltingRecipe(BlockRegister.ORE_ALUMINUM);
+            }
+            if(ConfigMaterial.COPPER.mustLoad()) {
+                removeSmeltingRecipe(BlockRegister.ORE_COPPER);
+            }
+            if(ConfigMaterial.LEAD.mustLoad()) {
+                removeSmeltingRecipe(BlockRegister.ORE_LEAD);
+            }
+            if(ConfigMaterial.NICKEL.mustLoad()){
+                removeSmeltingRecipe(BlockRegister.ORE_NICKEL);
+            }
+            if(ConfigMaterial.SILVER.mustLoad()) {
+                removeSmeltingRecipe(BlockRegister.ORE_SILVER);
+            }
+            if(ConfigMaterial.TIN.mustLoad()) {
+                removeSmeltingRecipe(BlockRegister.ORE_TIN);
+            }
 
             if(Config.hcCaminiteFiring || ConfigHardcore.preventCeramic) {
-                removeSmeltingRecipe(RegistryManager.stamp_bar_raw);
-                removeSmeltingRecipe(RegistryManager.stamp_plate_raw);
-                removeSmeltingRecipe(RegistryManager.stamp_gear_raw);
-                removeSmeltingRecipe(RegistryManager.stamp_flat_raw);
-                removeSmeltingRecipe(RegistryManager.blend_caminite);
-                removeSmeltingRecipe(RegistryManager.plate_caminite_raw);
+                removeSmeltingRecipe(ItemRegister.BLEND_CAMINITE);
+                removeSmeltingRecipe(ItemRegister.STAMP_BAR_RAW);
+                removeSmeltingRecipe(ItemRegister.STAMP_PLATE_RAW);
+                removeSmeltingRecipe(ItemRegister.STAMP_GEAR_RAW);
+                removeSmeltingRecipe(ItemRegister.STAMP_FLAT_RAW);
+                removeSmeltingRecipe(ItemRegister.PLATE_CAMINITE_RAW);
             }
 
             /*

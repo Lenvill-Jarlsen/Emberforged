@@ -9,9 +9,10 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTBase;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.oredict.OreIngredient;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.api.alchemy.AspectList;
 import teamroots.embers.recipe.AlchemyRecipe;
+import teamroots.embers.register.BlockRegister;
+import teamroots.embers.register.ItemRegister;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,27 +32,27 @@ public class AlchemyInit {
         Ingredient lead_sword = Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
 
         if(Config.enableChanges) {
-            alchemyOutputRemover(new ItemStack(RegistryManager.blasting_core));
-            alchemyOutputRemover(new ItemStack(RegistryManager.flame_barrier));
-            alchemyOutputRemover(new ItemStack(RegistryManager.focal_lens));
-            alchemyOutputRemover(new ItemStack(RegistryManager.intelligent_apparatus));
-            alchemyOutputRemover(new ItemStack(RegistryManager.shifting_scales));
-            alchemyOutputRemover(new ItemStack(RegistryManager.tyrfing));
-            alchemyOutputRemover(new ItemStack(RegistryManager.wildfire_core));
-            alchemyOutputRemover(new ItemStack(RegistryManager.winding_gears));
+            alchemyOutputRemover(new ItemStack(ItemRegister.BLASTING_CORE));
+            alchemyOutputRemover(new ItemStack(ItemRegister.FLAME_BARRIER));
+            alchemyOutputRemover(new ItemStack(ItemRegister.FOCAL_LENS));
+            alchemyOutputRemover(new ItemStack(ItemRegister.INTELLIGENT_APPARATUS));
+            alchemyOutputRemover(new ItemStack(ItemRegister.SHIFTING_SCALES));
+            alchemyOutputRemover(new ItemStack(ItemRegister.TYRFING));
+            alchemyOutputRemover(new ItemStack(ItemRegister.WILDFIRE_CORE));
+            alchemyOutputRemover(new ItemStack(ItemRegister.WINDING_GEARS));
 
-            alchemyOutputRemover(new ItemStack(RegistryManager.ember_pipe, 8));
+            alchemyOutputRemover(new ItemStack(BlockRegister.EMBER_PIPE, 8));
         }
 
-        alchemyAdder(new ItemStack(RegistryManager.blasting_core,1), "copper", 16, 24, Ingredient.fromItem(Items.GUNPOWDER), mfr_iron_plate, mfr_iron_plate, mfr_iron_plate, new OreIngredient("ingotCopper"));
-        alchemyAdder(new ItemStack(RegistryManager.flame_barrier,1), "dawnstone", 16, 32, "silver", 16, 32, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, mfr_dawnstone_plate, mfr_dawnstone_plate, new OreIngredient("ingotSilver"));
-        alchemyAdder(new ItemStack(RegistryManager.focal_lens,1), "copper", 8, 16, "silver", 32, 64, Ingredient.fromItem(RegistryManager.crystal_ember), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate));
-        alchemyAdder(new ItemStack(RegistryManager.intelligent_apparatus,1), "copper", 24, 48, "lead", 40, 64, mfr_copper_plate, Ingredient.fromItem(RegistryManager.archaic_circuit), new OreIngredient("ingotCopper"), Ingredient.fromItem(RegistryManager.archaic_circuit), new OreIngredient("ingotCopper"));
-        alchemyAdder(new ItemStack(RegistryManager.shifting_scales,1), "lead", 32, 128, Ingredient.fromItem(RegistryManager.ashen_cloth), runed_scales, runed_scales, runed_scales, runed_scales);
-        alchemyAdder(new ItemStack(RegistryManager.wildfire_core,1), "iron", 32, 48, "silver", 24, 32, Ingredient.fromItem(RegistryManager.ancient_motive_core), new OreIngredient("ingotDawnstone"), Ingredient.fromItem(RegistryManager.ember_cluster), new OreIngredient("ingotDawnstone"), mfr_copper_plate);
-        alchemyAdder(new ItemStack(RegistryManager.winding_gears,1), "copper", 32, 128, Ingredient.fromItem(MineFantasyItems.BRONZE_INGOT), runed_gears, runed_gears, runed_gears, runed_gears);
+        alchemyAdder(new ItemStack(ItemRegister.BLASTING_CORE,1), "copper", 16, 24, Ingredient.fromItem(Items.GUNPOWDER), mfr_iron_plate, mfr_iron_plate, mfr_iron_plate, new OreIngredient("ingotCopper"));
+        alchemyAdder(new ItemStack(ItemRegister.FLAME_BARRIER,1), "dawnstone", 16, 32, "silver", 16, 32, Ingredient.fromItem(ItemRegister.CRYSTAL_EMBER), mfr_dawnstone_plate, mfr_dawnstone_plate, mfr_dawnstone_plate, new OreIngredient("ingotSilver"));
+        alchemyAdder(new ItemStack(ItemRegister.FOCAL_LENS,1), "copper", 8, 16, "silver", 32, 64, Ingredient.fromItem(ItemRegister.CRYSTAL_EMBER), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate), mfr_dawnstone_plate, Ingredient.fromItem(EmberforgedItems.runed_silver_plate));
+        alchemyAdder(new ItemStack(ItemRegister.INTELLIGENT_APPARATUS,1), "copper", 24, 48, "lead", 40, 64, mfr_copper_plate, Ingredient.fromItem(ItemRegister.ARCHAIC_CIRCUIT), new OreIngredient("ingotCopper"), Ingredient.fromItem(ItemRegister.ARCHAIC_CIRCUIT), new OreIngredient("ingotCopper"));
+        alchemyAdder(new ItemStack(ItemRegister.SHIFTING_SCALES,1), "lead", 32, 128, Ingredient.fromItem(ItemRegister.ASHEN_CLOTH), runed_scales, runed_scales, runed_scales, runed_scales);
+        alchemyAdder(new ItemStack(ItemRegister.WILDFIRE_CORE,1), "iron", 32, 48, "silver", 24, 32, Ingredient.fromItem(ItemRegister.ANCIENT_MOTIVE_CORE), new OreIngredient("ingotDawnstone"), Ingredient.fromItem(ItemRegister.EMBER_CLUSTER), new OreIngredient("ingotDawnstone"), mfr_copper_plate);
+        alchemyAdder(new ItemStack(ItemRegister.WINDING_GEARS,1), "copper", 32, 128, Ingredient.fromItem(MineFantasyItems.BRONZE_INGOT), runed_gears, runed_gears, runed_gears, runed_gears);
 
-        alchemyAdder(new ItemStack(RegistryManager.tyrfing,1), "silver", 64, 96, "lead", 64, 96, lead_sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), new OreIngredient("ingotLead"), new OreIngredient("ingotLead"));
+        alchemyAdder(new ItemStack(ItemRegister.TYRFING,1), "silver", 64, 96, "lead", 64, 96, lead_sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), new OreIngredient("ingotLead"), new OreIngredient("ingotLead"));
 
         //The volitile Ember Conduit, as it is wierd
         alchemyRecipes.add(new AlchemyRecipe(
@@ -61,9 +62,9 @@ public class AlchemyInit {
                         .setRange("copper", 8, 16)
                         .setRange("silver", 8, 16)
                         .setRange("lead", 8, 16),
-                Ingredient.fromItem(RegistryManager.wildfire_core),
+                Ingredient.fromItem(ItemRegister.WILDFIRE_CORE),
                 Lists.newArrayList(new OreIngredient("ingotSilver"), mfr_dawnstone_plate, new OreIngredient("ingotSilver"), mfr_dawnstone_plate),
-                new ItemStack(RegistryManager.ember_pipe, 8))
+                new ItemStack(BlockRegister.EMBER_PIPE, 8))
         );
 
         //RecipeRegistry.alchemyRecipes.add(new AlchemyRecipe(new AspectList.AspectRangeList().setRange("iron", 32, 48).setRange("silver", 24, 32), Ingredient.fromItem(RegistryManager.ancient_motive_core), Lists.newArrayList(Ingredient.fromItem(RegistryManager.ingot_dawnstone), Ingredient.fromItem(RegistryManager.ember_cluster), Ingredient.fromItem(RegistryManager.ingot_dawnstone), Ingredient.fromItem((((ItemMetalComponent) PLATE).createComponentItemStack("copper")).getItem())), new ItemStack(RegistryManager.wildfire_core,1)));

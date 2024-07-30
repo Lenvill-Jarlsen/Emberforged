@@ -3,7 +3,8 @@ package com.Lenvill;
 import com.Lenvill.mfrAPI.*;
 import com.google.gson.Gson;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.config.ConfigMaterial;
+import teamroots.embers.config.ConfigTool;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,73 +18,77 @@ public class IOInit {
         Scribe ledger = new Scribe();
 
         /// Define Dawnstone ///
-        Material dawnstone = new Material("dawnstone", "ingotDawnstone");
+        if(ConfigMaterial.DAWNSTONE.isNotOff()) {
+            Material dawnstone = new Material("dawnstone", "ingotDawnstone");
 
-        MaterialProperties dawnstone_properties = new MaterialProperties();
-            dawnstone_properties.setTier(5);
-            dawnstone_properties.setDurability(6.5f);
-            dawnstone_properties.setFlexibility(1.0f);
-            dawnstone_properties.setSharpness(3.7f);
-            dawnstone_properties.setHardness(3.4f);
-            dawnstone_properties.setResistance(60);
-            dawnstone_properties.setDensity(3.3f);
-            dawnstone_properties.setMelting_point(2500);
-            dawnstone_properties.setRarity(0);
-            dawnstone_properties.setEnchantability(25);
-            dawnstone_properties.setCraft_tier(4);
-            dawnstone_properties.setCraft_time_modifier(10.0f);
-            dawnstone_properties.setUnbreakable(false);
-        dawnstone.setProperties(dawnstone_properties);
+            MaterialProperties dawnstone_properties = new MaterialProperties();
+                dawnstone_properties.setTier(5);
+                dawnstone_properties.setDurability(6.5f);
+                dawnstone_properties.setFlexibility(1.0f);
+                dawnstone_properties.setSharpness(3.7f);
+                dawnstone_properties.setHardness(3.4f);
+                dawnstone_properties.setResistance(60);
+                dawnstone_properties.setDensity(3.3f);
+                dawnstone_properties.setMelting_point(2500);
+                dawnstone_properties.setRarity(0);
+                dawnstone_properties.setEnchantability(25);
+                dawnstone_properties.setCraft_tier(4);
+                dawnstone_properties.setCraft_time_modifier(10.0f);
+                dawnstone_properties.setUnbreakable(false);
+            dawnstone.setProperties(dawnstone_properties);
 
-        MaterialArmorStats dawnstone_armor_stats = new MaterialArmorStats();
-            dawnstone_armor_stats.setCutting(1.1f);
-            dawnstone_armor_stats.setBlunt(1.1f);
-            dawnstone_armor_stats.setPiercing(1.1f);
-        dawnstone.setArmour_stats(dawnstone_armor_stats);
+            MaterialArmorStats dawnstone_armor_stats = new MaterialArmorStats();
+                dawnstone_armor_stats.setCutting(1.1f);
+                dawnstone_armor_stats.setBlunt(1.1f);
+                dawnstone_armor_stats.setPiercing(1.1f);
+            dawnstone.setArmour_stats(dawnstone_armor_stats);
 
-        MaterialColor dawnstonecolor = new MaterialColor();
-            dawnstonecolor.setRed(255);
-            dawnstonecolor.setGreen(182);
-            dawnstonecolor.setBlue(72);
-        dawnstone.setColor(dawnstonecolor);
+            MaterialColor dawnstonecolor = new MaterialColor();
+                dawnstonecolor.setRed(255);
+                dawnstonecolor.setGreen(182);
+                dawnstonecolor.setBlue(72);
+            dawnstone.setColor(dawnstonecolor);
 
-        ledger.addMaterial(dawnstone);
+            ledger.addMaterial(dawnstone);
+        }
 
         /// Define Lead ///
-        Material lead = new Material("lead", "ingotLead");
+        if(ConfigMaterial.LEAD.isNotOff()) {
+            Material lead = new Material("lead", "ingotLead");
 
-        MaterialProperties lead_properties = new MaterialProperties();
-            lead_properties.setTier(1);
-            lead_properties.setDurability(1.6f);
-            lead_properties.setFlexibility(0.9f);
-            lead_properties.setSharpness(1.3f);
-            lead_properties.setHardness(2.5f);
-            lead_properties.setResistance(20);
-            lead_properties.setDensity(3.5f);
-            lead_properties.setMelting_point(1400);
-            lead_properties.setRarity(0);
-            lead_properties.setEnchantability(1);
-            lead_properties.setCraft_tier(1);
-            lead_properties.setCraft_time_modifier(5.0f);
-            lead_properties.setUnbreakable(false);
-        lead.setProperties(lead_properties);
+            MaterialProperties lead_properties = new MaterialProperties();
+                lead_properties.setTier(1);
+                lead_properties.setDurability(1.6f);
+                lead_properties.setFlexibility(0.9f);
+                lead_properties.setSharpness(1.3f);
+                lead_properties.setHardness(2.5f);
+                lead_properties.setResistance(20);
+                lead_properties.setDensity(3.5f);
+                lead_properties.setMelting_point(1400);
+                lead_properties.setRarity(0);
+                lead_properties.setEnchantability(1);
+                lead_properties.setCraft_tier(1);
+                lead_properties.setCraft_time_modifier(5.0f);
+                lead_properties.setUnbreakable(false);
+            lead.setProperties(lead_properties);
 
-        MaterialArmorStats lead_armor_stats = new MaterialArmorStats();
-            lead_armor_stats.setCutting(1.0f);
-            lead_armor_stats.setBlunt(1.0f);
-            lead_armor_stats.setPiercing(1.0f);
-        lead.setArmour_stats(lead_armor_stats);
+            MaterialArmorStats lead_armor_stats = new MaterialArmorStats();
+                lead_armor_stats.setCutting(1.0f);
+                lead_armor_stats.setBlunt(1.0f);
+                lead_armor_stats.setPiercing(1.0f);
+            lead.setArmour_stats(lead_armor_stats);
 
-        MaterialColor lead_color = new MaterialColor();
-            lead_color.setRed(140);
-            lead_color.setGreen(127);
-            lead_color.setBlue(157);
-        lead.setColor(lead_color);
+            MaterialColor lead_color = new MaterialColor();
+                lead_color.setRed(140);
+                lead_color.setGreen(127);
+                lead_color.setBlue(157);
+            lead.setColor(lead_color);
 
-        ledger.addMaterial(lead);
+            ledger.addMaterial(lead);
+        }
 
         /// Define Aluminum ///
-        if(ConfigManager.enableAluminum) {
+        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
             Material aluminum = new Material("aluminum", "ingotAluminum");
 
             MaterialProperties aluminum_properties = new MaterialProperties();
@@ -118,7 +123,7 @@ public class IOInit {
         }
 
         /// Define Electrum ///
-        if(ConfigManager.enableElectrum) {
+        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
             Material electrum = new Material("electrum", "ingotElectrum");
 
             MaterialProperties electrum_properties = new MaterialProperties();
@@ -153,7 +158,7 @@ public class IOInit {
         }
 
         /// Define Nickel ///
-        if(ConfigManager.enableNickel) {
+        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
             Material nickel = new Material("nickel", "ingotNickel");
 
             MaterialProperties nickel_properties = new MaterialProperties();

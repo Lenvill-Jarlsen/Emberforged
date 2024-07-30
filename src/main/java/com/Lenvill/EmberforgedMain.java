@@ -35,9 +35,6 @@ public class EmberforgedMain {
         //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
         EmberforgedItems.initItems();
-        if (ConfigHardcore.HCCWeakItems) {
-            ItemWeaken.weakenList();
-        }
     }
 
     @Mod.EventHandler
@@ -45,6 +42,9 @@ public class EmberforgedMain {
         System.out.println();
         AlchemyInit.preInit(event);
         FluidInit.addFluidRecipes();
+        if (ConfigHardcore.HCCWeakItems) {
+            ItemWeaken.weakenList();
+        }
     }
 
     @Mod.EventHandler

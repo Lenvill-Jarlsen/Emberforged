@@ -4,7 +4,8 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.config.ConfigCompat;
+import teamroots.embers.config.ConfigMaterial;
 
 import java.io.File;
 
@@ -23,6 +24,10 @@ public class Config {
     public static boolean enableChanges;
     public static boolean disableEmbersPlates;
     public static boolean registerMetals;
+
+    public static boolean registerAluminum;
+    public static boolean registerElectrum;
+    public static boolean registerNickel;
 
     //Recipe Toggles Options
     public static boolean hcAlchemyPedestal;
@@ -83,7 +88,7 @@ public class Config {
     public static boolean hcTinkerLens;
 
     public static boolean isBaublesIntegrationEnabled() {
-        return enableChanges && ConfigManager.enableBaublesIntegration && Loader.isModLoaded("baubles");
+        return enableChanges && ConfigCompat.enableBaublesIntegration && Loader.isModLoaded("baubles");
     }
 
     public static void init(File configFile)
@@ -94,23 +99,25 @@ public class Config {
             load();
         }
 
-        if(enableChanges && ConfigManager.enableAluminum){
-            aluminumToggle = true;
-        }
-        if(enableChanges && ConfigManager.enableElectrum){
-            electrumToggle = true;
-        }
-        if(enableChanges && ConfigManager.enableNickel){
-            nickelToggle = true;
-        }
-        if(enableChanges && !ConfigManager.enableAluminum){
-            altSparkPlugToggle = true;
-        }
-        if(enableChanges && !ConfigManager.enableElectrum){
-            altClockworkAttenuatorToggle = true;
-        }
-        if(isBaublesIntegrationEnabled()){
-            baublesToggle = true;
+        if(enableChanges) {
+            if (ConfigMaterial.ALUMINUM.mustLoad() && registerAluminum) {
+                aluminumToggle = true;
+            }
+            if (ConfigMaterial.ELECTRUM.mustLoad() && registerElectrum) {
+                electrumToggle = true;
+            }
+            if (ConfigMaterial.NICKEL.mustLoad() && registerNickel) {
+                nickelToggle = true;
+            }
+            if (!ConfigMaterial.ALUMINUM.mustLoad() || !registerAluminum) {
+                altSparkPlugToggle = true;
+            }
+            if (!ConfigMaterial.ELECTRUM.mustLoad() || !registerElectrum) {
+                altClockworkAttenuatorToggle = true;
+            }
+            if (isBaublesIntegrationEnabled()) {
+                baublesToggle = true;
+            }
         }
     }
 
@@ -122,7 +129,10 @@ public class Config {
         //Main Config Options
         enableChanges = config.getBoolean("enableChanges","Main",true,"Master toggle switch for Emberforge's recipe changes. Look in Minefantasy Reforged's 'Crafting' config file to disable individual anvil recipes");
         disableEmbersPlates = config.getBoolean("disableEmbersPlates","Main",true,"Makes Ember's plates uncraftable. You should be using MFRs plates anyway.");
-        registerMetals = config.getBoolean("registerMetals","Main",true,"Whether or not Emberforged will register its metals. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
+        registerMetals = config.getBoolean("registerMetals","Main",true,"Whether or not Emberforged will register its metals at all. You will need to supply your own metal_types file via the config, or else disabling this WILL cause a crash on startup");
+        registerAluminum = config.getBoolean("registerAluminum","Main",true,"Enable/Disable just Aluminum from being added to the registry (Disabling Aluminum in Ember's config also disables this). Emberforged will load alternate recipes to support this option.");
+        registerElectrum = config.getBoolean("registerElectrum","Main",true,"Enable/Disable just Electrum from being added to the registry (Disabling Electrum in Ember's config also disables this). Emberforged will load alternate recipes to support this option.");
+        registerNickel = config.getBoolean("registerNickel","Main",true,"Enable/Disable just Nickel from being added to the registry (Disabling Nickel in Ember's config also disables this). Emberforged will load alternate recipes to support this option.");
 
         //Recipe Toggle Options
         hcAlchemyPedestal = config.getBoolean("hcAlchemyPedestal","Recipe Toggle",true,"Whether Emberforged will disable the default Alchemy Pedestal recipe.");

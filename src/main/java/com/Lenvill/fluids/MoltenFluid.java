@@ -1,14 +1,14 @@
 package com.Lenvill.fluids;
 
 import net.minecraftforge.fluids.Fluid;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.register.FluidRegister;
 
 import java.awt.*;
 
 public class MoltenFluid extends Fluid {
 
     public MoltenFluid(String fluidName, Color color) {
-        super(fluidName, RegistryManager.fluid_molten_tin.getStill(), RegistryManager.fluid_molten_tin.getFlowing(), color);
+        super(fluidName, FluidRegister.FLUID_MOLTEN_TIN.getStill(), FluidRegister.FLUID_MOLTEN_TIN.getFlowing(), color);
     }
 
 }

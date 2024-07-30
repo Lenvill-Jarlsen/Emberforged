@@ -1,16 +1,21 @@
 package com.Lenvill;
 
+import com.google.common.collect.Lists;
 import minefantasy.mfr.recipe.DummyRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreIngredient;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import teamroots.embers.ConfigManager;
-import teamroots.embers.RegistryManager;
+import net.minecraftforge.registries.RegistryManager;
 import teamroots.embers.compat.BaublesIntegration;
+import teamroots.embers.config.ConfigMaterial;
+import teamroots.embers.config.ConfigTool;
+import teamroots.embers.register.BlockRegister;
+import teamroots.embers.register.ItemRegister;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,215 +23,250 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public class CraftingInit {
-    public static ResourceLocation getRL(String name){
-        return new ResourceLocation("embers",name);
-    }
-
     public static void removeRecipes() {
         if (Config.enableChanges) {
             ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
 
             //Remove Ember's Plates
             if(Config.disableEmbersPlates) {
-                if (ConfigManager.enableAluminum) {
-                    recipeRegistry.remove(getRL("ingotaluminium_plate"));
+                if (ConfigMaterial.ALUMINUM.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_aluminum"));
+                    manualRemover(ItemRegister.PLATE_ALUMINUM);
                 }
-                if (ConfigManager.enableBronze) {
-                    recipeRegistry.remove(getRL("ingotbronze_plate"));
+                if (ConfigMaterial.BRONZE.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_bronze"));
+                    manualRemover(ItemRegister.PLATE_BRONZE);
                 }
-                recipeRegistry.remove(getRL("ingotcopper_plate"));
-                recipeRegistry.remove(getRL("ingotdawnstone_plate"));
-                if (ConfigManager.enableElectrum) {
-                    recipeRegistry.remove(getRL("ingotelectrum_plate"));
+                if (ConfigMaterial.COPPER.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_copper"));
+                    manualRemover(ItemRegister.PLATE_COPPER);
                 }
-                recipeRegistry.remove(RegistryManager.plate_gold.getRegistryName());
-                recipeRegistry.remove(RegistryManager.plate_iron.getRegistryName());
-                recipeRegistry.remove(getRL("ingotlead_plate"));
-                if (ConfigManager.enableNickel) {
-                    recipeRegistry.remove(getRL("ingotnickel_plate"));
+                if (ConfigMaterial.DAWNSTONE.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_dawnstone"));
+                    manualRemover(ItemRegister.PLATE_DAWNSTONE);
                 }
-                recipeRegistry.remove(getRL("ingotsilver_plate"));
-                if (ConfigManager.enableTin) {
-                    recipeRegistry.remove(getRL("ingottin_plate"));
+                if (ConfigMaterial.ELECTRUM.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_electrum"));
+                    manualRemover(ItemRegister.PLATE_ELECTRUM);
+                }
+                if (ConfigMaterial.GOLD.isNotOff()) {
+                    //recipeRegistry.remove(getRL("plate_gold"));
+                    manualRemover(ItemRegister.PLATE_GOLD);
+                }
+                if (ConfigMaterial.IRON.isNotOff()) {
+                    //recipeRegistry.remove(getRL("plate_iron"));
+                    manualRemover(ItemRegister.PLATE_IRON);
+                }
+                if (ConfigMaterial.LEAD.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_lead"));
+                    manualRemover(ItemRegister.PLATE_LEAD);
+                }
+                if (ConfigMaterial.NICKEL.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_nickel"));
+                    manualRemover(ItemRegister.PLATE_NICKEL);
+                }
+                if (ConfigMaterial.SILVER.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_silver"));
+                    manualRemover(ItemRegister.PLATE_SILVER);
+                }
+                if (ConfigMaterial.TIN.mustLoad()) {
+                    //recipeRegistry.remove(getRL("plate_tin"));
+                    manualRemover(ItemRegister.PLATE_TIN);
                 }
             }
 
-            recipeRegistry.remove(RegistryManager.item_pipe.getRegistryName());
-            recipeRegistry.remove(RegistryManager.breaker.getRegistryName());
-            recipeRegistry.remove(RegistryManager.item_request.getRegistryName());
+            recipeRegistry.remove(getRL("item_pipe"));
+            recipeRegistry.remove(getRL("breaker"));
+            recipeRegistry.remove(getRL("item_request"));
 
             //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
-                recipeRegistry.remove(RegistryManager.alchemy_pedestal.getRegistryName());
+                recipeRegistry.remove(getRL("alchemy_pedestal"));
             }
             if (Config.hcAlchemyTablet) {
-                recipeRegistry.remove(RegistryManager.alchemy_tablet.getRegistryName());
+                recipeRegistry.remove(getRL("alchemy_tablet"));
             }
             if (Config.hcAshenCloak) {
-                recipeRegistry.remove(RegistryManager.ashen_cloak_chest.getRegistryName());
+                recipeRegistry.remove(getRL("ashen_cloak_chest"));
             }
             if (Config.hcBeamCannon) {
-                recipeRegistry.remove(RegistryManager.beam_cannon.getRegistryName());
+                recipeRegistry.remove(getRL("beam_cannon"));
             }
             if (Config.hcBeamSplitter) {
-                recipeRegistry.remove(RegistryManager.beam_splitter.getRegistryName());
+                recipeRegistry.remove(getRL("beam_splitter"));
             }
             if (Config.hcBin) {
-                recipeRegistry.remove(RegistryManager.bin.getRegistryName());
+                recipeRegistry.remove(getRL("bin"));
             }
             if(Config.hcCaminiteBlend) {
-                recipeRegistry.remove(RegistryManager.blend_caminite.getRegistryName());
+                recipeRegistry.remove(getRL("blend_caminite"));
             }
             if(Config.hcCaminiteFiring){
-                recipeRegistry.remove(RegistryManager.plate_caminite_raw.getRegistryName());
-                recipeRegistry.remove(RegistryManager.stamp_bar_raw.getRegistryName());
-                recipeRegistry.remove(RegistryManager.stamp_flat_raw.getRegistryName());
-                recipeRegistry.remove(RegistryManager.stamp_plate_raw.getRegistryName());
-                recipeRegistry.remove(RegistryManager.stamp_gear_raw.getRegistryName());
+                recipeRegistry.remove(getRL("plate_caminite_raw"));
+                recipeRegistry.remove(getRL("stamp_bar_raw"));
+                recipeRegistry.remove(getRL("stamp_flat_raw"));
+                recipeRegistry.remove(getRL("stamp_plate_raw"));
+                recipeRegistry.remove(getRL("stamp_gear_raw"));
             }
             if (Config.hcCasterOrb) {
-                recipeRegistry.remove(RegistryManager.caster_orb.getRegistryName());
+                recipeRegistry.remove(getRL("caster_orb"));
             }
             if (Config.hcCatalyzer) {
-                recipeRegistry.remove(RegistryManager.catalyzer.getRegistryName());
+                recipeRegistry.remove(getRL("catalyzer"));
             }
             if (Config.hcCharger) {
-                recipeRegistry.remove(RegistryManager.charger.getRegistryName());
+                recipeRegistry.remove(getRL("charger"));
             }
             if (Config.hcCinderPlinth) {
-                recipeRegistry.remove(RegistryManager.cinder_plinth.getRegistryName());
+                recipeRegistry.remove(getRL("cinder_plinth"));
             }
-            if (Config.hcClockworkAttenuator && !ConfigManager.enableElectrum) {
-                recipeRegistry.remove(RegistryManager.clockwork_attenuator.getRegistryName());
+            if (Config.hcClockworkAttenuator) {
+                recipeRegistry.remove(getRL("clockwork_attenuator"));
             }
             if (Config.hcClockworkAxe) {
-                recipeRegistry.remove(RegistryManager.axe_clockwork.getRegistryName());
+                recipeRegistry.remove(getRL("axe_clockwork"));
             }
             if(Config.hcClockworkPickaxe) {
-                recipeRegistry.remove(RegistryManager.pickaxe_clockwork.getRegistryName());
+                recipeRegistry.remove(getRL("pickaxe_clockwork"));
             }
             if (Config.hcCombustor) {
-                recipeRegistry.remove(RegistryManager.combustor.getRegistryName());
+                recipeRegistry.remove(getRL("combustor"));
             }
             if (Config.hcCrystalCell) {
-                recipeRegistry.remove(RegistryManager.crystal_cell.getRegistryName());
+                recipeRegistry.remove(getRL("crystal_cell"));
             }
             if (Config.hcDawnstoneMail) {
-                recipeRegistry.remove(BaublesIntegration.dawnstone_mail.getRegistryName());
+                recipeRegistry.remove(getRL("dawnstone_mail"));
             }
             if (Config.hcDiffractionBarrel) {
-                recipeRegistry.remove(RegistryManager.diffraction_barrel.getRegistryName());
+                recipeRegistry.remove(getRL("diffraction_barrel"));
             }
             if (Config.hcEmberActivator) {
-                recipeRegistry.remove(RegistryManager.ember_activator.getRegistryName());
+                recipeRegistry.remove(getRL("ember_activator"));
             }
             if (Config.hcEmberBelt) {
-                recipeRegistry.remove(BaublesIntegration.ember_belt.getRegistryName());
+                recipeRegistry.remove(getRL("ember_belt"));
             }
             if (Config.hcEmberBore) {
-                recipeRegistry.remove(RegistryManager.ember_bore.getRegistryName());
+                //recipeRegistry.remove(getRL("ember_bore"));
             }
             if (Config.hcEmberBulb) {
-                recipeRegistry.remove(BaublesIntegration.mantle_bulb.getRegistryName());
+                recipeRegistry.remove(getRL("ember_bulb"));
             }
             if (Config.hcEmberCartridge) {
-                recipeRegistry.remove(RegistryManager.ember_cartridge.getRegistryName());
+                recipeRegistry.remove(getRL("ember_cartridge"));
             }
             if (Config.hcEmberFunnel) {
-                recipeRegistry.remove(RegistryManager.ember_funnel.getRegistryName());
+                recipeRegistry.remove(getRL("ember_funnel"));
             }
             if (Config.hcEmberGauge) {
-                recipeRegistry.remove(RegistryManager.ember_gauge.getRegistryName());
+                recipeRegistry.remove(getRL("ember_gauge"));
             }
             if (Config.hcEmberInjector) {
-                recipeRegistry.remove(RegistryManager.ember_injector.getRegistryName());
+                recipeRegistry.remove(getRL("ember_injector"));
             }
             if(Config.hcEmberJar) {
-                recipeRegistry.remove(RegistryManager.ember_jar.getRegistryName());
+                recipeRegistry.remove(getRL("ember_jar"));
             }
             if (Config.hcEmberPulser) {
-                recipeRegistry.remove(RegistryManager.ember_pulser.getRegistryName());
+                recipeRegistry.remove(getRL("ember_pulser"));
             }
             if (Config.hcEmberRelay) {
-                recipeRegistry.remove(RegistryManager.ember_relay.getRegistryName());
+                recipeRegistry.remove(getRL("ember_relay"));
             }
             if (Config.hcEmberSiphon) {
-                recipeRegistry.remove(RegistryManager.ember_siphon.getRegistryName());
+                recipeRegistry.remove(getRL("ember_siphon"));
             }
             if (Config.hcEmberStaff) {
-                recipeRegistry.remove(RegistryManager.staff_ember.getRegistryName());
+                recipeRegistry.remove(getRL("staff_ember"));
             }
             if (Config.hcFluidGauge) {
-                recipeRegistry.remove(RegistryManager.fluid_gauge.getRegistryName());
+                recipeRegistry.remove(getRL("fluid_gauge"));
             }
             if (Config.hcFluidPipe) {
-                recipeRegistry.remove(RegistryManager.pipe.getRegistryName());
+                recipeRegistry.remove(getRL("pipe"));
             }
             if (Config.hcFluidTransfer) {
-                recipeRegistry.remove(RegistryManager.fluid_transfer.getRegistryName());
+                recipeRegistry.remove(getRL("fluid_transfer"));
             }
             if (Config.hcGlimmerLamp) {
-                recipeRegistry.remove(RegistryManager.glimmer_lamp.getRegistryName());
+                recipeRegistry.remove(getRL("glimmer_lamp"));
             }
             if(Config.hcGrandhammer) {
-                recipeRegistry.remove(RegistryManager.grandhammer.getRegistryName());
+                recipeRegistry.remove(getRL("grandhammer"));
             }
             if (Config.hcHearthCoil) {
-                recipeRegistry.remove(RegistryManager.heat_coil.getRegistryName());
+                recipeRegistry.remove(getRL("heat_coil"));
             }
             if (Config.hcIgnitionCannon) {
-                recipeRegistry.remove(RegistryManager.ignition_cannon.getRegistryName());
+                recipeRegistry.remove(getRL("ignition_cannon"));
             }
             if (Config.hcInfernoForge) {
-                recipeRegistry.remove(RegistryManager.inferno_forge.getRegistryName());
+                recipeRegistry.remove(getRL("inferno_forge"));
             }
             if (Config.hcItemTransfer) {
-                recipeRegistry.remove(RegistryManager.item_transfer.getRegistryName());
+                recipeRegistry.remove(getRL("item_transfer"));
             }
             if (Config.hcJetAugment) {
-                recipeRegistry.remove(RegistryManager.jet_augment.getRegistryName());
+                recipeRegistry.remove(getRL("jet_augment"));
             }
             if (Config.hcLantern) {
-                recipeRegistry.remove(RegistryManager.block_lantern.getRegistryName());
+                recipeRegistry.remove(getRL("block_lantern"));
             }
             if (Config.hcMechAccessor) {
-                recipeRegistry.remove(RegistryManager.mech_accessor.getRegistryName());
+                recipeRegistry.remove(getRL("mech_accessor"));
             }
             if (Config.hcMechanicalCore) {
-                recipeRegistry.remove(RegistryManager.mech_core.getRegistryName());
+                recipeRegistry.remove(getRL("mech_core"));
             }
             if (Config.hcMechanicalPump) {
-                recipeRegistry.remove(RegistryManager.mechanical_pump.getRegistryName());
+                recipeRegistry.remove(getRL("mechanical_pump"));
             }
             if (Config.hcMiniBoiler) {
-                recipeRegistry.remove(RegistryManager.mini_boiler.getRegistryName());
+                recipeRegistry.remove(getRL("mini_boiler"));
             }
             if (Config.hcMixer) {
-                recipeRegistry.remove(RegistryManager.mixer.getRegistryName());
+                recipeRegistry.remove(getRL("mixer"));
             }
             if (Config.hcReactor) {
-                recipeRegistry.remove(RegistryManager.reactor.getRegistryName());
+                recipeRegistry.remove(getRL("reactor"));
             }
             if (Config.hcResonatingBell) {
-                recipeRegistry.remove(RegistryManager.resonating_bell.getRegistryName());
+                recipeRegistry.remove(getRL("resonating_bell"));
             }
             if (Config.hcSparkPlug) {
-                recipeRegistry.remove(RegistryManager.spark_plug.getRegistryName());
+                recipeRegistry.remove(getRL("spark_plug"));
             }
             if (Config.hcStirling) {
-                recipeRegistry.remove(RegistryManager.stirling.getRegistryName());
+                recipeRegistry.remove(getRL("stirling"));
             }
             if (Config.hcSuperheater) {
-                recipeRegistry.remove(RegistryManager.superheater.getRegistryName());
+                recipeRegistry.remove(getRL("superheater"));
             }
             if (Config.hcTank) {
-                recipeRegistry.remove(RegistryManager.block_tank.getRegistryName());
+                recipeRegistry.remove(getRL("block_tank"));
             }
             if (Config.hcTinkerHammer) {
-                recipeRegistry.remove(RegistryManager.tinker_hammer.getRegistryName());
+                recipeRegistry.remove(getRL("tinker_hammer"));
             }
             if (Config.hcTinkerLens) {
-                recipeRegistry.remove(RegistryManager.tinker_lens.getRegistryName());
+                recipeRegistry.remove(getRL("tinker_lens"));
+            }
+        }
+    }
+
+    public static ResourceLocation getRL(String name){
+        return new ResourceLocation("embers",name);
+    }
+
+    //To be used on stubborn recipes that don't get removed by just calling .remove
+    private static void manualRemover(Item item){
+        ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
+        ArrayList<IRecipe> recipe = Lists.newArrayList(recipeRegistry.getValues());
+        for (IRecipe r : recipe){
+            ItemStack output = r.getRecipeOutput();
+            if (output.getItem() == item){
+                recipeRegistry.remove(r.getRegistryName());
             }
         }
     }

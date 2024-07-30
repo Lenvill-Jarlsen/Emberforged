@@ -1,19 +1,21 @@
 package com.Lenvill.fluids;
 
+import com.Lenvill.Config;
 import com.Lenvill.item.EmberforgedItems;
 import minefantasy.mfr.init.MineFantasyItems;
 import minefantasy.mfr.item.ItemMetalComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreIngredient;
-import teamroots.embers.ConfigManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.config.ConfigMaterial;
 import teamroots.embers.recipe.ItemMeltingRecipe;
 import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.register.FluidRegister;
 
 import java.awt.*;
 
@@ -111,22 +113,22 @@ public class FluidInit {
         //meltAdd("dawnstone", RegistryManager.fluid_molten_dawnstone);
         //meltAdd("lead", RegistryManager.fluid_molten_lead);
 
-        if(ConfigManager.enableAluminum) {
+        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
             //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
-        if(ConfigManager.enableElectrum) {
+        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
             //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
-        if(ConfigManager.enableNickel) {
+        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
             //meltAdd("nickel", RegistryManager.fluid_molten_nickel);
         }
 
         //A couple of specific recipes
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_dawnstone_plate),new FluidStack(RegistryManager.fluid_molten_dawnstone, 288)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_copper_plate),new FluidStack(RegistryManager.fluid_molten_copper, 288)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_iron_plate),new FluidStack(RegistryManager.fluid_molten_iron, 288)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_silver_plate),new FluidStack(RegistryManager.fluid_molten_silver, 288)));
-        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.gilded_lead_scales),new FluidStack(RegistryManager.fluid_molten_lead, 144)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_dawnstone_plate),new FluidStack(FluidRegister.FLUID_MOLTEN_DAWNSTONE, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_copper_plate),new FluidStack(FluidRegister.FLUID_MOLTEN_COPPER, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_iron_plate),new FluidStack(FluidRegister.FLUID_MOLTEN_IRON, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.runed_silver_plate),new FluidStack(FluidRegister.FLUID_MOLTEN_SILVER, 288)));
+        RecipeRegistry.meltingRecipes.add(new ItemMeltingRecipe(OreIngredient.fromItem(EmberforgedItems.gilded_lead_scales),new FluidStack(FluidRegister.FLUID_MOLTEN_LEAD, 144)));
     }
 
     private static void meltAdd(String material, Fluid fluid) {
