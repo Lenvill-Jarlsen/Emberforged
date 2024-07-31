@@ -7,14 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.oredict.OreIngredient;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.RegistryManager;
-import teamroots.embers.compat.BaublesIntegration;
 import teamroots.embers.config.ConfigMaterial;
-import teamroots.embers.config.ConfigTool;
-import teamroots.embers.register.BlockRegister;
 import teamroots.embers.register.ItemRegister;
 
 import java.util.ArrayList;
@@ -30,55 +25,39 @@ public class CraftingInit {
             //Remove Ember's Plates
             if(Config.disableEmbersPlates) {
                 if (ConfigMaterial.ALUMINUM.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_aluminum"));
                     manualRemover(ItemRegister.PLATE_ALUMINUM);
                 }
                 if (ConfigMaterial.BRONZE.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_bronze"));
                     manualRemover(ItemRegister.PLATE_BRONZE);
                 }
                 if (ConfigMaterial.COPPER.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_copper"));
                     manualRemover(ItemRegister.PLATE_COPPER);
                 }
                 if (ConfigMaterial.DAWNSTONE.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_dawnstone"));
                     manualRemover(ItemRegister.PLATE_DAWNSTONE);
                 }
                 if (ConfigMaterial.ELECTRUM.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_electrum"));
                     manualRemover(ItemRegister.PLATE_ELECTRUM);
                 }
                 if (ConfigMaterial.GOLD.isNotOff()) {
-                    //recipeRegistry.remove(getRL("plate_gold"));
                     manualRemover(ItemRegister.PLATE_GOLD);
                 }
                 if (ConfigMaterial.IRON.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_iron"));
                     manualRemover(ItemRegister.PLATE_IRON);
                 }
                 if (ConfigMaterial.LEAD.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_lead"));
                     manualRemover(ItemRegister.PLATE_LEAD);
                 }
                 if (ConfigMaterial.NICKEL.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_nickel"));
                     manualRemover(ItemRegister.PLATE_NICKEL);
                 }
                 if (ConfigMaterial.SILVER.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_silver"));
                     manualRemover(ItemRegister.PLATE_SILVER);
                 }
                 if (ConfigMaterial.TIN.mustLoad()) {
-                    //recipeRegistry.remove(getRL("plate_tin"));
                     manualRemover(ItemRegister.PLATE_TIN);
                 }
             }
-
-            recipeRegistry.remove(getRL("item_pipe"));
-            recipeRegistry.remove(getRL("breaker"));
-            recipeRegistry.remove(getRL("item_request"));
-            recipeRegistry.remove(getRL("reaction_chamber"));
 
             //The rest of the recipe removals
             if (Config.hcAlchemyPedestal) {
@@ -98,6 +77,9 @@ public class CraftingInit {
             }
             if (Config.hcBin) {
                 recipeRegistry.remove(getRL("bin"));
+            }
+            if(Config.hcBreaker) {
+                recipeRegistry.remove(getRL("breaker"));
             }
             if(Config.hcCaminiteBlend) {
                 recipeRegistry.remove(getRL("blend_caminite"));
@@ -205,6 +187,12 @@ public class CraftingInit {
             if (Config.hcInfernoForge) {
                 recipeRegistry.remove(getRL("inferno_forge"));
             }
+            if(Config.hcItemPipe) {
+                recipeRegistry.remove(getRL("item_pipe"));
+            }
+            if(Config.hcItemRequest) {
+                recipeRegistry.remove(getRL("item_request"));
+            }
             if (Config.hcItemTransfer) {
                 recipeRegistry.remove(getRL("item_transfer"));
             }
@@ -228,6 +216,9 @@ public class CraftingInit {
             }
             if (Config.hcMixer) {
                 recipeRegistry.remove(getRL("mixer"));
+            }
+            if(Config.hcReactionChamber) {
+                recipeRegistry.remove(getRL("reaction_chamber"));
             }
             if (Config.hcReactor) {
                 recipeRegistry.remove(getRL("reactor"));
