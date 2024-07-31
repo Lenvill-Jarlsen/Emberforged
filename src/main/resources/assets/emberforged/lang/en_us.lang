@@ -1,3 +1,4 @@
+#NEW MOLTEN FLUIDS
 fluid.molten_steel=Molten Steel
 fluid.molten_pig_iron=Molten Pig Iron
 fluid.molten_black_steel=Molten Black Steel
@@ -10,6 +11,70 @@ fluid.molten_mithium=Molten Mithium
 fluid.molten_enderforge=Molten Enderforged
 fluid.molten_tungsten=Molten Tungsten
 
+#NEW INGREDIENTS
+item.runed_dawnstone_plate.name=Runed Dawnstone Plate
+item.runed_copper_plate.name=Runed Copper Plate
+item.runed_iron_plate.name=Runed Iron Plate
+item.runed_silver_plate.name=Runed Silver Plate
+item.runed_lead_scales.name=Gilded Lead Scales
+item.runed_bronze_gear.name=Runed Bronze Gears
+
+#EMBERS ITEMS PREFIX OVERRIDES
+item.crude_copper_pickaxe.name=Crude Copper Pickaxe
+item.crude_copper_axe.name=Crude Copper Axe
+item.crude_copper_shovel.name=Crude Copper Shovel
+item.crude_copper_hoe.name=Crude Copper Hoe
+item.crude_copper_sword.name=Crude Copper Sword
+
+item.crude_silver_pickaxe.name=Crude Silver Pickaxe
+item.crude_silver_axe.name=Crude Silver Axe
+item.crude_silver_shovel.name=Crude Silver Shovel
+item.crude_silver_hoe.name=Crude Silver Hoe
+item.crude_silver_sword.name=Crude Silver Sword
+
+item.crude_lead_pickaxe.name=Crude Lead Pickaxe
+item.crude_lead_axe.name=Crude Lead Axe
+item.crude_lead_shovel.name=Crude Lead Shovel
+item.crude_lead_hoe.name=Crude Lead Hoe
+item.crude_lead_sword.name=Crude Lead Sword
+
+item.crude_dawnstone_pickaxe.name=Crude Dawnstone Pickaxe
+item.crude_dawnstone_axe.name=Crude Dawnstone Axe
+item.crude_dawnstone_shovel.name=Crude Dawnstone Shovel
+item.crude_dawnstone_hoe.name=Crude Dawnstone Hoe
+item.crude_dawnstone_sword.name=Crude Dawnstone Sword
+
+item.crude_aluminium_pickaxe.name=Crude Aluminum Pickaxe
+item.crude_aluminium_axe.name=Crude Aluminum Axe
+item.crude_aluminium_shovel.name=Crude Aluminum Shovel
+item.crude_aluminium_hoe.name=Crude Aluminum Hoe
+item.crude_aluminium_sword.name=Crude Aluminum Sword
+
+item.crude_bronze_pickaxe.name=Crude Bronze Pickaxe
+item.crude_bronze_axe.name=Crude Bronze Axe
+item.crude_bronze_shovel.name=Crude Bronze Shovel
+item.crude_bronze_hoe.name=Crude Bronze Hoe
+item.crude_bronze_sword.name=Crude Bronze Sword
+
+item.crude_electrum_pickaxe.name=Crude Electrum Pickaxe
+item.crude_electrum_axe.name=Crude Electrum Axe
+item.crude_electrum_shovel.name=Crude Electrum Shovel
+item.crude_electrum_hoe.name=Crude Electrum Hoe
+item.crude_electrum_sword.name=Crude Electrum Sword
+
+item.crude_nickel_pickaxe.name=Crude Nickel Pickaxe
+item.crude_nickel_axe.name=Crude Nickel Axe
+item.crude_nickel_shovel.name=Crude Nickel Shovel
+item.crude_nickel_hoe.name=Crude Nickel Hoe
+item.crude_nickel_sword.name=Crude Nickel Sword
+
+item.crude_tin_pickaxe.name=Crude Tin Pickaxe
+item.crude_tin_axe.name=Crude Tin Axe
+item.crude_tin_shovel.name=Crude Tin Shovel
+item.crude_tin_hoe.name=Crude Tin Hoe
+item.crude_tin_sword.name=Crude Tin Sword
+
+#KNOWLEDGE ENTRIES
 knowledge.ores.lead=Lead is a dull and malleable metal, which doesn't appear to have much use without some sort of advanced technology to strengthen it.
 knowledge.ores.quartz=Quartz deposits can be found on occasion underground, though how they got here from the Nether, nobody knows...
 knowledge.commodities.page=Caminite is a very sturdy ceramic, mixed from a bit of clay and sand. The mixture yields, when baked, a material that you believe will be hard enough for your purposes throughout all of your mechanical ambitions.

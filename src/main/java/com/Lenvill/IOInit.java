@@ -1,7 +1,10 @@
 package com.Lenvill;
 
-import minefantasy.mfr.config.ConfigHardcore;
+import com.Lenvill.mfrAPI.*;
+import com.google.gson.Gson;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import teamroots.embers.config.ConfigMaterial;
+import teamroots.embers.config.ConfigTool;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,2027 +12,233 @@ import java.io.PrintWriter;
 
 public class IOInit {
 
-    public static final String
-            ALCHEMYPEDESTAL = "{\n" +
-            "  \"type\": \"ShapedAnvilRecipes\",\n" +
-            "  \"skill\": \"artisanry\",\n" +
-            "  \"research\": \"\",\n" +
-            "  \"tool_type\": \"hammer\",\n" +
-            "  \"is_tool_recipe\": false,\n" +
-            "  \"anvil_tier\": -1,\n" +
-            "  \"recipe_time\": 2,\n" +
-            "  \"recipe_hammer\": -1,\n" +
-            "  \"output_hot\": false,\n" +
-            "  \"pattern\": [\n" +
-            "    \"P P\",\n" +
-            "    \"IEI\",\n" +
-            "    \"SBS\"\n" +
-            "  ],\n" +
-            "  \"key\": {\n" +
-            "    \"E\": {\n" +
-            "      \"item\": \"embers:crystal_ember\"\n" +
-            "    },\n" +
-            "    \"P\": {\n" +
-            "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-            "      \"item\": \"minefantasyreforged:plate\"\n" +
-            "    },\n" +
-            "    \"I\": {\n" +
-            "      \"type\": \"oreDict\",\n" +
-            "      \"ore\": \"ingotDawnstone\"\n" +
-            "    },\n" +
-            "    \"S\": {\n" +
-            "      \"item\": \"embers:stairs_caminite_brick\"\n" +
-            "    },\n" +
-            "    \"B\": {\n" +
-            "      \"item\": \"embers:block_copper\"\n" +
-            "    }\n" +
-            "  },\n" +
-            "  \"result\": {\n" +
-            "    \"item\": \"embers:alchemy_pedestal\"\n" +
-            "  }\n" +
-            "}",
-            ALCHEMYTABLET = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \" P \",\n" +
-                    "    \"SCS\",\n" +
-                    "    \"BDB\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"embers:stairs_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:alchemy_tablet\"\n" +
-                    "  }\n" +
-                    "}",
-            ASHENCLOAK = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \"P P\",\n" +
-                    "    \"CIC\",\n" +
-                    "    \"CIC\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:ashen_cloth\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ashen_cloak_chest\"\n" +
-                    "  }\n" +
-                    "}",
-            BEAMCANNON = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \"PEP\",\n" +
-                    "    \"PEP\",\n" +
-                    "    \"DBD\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:beam_cannon\"\n" +
-                    "  }\n" +
-                    "}",
-            BEAMSPLITTER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \" D \",\n" +
-                    "    \"CPC\",\n" +
-                    "    \" I \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:beam_splitter\"\n" +
-                    "  }\n" +
-                    "}",
-            BIN = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \"I I\",\n" +
-                    "    \"I I\",\n" +
-                    "    \"IPI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:bin\"\n" +
-                    "  }\n" +
-                    "}",
-            CASTERORB = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IEI\",\n" +
-                    "    \"III\",\n" +
-                    "    \" P \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:caster_orb\"\n" +
-                    "  }\n" +
-                    "}",
-            CATALYZER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \" I \",\n" +
-                    "    \"PEP\",\n" +
-                    "    \"IMI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "    \"item\": \"minefantasyreforged:silver_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"silver\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"M\": {\n" +
-                    "      \"item\": \"embers:mech_core\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_cluster\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:catalyzer\"\n" +
-                    "  }\n" +
-                    "}",
-            CHARGER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \" X \",\n" +
-                    "    \"DCD\",\n" +
-                    "    \"IPI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:charger\"\n" +
-                    "  }\n" +
-                    "}",
-            CINDERPLINTH = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \" P \",\n" +
-                    "    \"IFI\",\n" +
-                    "    \"PBP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "    \"item\": \"minefantasyreforged:silver_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"lead\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    },\n" +
-                    "    \"F\": {\n" +
-                    "      \"item\": \"minecraft:furnace\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:cinder_plinth\"\n" +
-                    "  }\n" +
-                    "}",
-            CLOCKWORKATTENUATOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \"NRN\",\n" +
-                    "    \" P \",\n" +
-                    "    \"NEN\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"E\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"electrum\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"N\": {\n" +
-                    "      \"item\": \"embers:nugget_electrum\"\n" +
-                    "    },\n" +
-                    "    \"R\": {\n" +
-                    "      \"item\": \"minecraft:redstone\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"item\": \"minecraft:paper\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:clockwork_attenuator\"\n" +
-                    "  }\n" +
-                    "}",
-            CLOCKWORKAXE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,  \"pattern\": [\n" +
-                    "    \"PCP\",\n" +
-                    "    \"DED\",\n" +
-                    "    \" S \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:shard_ember\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"minecraft:stick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:axe_clockwork\"\n" +
-                    "  }\n" +
-                    "}",
-            COMBUSTOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" C \",\n" +
-                    "    \"PEP\",\n" +
-                    "    \"CMC\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"M\": {\n" +
-                    "      \"item\": \"embers:mech_core\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_cluster\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:combustor\"\n" +
-                    "  }\n" +
-                    "}",
-            CRYSTALCELL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" E \",\n" +
-                    "    \"PEP\",\n" +
-                    "    \"CDC\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:block_copper\"\n" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"item\": \"embers:block_dawnstone\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:crystal_cell\"\n" +
-                    "  }\n" +
-                    "}",
-            DAWNSTONEMAIL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"P P\",\n" +
-                    "    \"PPP\",\n" +
-                    "    \"PPP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:chain_mesh\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:dawnstone_mail\"\n" +
-                    "  }\n" +
-                    "}",
-            DIFFRACTIONBARREL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IPS\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minecraft:iron_bars\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"embers:superheater\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:diffraction_barrel\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERACTIVATOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"III\",\n" +
-                    "    \"III\",\n" +
-                    "    \"PFP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"F\": {\n" +
-                    "      \"item\": \"minecraft:furnace\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_activator\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERBELT = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"LIL\",\n" +
-                    "    \"L L\",\n" +
-                    "    \"PEP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_cluster\"\n" +
-                    "    },\n" +
-                    "    \"L\": {\n" +
-                    "      \"item\": \"minecraft:leather\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_belt\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERBORE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"ember_production\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"SCS\",\n" +
-                    "    \"SMS\",\n" +
-                    "    \"III\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"embers:stairs_caminite_brick\"\n" +
-                    "    },\n" +
-                    "    \"M\": {\n" +
-                    "      \"item\": \"embers:mech_core\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_bore\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERBULB = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" PI\",\n" +
-                    "    \"GEG\",\n" +
-                    "    \" G \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_cluster\"\n" +
-                    "    },\n" +
-                    "    \"G\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"blockGlass\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_bulb\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERCARTRIDGE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IPI\",\n" +
-                    "    \"GCG\",\n" +
-                    "    \" G \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"G\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"blockGlass\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_cartridge\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERFUNNEL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"P P\",\n" +
-                    "    \"IEI\",\n" +
-                    "    \" P \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_receiver\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_funnel\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERGAUGE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Gadgets\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"R\",\n" +
-                    "    \"P\",\n" +
-                    "    \"C\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"R\": {\n" +
-                    "      \"item\": \"minecraft:redstone\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"item\": \"minecraft:paper\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_gauge\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERINJECTOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"I I\",\n" +
-                    "    \"DCD\",\n" +
-                    "    \"BSB\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "    \"item\": \"minefantasyreforged:silver_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"silver\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:wildfire_core\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_injector\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERPULSER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"P\",\n" +
-                    "    \"E\",\n" +
-                    "    \"I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:ember_emitter\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_pulser\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERRELAY = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" C \",\n" +
-                    "    \"C C\",\n" +
-                    "    \" I \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_relay\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERSIPHON = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"WIW\",\n" +
-                    "    \"PIP\",\n" +
-                    "    \"BBB\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"Nickel\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:brick_caminite\"\n" +
-                    "    },\n" +
-                    "    \"W\": {\n" +
-                    "      \"item\": \"embers:wall_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ember_siphon\"\n" +
-                    "  }\n" +
-                    "}",
-            EMBERSTAFF = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PEP\",\n" +
-                    "    \"DSD\",\n" +
-                    "    \" S \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"silver\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:shard_ember\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"minecraft:stick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:staff_ember\"\n" +
-                    "  }\n" +
-                    "}",
-            FLUIDGAUGE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Gadgets\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"R\",\n" +
-                    "    \"P\",\n" +
-                    "    \"I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"R\": {\n" +
-                    "      \"item\": \"minecraft:redstone\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"item\": \"minecraft:paper\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:fluid_gauge\"\n" +
-                    "  }\n" +
-                    "}",
-            FLUIDPIPE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Piping\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IPI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:pipe\"\n" +
-                    "  }\n" +
-                    "}",
-            FLUIDTRANSFER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Piping\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PXP\",\n" +
-                    "    \"IXI\",\n" +
-                    "    \"I I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"item\": \"embers:pipe\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:fluid_transfer\"\n" +
-                    "  }\n" +
-                    "}",
-            GLIMMERLAMP = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" P \",\n" +
-                    "    \"BCB\",\n" +
-                    "    \" P \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"minecraft:iron_bars\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:glimmer_shard\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:glimmer_lamp\"\n" +
-                    "  }\n" +
-                    "}",
-            HEARTHCOIL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PPP\",\n" +
-                    "    \"IBI\",\n" +
-                    "    \" M \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"copper\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_copper\"\n" +
-                    "    },\n" +
-                    "    \"M\": {\n" +
-                    "      \"item\": \"embers:mech_core\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:heat_coil\"\n" +
-                    "  }\n" +
-                    "}",
-            IGNITIONCANNON = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" DP\",\n" +
-                    "    \"DPI\",\n" +
-                    "    \"ES \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"D\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:shard_ember\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"minecraft:stick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:ignition_cannon\"\n" +
-                    "  }\n" +
-                    "}",
-            INFERNOFORGE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"DPD\",\n" +
-                    "    \"ICI\",\n" +
-                    "    \"XWX\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    },\n" +
-                    "    \"W\": {\n" +
-                    "      \"item\": \"embers:wildfire_core\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:block_copper\"\n" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"item\": \"embers:block_dawnstone\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:inferno_forge\"\n" +
-                    "  }\n" +
-                    "}",
-            ITEMTRANSFER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Piping\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PXP\",\n" +
-                    "    \"IXI\",\n" +
-                    "    \"I I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotLead\"\n" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"item\": \"embers:item_pipe\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"lead\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:item_transfer\"\n" +
-                    "  }\n" +
-                    "}",
-            JETAUGMENT = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PP \",\n" +
-                    "    \"XEI\",\n" +
-                    "    \"PP \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:jet_augment\"\n" +
-                    "  }\n" +
-                    "}",
-            LANTERN = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"P\",\n" +
-                    "    \"E\",\n" +
-                    "    \"I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:shard_ember\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:block_lantern\"\n" +
-                    "  }\n" +
-                    "}",
-            MECHACCESSOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"SPI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"embers:stairs_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:mech_accessor\"\n" +
-                    "  }\n" +
-                    "}",
-            MECHANICALCORE = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Mechanical Core\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"I I\",\n" +
-                    "    \" C \",\n" +
-                    "    \"I I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"composite_alloy\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:mech_core\"\n" +
-                    "  }\n" +
-                    "}",
-            MECHANICALPUMP = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"Piping\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"TPT\",\n" +
-                    "    \"PPP\",\n" +
-                    "    \"BEB\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"T\": {\n" +
-                    "      \"item\": \"embers:pipe\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:pump\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:brick_caminite\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:mechanical_pump\"\n" +
-                    "  }\n" +
-                    "}",
-            MINIBOILER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PPP\",\n" +
-                    "    \"I P\",\n" +
-                    "    \"PPP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:mini_boiler\"\n" +
-                    "  }\n" +
-                    "}",
-            MIXER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"PPP\",\n" +
-                    "    \"PCP\",\n" +
-                    "    \"IMI\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"M\": {\n" +
-                    "      \"item\": \"embers:mech_core\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:mixer\"\n" +
-                    "  }\n" +
-                    "}",
-            REACTOR = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"III\",\n" +
-                    "    \"ICI\",\n" +
-                    "    \"PBP\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"silver\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"embers:wildfire_core\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_caminite_brick\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:reactor\"\n" +
-                    "  }\n" +
-                    "}",
-            RESONATINGBELL = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IIX\",\n" +
-                    "    \" SI\",\n" +
-                    "    \"P I\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"silver\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "    \"item\": \"minefantasyreforged:silver_ingot\"" +
-                    "    },\n" +
-                    "    \"X\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:resonating_bell\"\n" +
-                    "  }\n" +
-                    "}",
-            SPARKPLUG = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"I I\",\n" +
-                    "    \" P \",\n" +
-                    "    \" A \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotAluminum\"\n" +
-                    "    },\n" +
-                    "    \"D\": {\n" +
-                    "      \"item\": \"embers:aspectus_silver\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:spark_plug\"\n" +
-                    "  }\n" +
-                    "}",
-            STIRLING = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"P P\",\n" +
-                    "    \"IEI\",\n" +
-                    "    \"SBS\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:crystal_ember\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"item\": \"embers:wildfire_core\"\n" +
-                    "    },\n" +
-                    "    \"E\": {\n" +
-                    "      \"item\": \"embers:shard_ember\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:block_copper\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:stirling\"\n" +
-                    "  }\n" +
-                    "}",
-            SUPERHEATER = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \" IP\",\n" +
-                    "    \"CCI\",\n" +
-                    "    \"CC \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"dawnstone\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotDawnstone\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"item\": \"minefantasyreforged:copper_ingot\"" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:superheater\"\n" +
-                    "  }\n" +
-                    "}",
-            TANK = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"B B\",\n" +
-                    "    \"P P\",\n" +
-                    "    \"BPB\"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"iron\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    },\n" +
-                    "    \"B\": {\n" +
-                    "      \"item\": \"embers:brick_caminite\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:block_tank\"\n" +
-                    "  }\n" +
-                    "}",
-            TinkerHammer = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"tinker_hammer\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"ICI\",\n" +
-                    "    \"ISI\",\n" +
-                    "    \" S \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"S\": {\n" +
-                    "      \"item\": \"minecraft:stick\"\n" +
-                    "    },\n" +
-                    "    \"C\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"composite_alloy\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:bar\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:tinker_hammer\"\n" +
-                    "  }\n" +
-                    "}",
-            TINKERLENS = "{\n" +
-                    "  \"type\": \"ShapedAnvilRecipes\",\n" +
-                    "  \"skill\": \"artisanry\",\n" +
-                    "  \"research\": \"\",\n" +
-                    "  \"tool_type\": \"hammer\",\n" +
-                    "  \"is_tool_recipe\": false,\n" +
-                    "  \"anvil_tier\": -1,\n" +
-                    "  \"recipe_time\": 2,\n" +
-                    "  \"recipe_hammer\": -1,\n" +
-                    "  \"output_hot\": false,\n" +
-                    "  \"pattern\": [\n" +
-                    "    \"IN \",\n" +
-                    "    \"PGN\",\n" +
-                    "    \"IN \"\n" +
-                    "  ],\n" +
-                    "  \"key\": {\n" +
-                    "    \"I\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"ingotIron\"\n" +
-                    "    },\n" +
-                    "    \"N\": {\n" +
-                    "      \"type\": \"oreDict\",\n" +
-                    "      \"ore\": \"nuggetGold\"\n" +
-                    "    },\n" +
-                    "    \"G\": {\n" +
-                    "      \"item\": \"minecraft:glass\"\n" +
-                    "    },\n" +
-                    "    \"P\": {\n" +
-                    "      \"nbt\": \"{mf_custom_materials:{main_material:\\\"lead\\\"}}\",\n" +
-                    "      \"item\": \"minefantasyreforged:plate\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  \"result\": {\n" +
-                    "    \"item\": \"embers:tinker_lens\"\n" +
-                    "  }\n" +
-                    "}";
-
     public static void initTypes(FMLPreInitializationEvent event) {
+
+        //Add metals to the ledger, and they later get added to MFR's material registry
+        Scribe ledger = new Scribe();
+
+        /// Define Dawnstone ///
+        if(ConfigMaterial.DAWNSTONE.isNotOff()) {
+            Material dawnstone = new Material("dawnstone", "ingotDawnstone");
+
+            MaterialProperties dawnstone_properties = new MaterialProperties();
+                dawnstone_properties.setTier(5);
+                dawnstone_properties.setDurability(6.5f);
+                dawnstone_properties.setFlexibility(1.0f);
+                dawnstone_properties.setSharpness(3.7f);
+                dawnstone_properties.setHardness(3.4f);
+                dawnstone_properties.setResistance(60);
+                dawnstone_properties.setDensity(3.3f);
+                dawnstone_properties.setMelting_point(2500);
+                dawnstone_properties.setRarity(0);
+                dawnstone_properties.setEnchantability(25);
+                dawnstone_properties.setCraft_tier(4);
+                dawnstone_properties.setCraft_time_modifier(10.0f);
+                dawnstone_properties.setUnbreakable(false);
+            dawnstone.setProperties(dawnstone_properties);
+
+            MaterialArmorStats dawnstone_armor_stats = new MaterialArmorStats();
+                dawnstone_armor_stats.setCutting(1.1f);
+                dawnstone_armor_stats.setBlunt(1.1f);
+                dawnstone_armor_stats.setPiercing(1.1f);
+            dawnstone.setArmour_stats(dawnstone_armor_stats);
+
+            MaterialColor dawnstonecolor = new MaterialColor();
+                dawnstonecolor.setRed(255);
+                dawnstonecolor.setGreen(182);
+                dawnstonecolor.setBlue(72);
+            dawnstone.setColor(dawnstonecolor);
+
+            ledger.addMaterial(dawnstone);
+        }
+
+        /// Define Lead ///
+        if(ConfigMaterial.LEAD.isNotOff()) {
+            Material lead = new Material("lead", "ingotLead");
+
+            MaterialProperties lead_properties = new MaterialProperties();
+                lead_properties.setTier(1);
+                lead_properties.setDurability(1.6f);
+                lead_properties.setFlexibility(0.9f);
+                lead_properties.setSharpness(1.3f);
+                lead_properties.setHardness(2.5f);
+                lead_properties.setResistance(20);
+                lead_properties.setDensity(3.5f);
+                lead_properties.setMelting_point(1400);
+                lead_properties.setRarity(0);
+                lead_properties.setEnchantability(1);
+                lead_properties.setCraft_tier(1);
+                lead_properties.setCraft_time_modifier(5.0f);
+                lead_properties.setUnbreakable(false);
+            lead.setProperties(lead_properties);
+
+            MaterialArmorStats lead_armor_stats = new MaterialArmorStats();
+                lead_armor_stats.setCutting(1.0f);
+                lead_armor_stats.setBlunt(1.0f);
+                lead_armor_stats.setPiercing(1.0f);
+            lead.setArmour_stats(lead_armor_stats);
+
+            MaterialColor lead_color = new MaterialColor();
+                lead_color.setRed(140);
+                lead_color.setGreen(127);
+                lead_color.setBlue(157);
+            lead.setColor(lead_color);
+
+            ledger.addMaterial(lead);
+        }
+
+        /// Define Aluminum ///
+        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
+            Material aluminum = new Material("aluminum", "ingotAluminum");
+
+            MaterialProperties aluminum_properties = new MaterialProperties();
+                aluminum_properties.setTier(0);
+                aluminum_properties.setDurability(1.2f);
+                aluminum_properties.setFlexibility(0.7f);
+                aluminum_properties.setSharpness(1.0f);
+                aluminum_properties.setHardness(2.0f);
+                aluminum_properties.setResistance(20);
+                aluminum_properties.setDensity(1.0f);
+                aluminum_properties.setMelting_point(800);
+                aluminum_properties.setRarity(0);
+                aluminum_properties.setEnchantability(2);
+                aluminum_properties.setCraft_tier(-1);
+                aluminum_properties.setCraft_time_modifier(2.0f);
+                aluminum_properties.setUnbreakable(false);
+            aluminum.setProperties(aluminum_properties);
+
+            MaterialArmorStats aluminum_armor_stats = new MaterialArmorStats();
+                aluminum_armor_stats.setCutting(1.0f);
+                aluminum_armor_stats.setBlunt(1.0f);
+                aluminum_armor_stats.setPiercing(1.0f);
+            aluminum.setArmour_stats(aluminum_armor_stats);
+
+            MaterialColor aluminum_color = new MaterialColor();
+                aluminum_color.setRed(234);
+                aluminum_color.setGreen(157);
+                aluminum_color.setBlue(134);
+            aluminum.setColor(aluminum_color);
+
+            ledger.addMaterial(aluminum);
+        }
+
+        /// Define Electrum ///
+        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
+            Material electrum = new Material("electrum", "ingotElectrum");
+
+            MaterialProperties electrum_properties = new MaterialProperties();
+                electrum_properties.setTier(0);
+                electrum_properties.setDurability(2.5f);
+                electrum_properties.setFlexibility(1.0f);
+                electrum_properties.setSharpness(0.0f);
+                electrum_properties.setHardness(1.5f);
+                electrum_properties.setResistance(40);
+                electrum_properties.setDensity(3.5f);
+                electrum_properties.setMelting_point(1200);
+                electrum_properties.setRarity(0);
+                electrum_properties.setEnchantability(30);
+                electrum_properties.setCraft_tier(0);
+                electrum_properties.setCraft_time_modifier(2.0f);
+                electrum_properties.setUnbreakable(false);
+            electrum.setProperties(electrum_properties);
+
+            MaterialArmorStats electrum_armor_stats = new MaterialArmorStats();
+                electrum_armor_stats.setCutting(1.0f);
+                electrum_armor_stats.setBlunt(1.0f);
+                electrum_armor_stats.setPiercing(1.0f);
+            electrum.setArmour_stats(electrum_armor_stats);
+
+            MaterialColor electrum_color = new MaterialColor();
+                electrum_color.setRed(240);
+                electrum_color.setGreen(216);
+                electrum_color.setBlue(113);
+            electrum.setColor(electrum_color);
+
+            ledger.addMaterial(electrum);
+        }
+
+        /// Define Nickel ///
+        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
+            Material nickel = new Material("nickel", "ingotNickel");
+
+            MaterialProperties nickel_properties = new MaterialProperties();
+                nickel_properties.setTier(1);
+                nickel_properties.setDurability(1.5f);
+                nickel_properties.setFlexibility(0.8f);
+                nickel_properties.setSharpness(1.5f);
+                nickel_properties.setHardness(2.0f);
+                nickel_properties.setResistance(50);
+                nickel_properties.setDensity(3.0f);
+                nickel_properties.setMelting_point(1400);
+                nickel_properties.setRarity(0);
+                nickel_properties.setEnchantability(9);
+                nickel_properties.setCraft_tier(1);
+                nickel_properties.setCraft_time_modifier(3.0f);
+                nickel_properties.setUnbreakable(false);
+            nickel.setProperties(nickel_properties);
+
+            MaterialArmorStats nickel_armor_stats = new MaterialArmorStats();
+                nickel_armor_stats.setCutting(1.0f);
+                nickel_armor_stats.setBlunt(1.0f);
+                nickel_armor_stats.setPiercing(1.0f);
+            nickel.setArmour_stats(nickel_armor_stats);
+
+            MaterialColor nickel_color = new MaterialColor();
+                nickel_color.setRed(171);
+                nickel_color.setGreen(181);
+                nickel_color.setBlue(152);
+            nickel.setColor(nickel_color);
+
+            ledger.addMaterial(nickel);
+        }
+
+        for(Object m: ledger.getMetals()){
+            ((Material)m).toMetalMaterial();
+        }
+
+        EmberforgedMain.LOG.info("Emberforged Registry Generated");
+        Gson gson = new Gson();
+        String metal_types = gson.toJson(ledger);
+        //EmberforgedMain.LOG.info(metal_types);
+
+        /*
+
+        Ye olde method for printing the json objects to a json file in the config file
+
+        //Prints a json file with all the metals on the ledger to the specified config file
         try {
             String tempPath = "MineFantasyReforged/custom/registry/emberforged/";
             new File(event.getModConfigurationDirectory(), tempPath).mkdirs();
             File tempFile = new File(event.getModConfigurationDirectory(), tempPath + "metal_types" + ".json");
             PrintWriter tempWriter = new PrintWriter(tempFile);
 
-            tempWriter.println("{\n" +
-                    "    \"mod\": \"emberforged\",\n" +
-                    "    \"metals\": [\n" +
-                    "        {\n" +
-                    "            \"name\": \"lead\",\n" +
-                    "            \"oreDictList\": \"ingotLead\",\n" +
-                    "            \"properties\": {\n" +
-                    "                \"tier\": 1,\n" +
-                    "                \"durability\": 1.6,\n" +
-                    "                \"flexibility\": 0.9,\n" +
-                    "                \"sharpness\": 1.3,\n" +
-                    "                \"hardness\": 2.5,\n" +
-                    "                \"resistance\": 20,\n" +
-                    "                \"density\": 3.5,\n" +
-                    "                \"melting_point\": 1400,\n" +
-                    "                \"rarity\": 0,\n" +
-                    "                \"enchantability\": 1,\n" +
-                    "                \"craft_tier\": 1,\n" +
-                    "                \"craft_time_modifier\": 5.0,\n" +
-                    "                \"unbreakable\": false\n" +
-                    "            },\n" +
-                    "            \"armour_stats\": {\n" +
-                    "                \"cutting\": 1.0,\n" +
-                    "                \"blunt\": 1.0,\n" +
-                    "                \"piercing\": 1.0\n" +
-                    "            },\n" +
-                    "            \"color\": {\n" +
-                    "                \"red\": 140,\n" +
-                    "                \"green\": 127,\n" +
-                    "                \"blue\": 157\n" +
-                    "            }\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "            \"name\": \"dawnstone\",\n" +
-                    "            \"oreDictList\": \"ingotDawnstone\",\n" +
-                    "            \"properties\": {\n" +
-                    "                \"tier\": 5,\n" +
-                    "                \"durability\": 6.0,\n" +
-                    "                \"flexibility\": 1.5,\n" +
-                    "                \"sharpness\": 3.8,\n" +
-                    "                \"hardness\": 3.3,\n" +
-                    "                \"resistance\": 60,\n" +
-                    "                \"density\": 3.2,\n" +
-                    "                \"melting_point\": 2500,\n" +
-                    "                \"rarity\": 0,\n" +
-                    "                \"enchantability\": 15,\n" +
-                    "                \"craft_tier\": 4,\n" +
-                    "                \"craft_time_modifier\": 10.0,\n" +
-                    "                \"unbreakable\": false\n" +
-                    "            },\n" +
-                    "            \"armour_stats\": {\n" +
-                    "                \"cutting\": 1.0,\n" +
-                    "                \"blunt\": 1.0,\n" +
-                    "                \"piercing\": 1.0\n" +
-                    "            },\n" +
-                    "            \"color\": {\n" +
-                    "                \"red\": 255,\n" +
-                    "                \"green\": 182,\n" +
-                    "                \"blue\": 72\n" +
-                    "            }\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "            \"name\": \"aluminum\",\n" +
-                    "            \"oreDictList\": \"ingotAluminum\",\n" +
-                    "            \"properties\": {\n" +
-                    "                \"tier\": 0,\n" +
-                    "                \"durability\": 1.2,\n" +
-                    "                \"flexibility\": 0.7,\n" +
-                    "                \"sharpness\": 0.0,\n" +
-                    "                \"hardness\": 1.2,\n" +
-                    "                \"resistance\": 10,\n" +
-                    "                \"density\": 2.0,\n" +
-                    "                \"melting_point\": 800,\n" +
-                    "                \"rarity\": -1,\n" +
-                    "                \"enchantability\": 1,\n" +
-                    "                \"craft_tier\": -1,\n" +
-                    "                \"craft_time_modifier\": 2.0,\n" +
-                    "                \"unbreakable\": false\n" +
-                    "            },\n" +
-                    "            \"armour_stats\": {\n" +
-                    "                \"cutting\": 1.0,\n" +
-                    "                \"blunt\": 1.0,\n" +
-                    "                \"piercing\": 1.0\n" +
-                    "            },\n" +
-                    "            \"color\": {\n" +
-                    "                \"red\": 234,\n" +
-                    "                \"green\": 152,\n" +
-                    "                \"blue\": 134\n" +
-                    "            }\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "            \"name\": \"electrum\",\n" +
-                    "            \"oreDictList\": \"ingotElectrum\",\n" +
-                    "            \"properties\": {\n" +
-                    "                \"tier\": 4,\n" +
-                    "                \"durability\": 7.0,\n" +
-                    "                \"flexibility\": 1.5,\n" +
-                    "                \"sharpness\": 2.0,\n" +
-                    "                \"hardness\": 3.0,\n" +
-                    "                \"resistance\": 55,\n" +
-                    "                \"density\": 3.0,\n" +
-                    "                \"melting_point\": 2000,\n" +
-                    "                \"rarity\": 0,\n" +
-                    "                \"enchantability\": 15,\n" +
-                    "                \"craft_tier\": 3,\n" +
-                    "                \"craft_time_modifier\": 8.0,\n" +
-                    "                \"unbreakable\": false\n" +
-                    "            },\n" +
-                    "            \"armour_stats\": {\n" +
-                    "                \"cutting\": 1.0,\n" +
-                    "                \"blunt\": 1.0,\n" +
-                    "                \"piercing\": 1.0\n" +
-                    "            },\n" +
-                    "            \"color\": {\n" +
-                    "                \"red\": 240,\n" +
-                    "                \"green\": 216,\n" +
-                    "                \"blue\": 113\n" +
-                    "            }\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "            \"name\": \"nickel\",\n" +
-                    "            \"oreDictList\": \"ingotNickel\",\n" +
-                    "            \"properties\": {\n" +
-                    "                \"tier\": 0,\n" +
-                    "                \"durability\": 1.2,\n" +
-                    "                \"flexibility\": 0.8,\n" +
-                    "                \"sharpness\": 0.5,\n" +
-                    "                \"hardness\": 1.0,\n" +
-                    "                \"resistance\": 50,\n" +
-                    "                \"density\": 3.0,\n" +
-                    "                \"melting_point\": 1200,\n" +
-                    "                \"rarity\": 0,\n" +
-                    "                \"enchantability\": 9,\n" +
-                    "                \"craft_tier\": 0,\n" +
-                    "                \"craft_time_modifier\": 2.0,\n" +
-                    "                \"unbreakable\": false\n" +
-                    "            },\n" +
-                    "            \"armour_stats\": {\n" +
-                    "                \"cutting\": 1.0,\n" +
-                    "                \"blunt\": 1.0,\n" +
-                    "                \"piercing\": 1.0\n" +
-                    "            },\n" +
-                    "            \"color\": {\n" +
-                    "                \"red\": 171,\n" +
-                    "                \"green\": 181,\n" +
-                    "                \"blue\": 152\n" +
-                    "            }\n" +
-                    "        }\n" +
-                    "    ]\n" +
-                    "}");
+
+
+            tempWriter.println(metal_types);
             tempWriter.flush();
             tempWriter.close();
+
+
         }
         catch(IOException e) {
         }
+        */
     }
 
+    /*
+    Saving this snipped to remind myself how to use the RecipeWriter in case I ever need to use it for something else
     public static void initRecipes(FMLPreInitializationEvent event) {
         if (Config.hcAlchemyPedestal) {
             RecipeWriter(event, "embers_AlchemyPedestal", ALCHEMYPEDESTAL);
         }
-        if (Config.hcAlchemyTablet) {
-            RecipeWriter(event, "embers_AlchemyTablet", ALCHEMYTABLET);
-        }
-        if (Config.hcAshenCloak) {
-            RecipeWriter(event, "embers_AshenCloak", ASHENCLOAK);
-        }
-        if (Config.hcBeamCannon) {
-            RecipeWriter(event, "embers_BeamCannon", BEAMCANNON);
-        }
-        if (Config.hcBeamSplitter) {
-            RecipeWriter(event, "embers_BeamSplitter", BEAMSPLITTER);
-        }
-        if (Config.hcBin) {
-            RecipeWriter(event, "embers_Bin", BIN);
-        }
-        if (Config.hcCasterOrb) {
-            RecipeWriter(event, "embers_CasterOrb", CASTERORB);
-        }
-        if (Config.hcCatalyzer) {
-            RecipeWriter(event, "embers_Catalyzer", CATALYZER);
-        }
-        if (Config.hcCharger) {
-            RecipeWriter(event, "embers_Charger", CHARGER);
-        }
-        if (Config.hcCinderPlinth) {
-            RecipeWriter(event, "embers_CinderPlinth", CINDERPLINTH);
-        }
-        if (Config.hcClockworkAttenuator) {
-            RecipeWriter(event, "embers_ClockworkAttenuator", CLOCKWORKATTENUATOR);
-        }
-        if (Config.hcClockworkAxe) {
-            RecipeWriter(event, "embers_ClockworkAxe", CLOCKWORKAXE);
-        }
-        if (Config.hcCombustor) {
-            RecipeWriter(event, "embers_Combustor", COMBUSTOR);
-        }
-        if (Config.hcCrystalCell) {
-            RecipeWriter(event, "embers_CrystalCell", CRYSTALCELL);
-        }
-        if (Config.hcDawnstoneMail) {
-            RecipeWriter(event, "embers_DawnstoneMail", DAWNSTONEMAIL);
-        }
-        if (Config.hcDiffractionBarrel) {
-            RecipeWriter(event, "embers_DiffractionBarrel", DIFFRACTIONBARREL);
-        }
-        if (Config.hcEmberActivator) {
-            RecipeWriter(event, "embers_EmberActivator", EMBERACTIVATOR);
-        }
-        if (Config.hcEmberBelt) {
-            RecipeWriter(event, "embers_EmberBelt", EMBERBELT);
-        }
-        if (Config.hcEmberBore) {
-            RecipeWriter(event, "embers_EmberBore", EMBERBORE);
-        }
-        if (Config.hcEmberBulb) {
-            RecipeWriter(event, "embers_EmberBulb", EMBERBULB);
-        }
-        if (Config.hcEmberCartridge) {
-            RecipeWriter(event, "embers_EmberCartridge", EMBERCARTRIDGE);
-        }
-        if (Config.hcEmberFunnel) {
-            RecipeWriter(event, "embers_EmberFunnel", EMBERFUNNEL);
-        }
-        if (Config.hcEmberGauge) {
-            RecipeWriter(event, "embers_EmberGauge", EMBERGAUGE);
-        }
-        if (Config.hcEmberInjector) {
-            RecipeWriter(event, "embers_EmberInjector", EMBERINJECTOR);
-        }
-        if (Config.hcEmberPulser) {
-            RecipeWriter(event, "embers_EmberPulser", EMBERPULSER);
-        }
-        if (Config.hcEmberRelay) {
-            RecipeWriter(event, "embers_EmberRelay", EMBERRELAY);
-        }
-        if (Config.hcEmberSiphon) {
-            RecipeWriter(event, "embers_EmberSiphon", EMBERSIPHON);
-        }
-        if (Config.hcEmberStaff) {
-            RecipeWriter(event, "embers_EmberStaff", EMBERSTAFF);
-        }
-        if (Config.hcFluidGauge) {
-            RecipeWriter(event, "embers_FluidGauge", FLUIDGAUGE);
-        }
-        if (Config.hcFluidPipe) {
-            RecipeWriter(event, "embers_FluidPipe", FLUIDPIPE);
-        }
-        if (Config.hcFluidTransfer) {
-            RecipeWriter(event, "embers_FluidTransfer", FLUIDTRANSFER);
-        }
-        if (Config.hcGlimmerLamp) {
-            RecipeWriter(event, "embers_GlimmerLamp", GLIMMERLAMP);
-        }
-        if (Config.hcHearthCoil) {
-            RecipeWriter(event, "embers_HearthCoil", HEARTHCOIL);
-        }
-        if (Config.hcIgnitionCannon) {
-            RecipeWriter(event, "embers_IgnitionCannon", IGNITIONCANNON);
-        }
-        if (Config.hcInfernoForge) {
-            RecipeWriter(event, "embers_InfernoForge", INFERNOFORGE);
-        }
-        if (Config.hcItemTransfer) {
-            RecipeWriter(event, "embers_ItemTransfer", ITEMTRANSFER);
-        }
-        if (Config.hcJetAugment) {
-            RecipeWriter(event, "embers_JetAugment", JETAUGMENT);
-        }
-        if (Config.hcLantern) {
-            RecipeWriter(event, "embers_Lantern", LANTERN);
-        }
-        if (Config.hcMechAccessor) {
-            RecipeWriter(event, "embers_MechAccessor", MECHACCESSOR);
-        }
-        if (Config.hcMechanicalCore) {
-            RecipeWriter(event, "embers_MechanicalCore", MECHANICALCORE);
-        }
-        if (Config.hcMechanicalPump) {
-            RecipeWriter(event, "embers_MechanicalPump", MECHANICALPUMP);
-        }
-        if (Config.hcMiniBoiler) {
-            RecipeWriter(event, "embers_MiniBoiler", MINIBOILER);
-        }
-        if (Config.hcMixer) {
-            RecipeWriter(event, "embers_Mixer", MIXER);
-        }
-        if (Config.hcReactor) {
-            RecipeWriter(event, "embers_Reactor", REACTOR);
-        }
-        if (Config.hcResonatingBell) {
-            RecipeWriter(event, "embers_ResonatingBell", RESONATINGBELL);
-        }
-        if (Config.hcSparkPlug) {
-            RecipeWriter(event, "embers_SparkPlug", SPARKPLUG);
-        }
-        if (Config.hcStirling) {
-            RecipeWriter(event, "embers_Stirling", STIRLING);
-        }
-        if (Config.hcSuperheater) {
-            RecipeWriter(event, "embers_Superheater", SUPERHEATER);
-        }
-        if (Config.hcTank) {
-            RecipeWriter(event, "embers_Tank", TANK);
-        }
-        if (Config.hcTinkerHammer) {
-            RecipeWriter(event, "embers_TinkerHammer", TinkerHammer);
-        }
-        if (Config.hcTinkerLens) {
-            RecipeWriter(event, "embers_TinkerLens", TINKERLENS);
-        }
     }
+     */
 
     //Function to standardize recipe writing
-    public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe) {
+    public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe, String recipeType) {
         if (Config.enableChanges) {
             try {
-                String path = "MineFantasyReforged/custom/recipes/anvil_recipes/";
+                String path = "MineFantasyReforged/custom/recipes/emberforged/" + recipeType;
                 File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");
                 file.deleteOnExit();
                 PrintWriter writer = new PrintWriter(file);
