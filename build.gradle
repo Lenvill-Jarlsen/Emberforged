@@ -66,10 +66,10 @@ minecraft {
     }
 }
 
+//This helps the Minecraft instances that IntelliJ launches find the mod's resources folder
 sourceSets.all {
     it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next()
 }
-
 
 repositories {
     google()
@@ -123,19 +123,19 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302")
     implementation fg.deobf("curse.maven:baubles-227083:2518667")
     implementation fg.deobf("codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal")
-    implementation fg.deobf("curse.maven:minefantasy-reforged-431996:5553214")
+    implementation fg.deobf("curse.maven:minefantasy-reforged-431996:6861487")
     //implementation fg.deobf("curse.maven:mysticalmechanics-300742:3006392")
     //implementation fg.deobf("curse.maven:embers-rekindled-300777:3695248")
-    implementation fg.deobf("curse.maven:embers-extended-life-936489:5321973")
+    implementation fg.deobf("curse.maven:embers-extended-life-936489:6556819")
 
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
     annotationProcessor 'com.google.guava:guava:32.1.2-jre'
     annotationProcessor 'com.google.code.gson:gson:2.8.9'
 
-    implementation ('zone.rong:mixinbooter:9.1') {
+    implementation ('zone.rong:mixinbooter:10.6') {
         transitive = false
     }
-    annotationProcessor ('zone.rong:mixinbooter:9.1') {
+    annotationProcessor ('zone.rong:mixinbooter:10.6') {
         transitive = false
     }
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

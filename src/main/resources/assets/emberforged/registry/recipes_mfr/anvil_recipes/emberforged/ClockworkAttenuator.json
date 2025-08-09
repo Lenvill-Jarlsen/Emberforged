@@ -1,0 +1,42 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "NRN",
+    " P ",
+    "NEN"
+  ],
+  "key": {
+    "E": {
+	  "type": "minecraft:item_nbt",
+      "nbt": "{mf_custom_materials:{main_material:\"electrum\"}}",
+      "item": "minefantasyreforged:plate"
+    },
+    "N": {
+      "item": "embers:nugget_electrum"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "embers:clockwork_attenuator"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

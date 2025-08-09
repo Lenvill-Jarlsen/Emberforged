@@ -2,6 +2,7 @@ package com.Lenvill;
 
 import com.Lenvill.fluids.FluidInit;
 import com.Lenvill.item.EmberforgedItems;
+import com.Lenvill.item.ItemWeaken;
 import com.Lenvill.proxy.CommonProxy;
 import minefantasy.mfr.config.ConfigHardcore;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,11 +28,8 @@ public class EmberforgedMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new Config());
-        Config.init(event.getSuggestedConfigurationFile());
-        if(Config.registerMetals){
-            IOInit.initTypes(event);
-        }
+        //MinecraftForge.EVENT_BUS.register(new Config());
+        //Config.init(event.getSuggestedConfigurationFile());
         //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
         EmberforgedItems.initItems();

@@ -1,0 +1,45 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 2,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "I I",
+    "DCD",
+    "BPB"
+  ],
+  "key": {
+    "I": {
+      "item": "#BAR_SILVER"
+    },
+    "P": {
+	  "type": "minecraft:item_nbt",
+      "nbt": "{mf_custom_materials:{main_material:\"silver\"}}",
+      "item": "minefantasyreforged:plate"
+    },
+    "D": {
+      "item": "#PLATE_DAWNSTONE"
+    },
+    "C": {
+      "item": "embers:wildfire_core"
+    },
+    "B": {
+      "item": "embers:block_caminite_brick"
+    }
+  },
+  "result": {
+    "item": "embers:ember_injector"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

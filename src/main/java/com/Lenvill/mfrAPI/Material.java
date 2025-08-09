@@ -1,11 +1,12 @@
 package com.Lenvill.mfrAPI;
 
-import minefantasy.mfr.material.CustomMaterial;
-import minefantasy.mfr.material.MetalMaterial;
+import net.minecraft.item.crafting.Ingredient;
 
 public class Material {
     String name;
     String oreDictList;
+    //CustomMaterialType type;
+    Ingredient materialIngredient;
 
     MaterialProperties properties;
     MaterialArmorStats armour_stats;
@@ -59,12 +60,16 @@ public class Material {
         this.color = color;
     }
 
+    /*
+
     public MetalMaterial toMetalMaterial() {
         float[] armour = new float[]{armour_stats.getCutting(), armour_stats.getBlunt(), armour_stats.getPiercing()};
         int[] colors = new int[]{color.getRed(), color.getGreen(), color.getBlue()};
 
         CustomMaterial metalMaterial = new MetalMaterial(
                 name,
+                type,
+                materialIngredient,
                 properties.getTier(),
                 properties.getHardness(),
                 properties.getDurability(),
@@ -85,4 +90,6 @@ public class Material {
 
         return (MetalMaterial) metalMaterial.register();
     }
+
+     */
 }

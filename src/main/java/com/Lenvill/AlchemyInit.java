@@ -29,9 +29,9 @@ public class AlchemyInit {
         Ingredient mfr_dawnstone_plate = Ingredient.fromItem(EmberforgedItems.runed_dawnstone_plate);
         Ingredient runed_scales = Ingredient.fromItem(EmberforgedItems.gilded_lead_scales);
         Ingredient runed_gears = Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS);
-        Ingredient lead_sword = Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
+        Ingredient lead_sword = Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS); //Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
 
-        if(Config.enableChanges) {
+        if(Config.recipeChanges) {
             alchemyOutputRemover(new ItemStack(ItemRegister.BLASTING_CORE));
             alchemyOutputRemover(new ItemStack(ItemRegister.FLAME_BARRIER));
             alchemyOutputRemover(new ItemStack(ItemRegister.FOCAL_LENS));

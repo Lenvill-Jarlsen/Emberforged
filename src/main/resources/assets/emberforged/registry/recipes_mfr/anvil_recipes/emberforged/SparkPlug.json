@@ -1,0 +1,43 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "I I",
+    " P ",
+    " D "
+  ],
+  "key": {
+    "P": {
+      "item": "#PLATE_IRON"
+    },
+    "I": {
+      "item": "#BAR_ALUMINUM"
+    },
+    "D": {
+      "item": "embers:aspectus_silver"
+    }
+  },
+  "result": {
+    "item": "embers:spark_plug"
+  },
+  "conditions" : [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "altsparkplugtoggle"
+      }
+    },
+    {
+      "type": "aluminumtoggle"
+    }
+  ]
+}

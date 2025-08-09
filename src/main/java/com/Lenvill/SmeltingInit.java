@@ -32,7 +32,7 @@ public class SmeltingInit {
                 removeSmeltingRecipe(BlockRegister.ORE_TIN);
             }
 
-            if(Config.hcCaminiteFiring || ConfigHardcore.preventCeramic) {
+            if(Config.recipeChanges || ConfigHardcore.preventCeramic) {
                 removeSmeltingRecipe(ItemRegister.BLEND_CAMINITE);
                 removeSmeltingRecipe(ItemRegister.STAMP_BAR_RAW);
                 removeSmeltingRecipe(ItemRegister.STAMP_PLATE_RAW);

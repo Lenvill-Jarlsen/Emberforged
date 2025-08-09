@@ -3,6 +3,7 @@ package com.Lenvill;
 import com.Lenvill.fluids.FluidInit;
 import minefantasy.mfr.init.MineFantasyItems;
 import minefantasy.mfr.item.ItemMetalComponent;
+import minefantasy.mfr.registry.material.CustomMaterialRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fluids.Fluid;
@@ -22,7 +23,7 @@ public class StampInit {
     public static void initStamps() {
 
         //Removes old embers recipes and adds in new MFR equivalents
-        if(Config.enableChanges) {
+        if(Config.recipeChanges) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_COPPER, "copper");
 
             if(ConfigMaterial.TIN.mustLoad()) {
@@ -64,13 +65,13 @@ public class StampInit {
             }
         }
 
-        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
+        if(ConfigMaterial.ALUMINUM.mustLoad() && CustomMaterialRegistry.getMaterial("aluminum") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_ALUMINUM, "aluminum");
         }
-        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
+        if(ConfigMaterial.ELECTRUM.mustLoad() && CustomMaterialRegistry.getMaterial("electrum") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_ELECTRUM, "electrum");
         }
-        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
+        if(ConfigMaterial.NICKEL.mustLoad() && CustomMaterialRegistry.getMaterial("nickel") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_NICKEL, "nickel");
         }
 

@@ -1,0 +1,40 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "reaction_chamber",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "PPP",
+    "P P",
+    "BSB"
+  ],
+  "key": {
+    "P": {
+        "type": "minecraft:item_nbt",
+        "item": "minefantasyreforged:plate",
+        "nbt": "{mf_custom_materials:{main_material:\"bronze\"}}"
+
+    },
+    "B": {
+      "item": "#BAR_BRONZE"
+    },
+    "S": {
+      "item": "embers:spark_plug"
+    }
+  },
+  "result": {
+    "item": "embers:reaction_chamber"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

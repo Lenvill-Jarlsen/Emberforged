@@ -16,7 +16,4 @@ public class CommonProxy {
         //NOOP for commonProxy
     }
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-        //NOOP for commonProxy
-    }
 }

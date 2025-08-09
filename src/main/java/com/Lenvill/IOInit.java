@@ -2,9 +2,16 @@ package com.Lenvill;
 
 import com.Lenvill.mfrAPI.*;
 import com.google.gson.Gson;
+import minefantasy.mfr.constants.Rarity;
+import minefantasy.mfr.registry.material.CustomMaterial;
+import minefantasy.mfr.registry.material.CustomMaterialRegistry;
+import minefantasy.mfr.registry.material.types.CustomMaterialType;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import teamroots.embers.config.ConfigMaterial;
 import teamroots.embers.config.ConfigTool;
+import teamroots.embers.register.ItemRegister;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,13 +19,37 @@ import java.io.PrintWriter;
 
 public class IOInit {
 
-    public static void initTypes(FMLPreInitializationEvent event) {
+    public static void initTypes(FMLInitializationEvent event) {
 
         //Add metals to the ledger, and they later get added to MFR's material registry
         Scribe ledger = new Scribe();
 
+        /*
         /// Define Dawnstone ///
         if(ConfigMaterial.DAWNSTONE.isNotOff()) {
+            CustomMaterial dawnstone = new CustomMaterial(
+                    "dawnstone",
+                    CustomMaterialType.METAL_MATERIAL,
+                    Ingredient.fromItem(ItemRegister.INGOT_DAWNSTONE),
+                    new int[]{255, 182, 72},
+                    3.4f,
+                    6.5f,
+                    1.0f,
+                    3.7f,
+                    60f,
+                    3.3f,
+                    5,
+                    Rarity.UNCOMMON,
+                    25,
+                    4,
+                    4,
+                    10.0f,
+                    2500,
+                    new Float[]{1.1f, 1.1f, 1.1f},
+                    false);
+
+
+
             Material dawnstone = new Material("dawnstone", "ingotDawnstone");
 
             MaterialProperties dawnstone_properties = new MaterialProperties();
@@ -49,11 +80,36 @@ public class IOInit {
                 dawnstonecolor.setBlue(72);
             dawnstone.setColor(dawnstonecolor);
 
+
             ledger.addMaterial(dawnstone);
+            CustomMaterialRegistry.addMaterial(dawnstone);
         }
 
         /// Define Lead ///
         if(ConfigMaterial.LEAD.isNotOff()) {
+            CustomMaterial lead = new CustomMaterial(
+                    "lead",
+                    CustomMaterialType.METAL_MATERIAL,
+                    Ingredient.fromItem(ItemRegister.INGOT_LEAD),
+                    new int[]{140, 127, 157},
+                    2.5f,
+                    1.6f,
+                    0.9f,
+                    1.3f,
+                    20f,
+                    3.5f,
+                    1,
+                    Rarity.COMMON,
+                    1,
+                    1,
+                    1,
+                    5.0f,
+                    1400,
+                    new Float[]{1.0f, 1.0f, 1.0f},
+                    false
+            );
+
+
             Material lead = new Material("lead", "ingotLead");
 
             MaterialProperties lead_properties = new MaterialProperties();
@@ -84,11 +140,37 @@ public class IOInit {
                 lead_color.setBlue(157);
             lead.setColor(lead_color);
 
+
+
             ledger.addMaterial(lead);
+            CustomMaterialRegistry.addMaterial(lead);
         }
 
         /// Define Aluminum ///
         if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
+            CustomMaterial aluminum = new CustomMaterial(
+                    "aluminum",
+                    CustomMaterialType.METAL_MATERIAL,
+                    Ingredient.fromItem(ItemRegister.INGOT_ALUMINUM),
+                    new int[]{234, 157, 134},
+                    2.0f,
+                    1.2f,
+                    0.7f,
+                    1.0f,
+                    20f,
+                    1.0f,
+                    -1,
+                    Rarity.POOR,
+                    2,
+                    -1,
+                    -1,
+                    2.0f,
+                    800,
+                    new Float[]{1.0f, 1.0f, 1.0f},
+                    false
+            );
+
+
             Material aluminum = new Material("aluminum", "ingotAluminum");
 
             MaterialProperties aluminum_properties = new MaterialProperties();
@@ -119,11 +201,36 @@ public class IOInit {
                 aluminum_color.setBlue(134);
             aluminum.setColor(aluminum_color);
 
+
             ledger.addMaterial(aluminum);
+            CustomMaterialRegistry.addMaterial(aluminum);
         }
 
         /// Define Electrum ///
         if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
+            CustomMaterial electrum = new CustomMaterial(
+                    "electrum",
+                    CustomMaterialType.METAL_MATERIAL,
+                    Ingredient.fromItem(ItemRegister.INGOT_ELECTRUM),
+                    new int[]{240, 216, 113},
+                    1.5f,
+                    2.5f,
+                    1.0f,
+                    0.0f,
+                    40f,
+                    3.5f,
+                    0,
+                    Rarity.COMMON,
+                    30,
+                    0,
+                    0,
+                    2.0f,
+                    1200,
+                    new Float[]{1.0f, 1.0f, 1.0f},
+                    false
+            );
+
+
             Material electrum = new Material("electrum", "ingotElectrum");
 
             MaterialProperties electrum_properties = new MaterialProperties();
@@ -154,11 +261,37 @@ public class IOInit {
                 electrum_color.setBlue(113);
             electrum.setColor(electrum_color);
 
+
+
             ledger.addMaterial(electrum);
+            CustomMaterialRegistry.addMaterial(electrum);
         }
 
         /// Define Nickel ///
         if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
+            CustomMaterial nickel = new CustomMaterial(
+                    "nickel",
+                    CustomMaterialType.METAL_MATERIAL,
+                    Ingredient.fromItem(ItemRegister.INGOT_NICKEL),
+                    new int[]{171, 181, 152},
+                    2.0f,
+                    1.5f,
+                    0.8f,
+                    1.5f,
+                    50f,
+                    3.0f,
+                    1,
+                    Rarity.COMMON,
+                    9,
+                    1,
+                    1,
+                    3.0f,
+                    1400,
+                    new Float[]{1.0f, 1.0f, 1.0f},
+                    false
+            );
+
+
             Material nickel = new Material("nickel", "ingotNickel");
 
             MaterialProperties nickel_properties = new MaterialProperties();
@@ -189,17 +322,22 @@ public class IOInit {
                 nickel_color.setBlue(152);
             nickel.setColor(nickel_color);
 
+
+
             ledger.addMaterial(nickel);
+            CustomMaterialRegistry.addMaterial(nickel);
         }
 
-        for(Object m: ledger.getMetals()){
-            ((Material)m).toMetalMaterial();
+        for(Object m : ledger.getMetals()){
+            //CustomMaterialRegistry.addMaterial(((CustomMaterial)m));
         }
 
         EmberforgedMain.LOG.info("Emberforged Registry Generated");
         Gson gson = new Gson();
         String metal_types = gson.toJson(ledger);
         //EmberforgedMain.LOG.info(metal_types);
+
+         */
 
         /*
 
@@ -236,7 +374,7 @@ public class IOInit {
 
     //Function to standardize recipe writing
     public static void RecipeWriter(FMLPreInitializationEvent event, String recipeName, String recipe, String recipeType) {
-        if (Config.enableChanges) {
+        if (Config.recipeChanges) {
             try {
                 String path = "MineFantasyReforged/custom/recipes/emberforged/" + recipeType;
                 File file = new File(event.getModConfigurationDirectory(), path + recipeName + ".json");

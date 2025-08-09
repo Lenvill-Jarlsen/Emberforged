@@ -1,0 +1,40 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "ember_bore",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "CBC",
+    "CMC",
+    "III"
+  ],
+  "key": {
+    "I": {
+        "item": "#BAR_IRON"
+    },
+    "B": {
+      "item": "#BAR_COPPER"
+    },
+    "C": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    }
+  },
+  "result": {
+    "item": "embers:ember_bore"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

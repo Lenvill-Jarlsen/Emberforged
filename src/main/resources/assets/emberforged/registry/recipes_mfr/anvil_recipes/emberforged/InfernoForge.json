@@ -1,0 +1,46 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "DPD",
+    "ICI",
+    "XWX"
+  ],
+  "key": {
+    "P": {
+      "item": "#PLATE_IRON"
+    },
+    "I": {
+      "item": "#BAR_DAWNSTONE"
+    },
+    "X": {
+      "item": "embers:block_caminite_brick"
+    },
+    "W": {
+      "item": "embers:wildfire_core"
+    },
+    "C": {
+      "item": "#BLOCK_COPPER"
+    },
+    "D": {
+      "item": "embers:block_dawnstone"
+    }
+  },
+  "result": {
+    "item": "embers:inferno_forge"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

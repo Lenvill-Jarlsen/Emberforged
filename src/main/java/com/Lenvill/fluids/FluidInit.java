@@ -113,13 +113,13 @@ public class FluidInit {
         //meltAdd("dawnstone", RegistryManager.fluid_molten_dawnstone);
         //meltAdd("lead", RegistryManager.fluid_molten_lead);
 
-        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
+        if(ConfigMaterial.ALUMINUM.mustLoad()) {
             //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
-        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
+        if(ConfigMaterial.ELECTRUM.mustLoad()) {
             //meltAdd("Aluminum", RegistryManager.fluid_molten_nickel);
         }
-        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
+        if(ConfigMaterial.NICKEL.mustLoad()) {
             //meltAdd("nickel", RegistryManager.fluid_molten_nickel);
         }
 
