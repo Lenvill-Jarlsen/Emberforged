@@ -17,7 +17,7 @@ public class AltSparkPlugToggle implements IConditionFactory {
         /// registryCheck should be True if the material is present ///
         boolean registryCheck = CustomMaterialRegistry.getMaterial("aluminum") != CustomMaterialRegistry.NONE;
         altSparkPlugAttenuatorToggle = (!ConfigMaterial.ALUMINUM.mustLoad() || Config.altSparkplugRecipe || !registryCheck) && Config.recipeChanges;
-        EmberforgedMain.LOG.info("AltSparPlugCheckCheck");
+
         return () -> altSparkPlugAttenuatorToggle;
     }
 }

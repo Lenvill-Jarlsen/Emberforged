@@ -15,7 +15,7 @@ public class AluminumToggle implements IConditionFactory {
     public BooleanSupplier parse(JsonContext context, JsonObject json) {
         /// registryCheck should be True if the material is present ///
         boolean registryCheck = CustomMaterialRegistry.getMaterial("aluminum") != CustomMaterialRegistry.NONE;
-        EmberforgedMain.LOG.info("AluminumToggleCheck");
+
         return () -> ConfigMaterial.ALUMINUM.mustLoad() || registryCheck;
     }
 }

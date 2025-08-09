@@ -36,6 +36,15 @@
   },
   "conditions" : [
     {
+      "type": "forge:not",
+      "value": {
+        "type": "altclockworkattenuatortoggle"
+      }
+    },
+    {
+      "type": "electrumtoggle"
+    },
+    {
       "type": "enablechanges"
     }
   ]

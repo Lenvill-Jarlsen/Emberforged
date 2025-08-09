@@ -1,14 +1,5 @@
 package com.Lenvill;
 
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.config.ConfigCompat;
-import teamroots.embers.config.ConfigMaterial;
-
-import java.io.File;
-
 @net.minecraftforge.common.config.Config(modid = EmberforgedMain.MODID)
 public class Config {
 

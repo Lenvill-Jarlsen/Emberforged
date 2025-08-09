@@ -15,7 +15,7 @@ public class ElectrumToggle implements IConditionFactory {
     public BooleanSupplier parse(JsonContext context, JsonObject json) {
         /// registryCheck should be True if the material is present ///
         boolean registryCheck = CustomMaterialRegistry.getMaterial("electrum") != CustomMaterialRegistry.NONE;
-        EmberforgedMain.LOG.info("ElectrumToggleCheck");
+
         return () -> ConfigMaterial.ELECTRUM.mustLoad() || registryCheck;
     }
 }

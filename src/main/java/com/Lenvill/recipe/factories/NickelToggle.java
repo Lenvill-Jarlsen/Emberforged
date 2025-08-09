@@ -15,7 +15,7 @@ public class NickelToggle implements IConditionFactory {
     public BooleanSupplier parse(JsonContext context, JsonObject json) {
         /// registryCheck should be True if the material is present ///
         boolean registryCheck = CustomMaterialRegistry.getMaterial("nickel") != CustomMaterialRegistry.NONE;
-        EmberforgedMain.LOG.info("NickelToggleCheck");
+
         return () -> ConfigMaterial.NICKEL.mustLoad() || registryCheck;
     }
 }

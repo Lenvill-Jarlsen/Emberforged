@@ -17,11 +17,7 @@ public class AltClockworkAttenuatorToggle implements IConditionFactory {
         /// registryCheck should be True if the material is present ///
         boolean registryCheck = CustomMaterialRegistry.getMaterial("electrum") != CustomMaterialRegistry.NONE;
         altClockworkAttenuatorToggle = (!ConfigMaterial.ELECTRUM.mustLoad() || Config.altClockworkAttenuatorRecipe || !registryCheck) && Config.recipeChanges;
-        EmberforgedMain.LOG.info("AltClockworkAttenuatorCheck");
-        EmberforgedMain.LOG.info("Is Embers loading Electrum? " + ConfigMaterial.ELECTRUM.mustLoad());
-        EmberforgedMain.LOG.info("Manual Config Override? " + Config.altClockworkAttenuatorRecipe);
-        EmberforgedMain.LOG.info("Is Electrum in the registry? " + registryCheck);
-        EmberforgedMain.LOG.info("Should any changes be loaded? " + Config.recipeChanges);
+
         return () -> altClockworkAttenuatorToggle;
     }
 }

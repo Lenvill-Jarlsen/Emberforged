@@ -11,7 +11,7 @@ import java.util.function.BooleanSupplier;
 public class EnableChanges implements IConditionFactory {
     @Override
     public BooleanSupplier parse(JsonContext context, JsonObject json) {
-        EmberforgedMain.LOG.info("EnableChangesCheck");
+
         return () -> Config.recipeChanges;
     }
 }
