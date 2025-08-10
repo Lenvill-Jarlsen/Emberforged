@@ -28,5 +28,10 @@
   },
   "result": {
     "item": "minefantasyreforged:runed_dawnstone_plate"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

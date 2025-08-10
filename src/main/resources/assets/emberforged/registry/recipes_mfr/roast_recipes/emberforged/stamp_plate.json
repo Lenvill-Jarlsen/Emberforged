@@ -13,5 +13,10 @@
 	],
 	"result": {
 		"item": "embers:stamp_plate"
-	}
+	},
+    "conditions" : [
+      {
+        "type": "enableroastchanges"
+      }
+    ]
 }

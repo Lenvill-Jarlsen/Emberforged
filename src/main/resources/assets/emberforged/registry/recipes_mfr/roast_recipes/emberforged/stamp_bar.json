@@ -13,5 +13,10 @@
 	],
 	"result": {
 		"item": "embers:stamp_bar"
-	}
+	},
+    "conditions" : [
+      {
+        "type": "enableroastchanges"
+      }
+    ]
 }

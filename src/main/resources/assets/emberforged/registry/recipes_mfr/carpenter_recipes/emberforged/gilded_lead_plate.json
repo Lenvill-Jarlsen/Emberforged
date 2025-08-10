@@ -28,5 +28,10 @@
   },
   "result": {
     "item": "minefantasyreforged:gilded_lead_scales"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

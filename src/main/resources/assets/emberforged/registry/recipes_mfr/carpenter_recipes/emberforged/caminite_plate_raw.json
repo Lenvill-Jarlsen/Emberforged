@@ -17,5 +17,10 @@
   },
   "result": {
     "item": "embers:plate_caminite_raw"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

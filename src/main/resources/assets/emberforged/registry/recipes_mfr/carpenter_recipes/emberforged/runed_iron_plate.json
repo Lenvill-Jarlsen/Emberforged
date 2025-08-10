@@ -28,5 +28,10 @@
   },
   "result": {
     "item": "minefantasyreforged:runed_iron_plate"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

@@ -57,18 +57,13 @@ public class EmberforgedMain {
 
 /*
 TO-DO list:
-    2.0 Plans:
-        Finish rewriting all recipes that use Embers plates to use MFR plates
     2.x Updates:
         Rewrite Embers Recipes to feel more thematic to MFR
         Further expand research integration
         Make baubles optional
         Support Mystical Mechanics
     3.0 Plans:
-        Replace the existing alchemy table with one that works with NBT
-            Pull from existing recipe Registry
         Read from MFR's material registry and auto-generate liquids for every metal on there
-            (And prevent the generation of duplicate liquid metals)
-        Auto-generate basic melting and stamping recipes for every metal
+            Auto-generate basic melting and stamping recipes for every metal
         Add the ability to add custom Embers recipes via JSON files
  */

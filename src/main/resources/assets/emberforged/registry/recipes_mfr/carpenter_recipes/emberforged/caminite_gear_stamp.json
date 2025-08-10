@@ -18,5 +18,10 @@
   },
   "result": {
     "item": "embers:stamp_gear_raw"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

@@ -22,5 +22,10 @@
   "result": {
     "item": "embers:blend_caminite",
     "count": 8
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }

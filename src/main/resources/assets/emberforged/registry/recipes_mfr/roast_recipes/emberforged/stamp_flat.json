@@ -13,5 +13,10 @@
 	],
 	"result": {
 		"item": "embers:stamp_flat"
-	}
+	},
+    "conditions" : [
+      {
+        "type": "enableroastchanges"
+      }
+    ]
 }

@@ -13,5 +13,10 @@
 	],
 	"result": {
 		"item": "embers:plate_caminite"
-	}
+	},
+    "conditions" : [
+      {
+        "type": "enableroastchanges"
+      }
+    ]
 }

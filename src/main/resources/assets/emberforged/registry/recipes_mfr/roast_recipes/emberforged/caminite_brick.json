@@ -13,5 +13,10 @@
 	],
 	"result": {
 		"item": "embers:brick_caminite"
-	}
+	},
+    "conditions" : [
+      {
+        "type": "enableroastchanges"
+      }
+    ]
 }

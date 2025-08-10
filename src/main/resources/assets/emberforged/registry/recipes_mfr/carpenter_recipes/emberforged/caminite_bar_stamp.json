@@ -18,5 +18,10 @@
   },
   "result": {
     "item": "embers:stamp_bar_raw"
-  }
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
 }
