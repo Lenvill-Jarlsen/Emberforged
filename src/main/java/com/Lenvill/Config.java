@@ -1,5 +1,7 @@
 package com.Lenvill;
 
+import java.lang.reflect.Array;
+
 @net.minecraftforge.common.config.Config(modid = EmberforgedMain.MODID)
 public class Config {
 
@@ -14,6 +16,12 @@ public class Config {
 
     @net.minecraftforge.common.config.Config.Comment({"Enable or disable the presence of default/vanilla style recipes.","Note: MFR metal registration can be disabled in MFR's config file"})
     public static boolean recipeChanges = true;
+
+    @net.minecraftforge.common.config.Config.Comment("Disable these materials from having melting recipes. For materials like Encrusted or Composite alloy")
+    public static String[] disableMetalMelting = new String[] {"encrusted","composite_alloy","ironwood","steeleaf"};
+
+    @net.minecraftforge.common.config.Config.Comment("Tool for debugging")
+    public static boolean advancedLogs = false;
 
     ///  OLD CONFIG BELOW ///
     /*

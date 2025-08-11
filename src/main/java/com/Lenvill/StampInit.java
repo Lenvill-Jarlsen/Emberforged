@@ -21,6 +21,10 @@ import static minefantasy.mfr.init.MineFantasyItems.PLATE;
 public class StampInit {
 
     public static void initStamps() {
+        //Iterative stamping, take 1
+        if(Config.recipeChanges) {
+
+        }
 
         //Removes old embers recipes and adds in new MFR equivalents
         if(Config.recipeChanges) {
@@ -75,18 +79,10 @@ public class StampInit {
             stampTransformer(FluidRegister.FLUID_MOLTEN_NICKEL, "nickel");
         }
 
-        //Add support for MFR metals not covered in Embers
-        stampAdder(FluidInit.molten_steel, "steel");
-        stampAdder(FluidInit.molten_pig_iron, "pig_iron");
-        stampAdder(FluidInit.molten_black_steel, "black_steel");
-        stampAdder(FluidInit.molten_blue_steel, "blue_steel");
-        stampAdder(FluidInit.molten_red_steel, "red_steel");
-        stampAdder(FluidInit.molten_adamantium, "adamantium");
-        stampAdder(FluidInit.molten_mithril, "mithril");
-        stampAdder(FluidInit.molten_ignotumite, "ignotumite");
-        stampAdder(FluidInit.molten_mithium, "mithium");
-        stampAdder(FluidInit.molten_enderforge, "ender");
-        stampAdder(FluidInit.molten_tungsten, "tungsten");
+        //Add support for MFR metals not covered in Embers. Now done dynamically!
+        FluidInit.moltenFluids.forEach(moltenFluid -> {
+            stampAdder(moltenFluid, moltenFluid.getName());
+        });
 
         //And some other misc stamper recipes
         Ingredient stampFlat = Ingredient.fromItem(ItemRegister.STAMP_FLAT);

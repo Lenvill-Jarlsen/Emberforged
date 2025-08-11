@@ -66,4 +66,6 @@ TO-DO list:
         Read from MFR's material registry and auto-generate liquids for every metal on there
             Auto-generate basic melting and stamping recipes for every metal
         Add the ability to add custom Embers recipes via JSON files
+    3.x Plans:
+        "Realistic" fluid textures (based on blackbody radiation and melting temperature)
  */

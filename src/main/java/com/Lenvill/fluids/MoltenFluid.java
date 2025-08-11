@@ -11,4 +11,9 @@ public class MoltenFluid extends Fluid {
         super(fluidName, FluidRegister.FLUID_MOLTEN_TIN.getStill(), FluidRegister.FLUID_MOLTEN_TIN.getFlowing(), color);
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s", this.fluidName);
+    }
+
 }
