@@ -19,7 +19,7 @@ public class EmberforgedMain {
     public static final String MODID = "emberforged";
     public static final String NAME = "Emberforged";
     public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required-after:baubles;" + "required-after:embers@[1.23.6,);" + "required-after:minefantasyreforged;";
+    public static final String DEPENDENCIES = "required-after:baubles;" + "required-after:embers@[1.25.3,);" + "required-after:minefantasyreforged@[1.12.2-0.3.8,);";
 
     @SidedProxy(clientSide = "com.Lenvill.proxy.ClientProxy", serverSide = "com.Lenvill.proxy.CommonProxy")
     public static CommonProxy PROXY;
@@ -57,15 +57,13 @@ public class EmberforgedMain {
 
 /*
 TO-DO list:
-    2.x Updates:
+    3.x Updates:
         Rewrite Embers Recipes to feel more thematic to MFR
         Further expand research integration
         Make baubles optional
         Support Mystical Mechanics
-    3.0 Plans:
-        Read from MFR's material registry and auto-generate liquids for every metal on there
-            Auto-generate basic melting and stamping recipes for every metal
+    4.0 Plans:
         Add the ability to add custom Embers recipes via JSON files
-    3.x Plans:
+    4.x Plans:
         "Realistic" fluid textures (based on blackbody radiation and melting temperature)
  */

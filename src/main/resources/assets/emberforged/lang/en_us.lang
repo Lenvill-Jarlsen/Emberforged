@@ -1,17 +1,5 @@
 #NEW MOLTEN FLUIDS
-fluid.steel=Molten Steel
-fluid.pig_iron=Molten Pig Iron
-fluid.black_steel=Molten Black Steel
-fluid.blue_steel=Molten Blue Steel
-fluid.red_steel=Molten Red Steel
-fluid.adamantium=Molten Adamantium
-fluid.mithril=Molten Mithril
-fluid.ignotumite=Molten Ignotumite
-fluid.mithium=Molten Mithium
-fluid.ender=Molten Enderforged
-fluid.tungsten=Molten Tungsten
-
-fluid.obsidian=Molten Obsidian Alloy
+fluid.molten_fluid_template=Molten %1$s
 
 #NEW INGREDIENTS
 item.runed_dawnstone_plate.name=Runed Dawnstone Plate

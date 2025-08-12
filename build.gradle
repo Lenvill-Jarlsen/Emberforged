@@ -125,7 +125,6 @@ dependencies {
     implementation fg.deobf("codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal")
     implementation fg.deobf("curse.maven:minefantasy-reforged-431996:6861487")
     //implementation fg.deobf("curse.maven:mysticalmechanics-300742:3006392")
-    //implementation fg.deobf("curse.maven:embers-rekindled-300777:3695248")
     implementation fg.deobf("curse.maven:embers-extended-life-936489:6556819")
 
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
