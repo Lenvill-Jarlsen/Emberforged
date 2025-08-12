@@ -1,0 +1,5 @@
+{
+    "conditions": {
+        "enableroastchanges": "com.Lenvill.recipe.factories.EnableChanges"
+    }
+}

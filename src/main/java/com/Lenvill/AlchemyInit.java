@@ -3,10 +3,11 @@ package com.Lenvill;
 import com.Lenvill.item.EmberforgedItems;
 import com.google.common.collect.Lists;
 import minefantasy.mfr.init.MineFantasyItems;
+import minefantasy.mfr.item.ItemMetalComponent;
+import minefantasy.mfr.util.CustomToolHelper;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.NBTBase;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.oredict.OreIngredient;
 import teamroots.embers.api.alchemy.AspectList;
@@ -14,24 +15,20 @@ import teamroots.embers.recipe.AlchemyRecipe;
 import teamroots.embers.register.BlockRegister;
 import teamroots.embers.register.ItemRegister;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
 import static teamroots.embers.recipe.RecipeRegistry.alchemyRecipes;
 
 public class AlchemyInit {
 
     public static void preInit(FMLInitializationEvent event) {
-        Ingredient mfr_copper_plate = Ingredient.fromItem(EmberforgedItems.runed_copper_plate);
-        Ingredient mfr_iron_plate = Ingredient.fromItem(EmberforgedItems.runed_iron_plate);
-        Ingredient mfr_dawnstone_plate = Ingredient.fromItem(EmberforgedItems.runed_dawnstone_plate);
-        Ingredient runed_scales = Ingredient.fromItem(EmberforgedItems.gilded_lead_scales);
+        Ingredient mfr_copper_plate = OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.PLATE).createComponentItemStack("copper", 1));
+        Ingredient mfr_iron_plate = OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.PLATE).createComponentItemStack("iron", 1)); //Ingredient.fromItem(EmberforgedItems.runed_iron_plate);
+        Ingredient mfr_dawnstone_plate = OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.PLATE).createComponentItemStack("dawnstone", 1));
+        Ingredient runed_scales = OreIngredient.fromStacks(((ItemMetalComponent) MineFantasyItems.SCALE_MESH).createComponentItemStack("lead", 1));
         Ingredient runed_gears = Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS);
-        Ingredient lead_sword = Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
+        Ingredient lead_sword = Ingredient.fromItem(MineFantasyItems.BRONZE_GEARS); //Ingredient.fromStacks((MineFantasyItems.DRAGONFORGED_SWORD).construct("lead", "oak"));
+        Ingredient sword = Ingredient.fromStacks(CustomToolHelper.constructWithDefaultWood(MineFantasyItems.DRAGONFORGED_SWORD, "lead"));
 
-        if(Config.enableChanges) {
+        if(Config.recipeChanges) {
             alchemyOutputRemover(new ItemStack(ItemRegister.BLASTING_CORE));
             alchemyOutputRemover(new ItemStack(ItemRegister.FLAME_BARRIER));
             alchemyOutputRemover(new ItemStack(ItemRegister.FOCAL_LENS));
@@ -52,7 +49,7 @@ public class AlchemyInit {
         alchemyAdder(new ItemStack(ItemRegister.WILDFIRE_CORE,1), "iron", 32, 48, "silver", 24, 32, Ingredient.fromItem(ItemRegister.ANCIENT_MOTIVE_CORE), new OreIngredient("ingotDawnstone"), Ingredient.fromItem(ItemRegister.EMBER_CLUSTER), new OreIngredient("ingotDawnstone"), mfr_copper_plate);
         alchemyAdder(new ItemStack(ItemRegister.WINDING_GEARS,1), "copper", 32, 128, Ingredient.fromItem(MineFantasyItems.BRONZE_INGOT), runed_gears, runed_gears, runed_gears, runed_gears);
 
-        alchemyAdder(new ItemStack(ItemRegister.TYRFING,1), "silver", 64, 96, "lead", 64, 96, lead_sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), new OreIngredient("ingotLead"), new OreIngredient("ingotLead"));
+        alchemyAdder(new ItemStack(ItemRegister.TYRFING,1), "silver", 64, 96, "lead", 64, 96, sword, new OreIngredient("blockCoal"), new OreIngredient("obsidian"), new OreIngredient("ingotLead"), new OreIngredient("ingotLead"));
 
         //The volitile Ember Conduit, as it is wierd
         alchemyRecipes.add(new AlchemyRecipe(

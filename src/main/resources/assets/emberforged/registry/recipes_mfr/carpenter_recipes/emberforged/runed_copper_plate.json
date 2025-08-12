@@ -1,0 +1,37 @@
+{
+  "type": "carpenter_shaped_recipe",
+  "skill": "engineering",
+  "research": "engineering_tools",
+  "tool_type": "hammer",
+  "block_tier": -1,
+  "craft_time": 15,
+  "tool_tier": 3,
+  "skill_xp": 1,
+  "vanilla_xp": 0.3,
+  "sound": "minefantasyreforged:block.hammercarpenter",
+  "pattern": [
+    "T",
+    "N",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "item": "#PLATE_COPPER"
+    },
+    "N": {
+      "item": "embers:dust_ash"
+    },
+    "T": {
+      "item": "minefantasyreforged:engin_anvil_tools",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "minefantasyreforged:runed_copper_plate"
+  },
+  "conditions" : [
+    {
+      "type": "enablecarpenterchanges"
+    }
+  ]
+}

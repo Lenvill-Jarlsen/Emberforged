@@ -1,0 +1,10 @@
+{
+    "conditions": {
+        "aluminumtoggle": "com.Lenvill.recipe.factories.AluminumToggle",
+        "nickeltoggle": "com.Lenvill.recipe.factories.NickelToggle",
+        "electrumtoggle": "com.Lenvill.recipe.factories.ElectrumToggle",
+        "altsparkplugtoggle": "com.Lenvill.recipe.factories.AltSparkPlugToggle",
+        "altclockworkattenuatortoggle": "com.Lenvill.recipe.factories.AltClockworkAttenuatorToggle",
+        "enablechanges": "com.Lenvill.recipe.factories.EnableChanges"
+    }
+}

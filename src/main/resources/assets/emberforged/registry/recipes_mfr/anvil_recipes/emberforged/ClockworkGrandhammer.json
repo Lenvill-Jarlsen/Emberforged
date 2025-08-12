@@ -1,0 +1,40 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 2,
+  "vanilla_xp": 0.5,
+  "output_hot": true,
+  "pattern": [
+    "   E",
+    "SSCD",
+    "   E"
+  ],
+  "key": {
+    "D": {
+      "item": "#BAR_DAWNSTONE"
+    },
+    "E": {
+      "item": "embers:block_dawnstone"
+    },
+    "C": {
+      "item": "#BAR_COPPER"
+    },
+    "S": {
+      "item": "#TIMBER_REFINED"
+    }
+  },
+  "result": {
+    "item": "embers:grandhammer"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

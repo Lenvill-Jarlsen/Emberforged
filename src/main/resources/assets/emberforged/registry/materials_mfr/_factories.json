@@ -1,0 +1,7 @@
+{
+  "conditions": {
+    "aluminumtoggle": "com.Lenvill.recipe.factories.AluminumToggle",
+    "electrumtoggle": "com.Lenvill.recipe.factories.ElectrumToggle",
+    "nickeltoggle": "com.Lenvill.recipe.factories.NickelToggle"
+  }
+}

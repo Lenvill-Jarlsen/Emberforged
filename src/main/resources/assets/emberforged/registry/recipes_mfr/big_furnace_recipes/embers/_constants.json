@@ -1,0 +1,33 @@
+[
+    {
+        "name": "LEAD_ORE",
+        "ingredient": [
+            {
+                "type": "forge:ore_dict",
+                "ore": "oreLead"
+            }
+        ]
+    },
+    {
+        "name": "ALUMINUM_ORE",
+        "ingredient": [
+            {
+                "type": "forge:ore_dict",
+                "ore": "oreAluminium"
+            },
+            {
+              "type": "forge:ore_dict",
+              "ore": "oreAluminum"
+            }
+        ]
+    },
+    {
+        "name": "NICKEL_ORE",
+        "ingredient": [
+            {
+                "type": "forge:ore_dict",
+                "ore": "oreNickel"
+            }
+        ]
+    }
+]

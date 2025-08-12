@@ -1,18 +1,10 @@
 package com.Lenvill;
 
-import minefantasy.mfr.client.knowledge.EntryPageRecipeAnvil;
-import minefantasy.mfr.client.knowledge.EntryPageRecipeCarpenter;
-import minefantasy.mfr.client.knowledge.EntryPageText;
 import minefantasy.mfr.constants.Skill;
 import minefantasy.mfr.init.MineFantasyItems;
 import minefantasy.mfr.mechanics.knowledge.InformationBase;
-import minefantasy.mfr.mechanics.knowledge.InformationPage;
 import minefantasy.mfr.mechanics.knowledge.ResearchArtefacts;
-import minefantasy.mfr.recipe.CraftingManagerAnvil;
-import minefantasy.mfr.recipe.CraftingManagerCarpenter;
 import net.minecraft.init.Items;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.config.ConfigMaterial;
 import teamroots.embers.register.BlockRegister;
 import teamroots.embers.register.ItemRegister;

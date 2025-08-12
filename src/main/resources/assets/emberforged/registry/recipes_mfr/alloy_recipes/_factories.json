@@ -1,0 +1,5 @@
+{
+    "conditions": {
+		"electrumalloytoggle": "com.Lenvill.recipe.factories.ElectrumToggle"
+    }
+}

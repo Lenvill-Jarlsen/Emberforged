@@ -23,9 +23,5 @@ public class ClientProxy extends CommonProxy {
         super.postInit();
         KnowledgePageRegistry.initPages();
     }
-/*
-    public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
-    }
- */
+
 }

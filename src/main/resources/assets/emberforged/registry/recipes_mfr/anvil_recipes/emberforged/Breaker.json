@@ -1,0 +1,40 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 1,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "PIP",
+    "LRL",
+    "L L"
+  ],
+  "key": {
+    "P": {
+      "item": "#PLATE_IRON"
+    },
+    "I": {
+      "item": "#BAR_IRON"
+    },
+    "L": {
+      "item": "#BAR_LEAD"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "embers:breaker"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

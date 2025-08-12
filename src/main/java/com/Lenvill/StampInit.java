@@ -3,6 +3,7 @@ package com.Lenvill;
 import com.Lenvill.fluids.FluidInit;
 import minefantasy.mfr.init.MineFantasyItems;
 import minefantasy.mfr.item.ItemMetalComponent;
+import minefantasy.mfr.registry.material.CustomMaterialRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fluids.Fluid;
@@ -20,9 +21,13 @@ import static minefantasy.mfr.init.MineFantasyItems.PLATE;
 public class StampInit {
 
     public static void initStamps() {
+        //Iterative stamping, take 1
+        if(Config.recipeChanges) {
+
+        }
 
         //Removes old embers recipes and adds in new MFR equivalents
-        if(Config.enableChanges) {
+        if(Config.recipeChanges) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_COPPER, "copper");
 
             if(ConfigMaterial.TIN.mustLoad()) {
@@ -64,28 +69,20 @@ public class StampInit {
             }
         }
 
-        if(ConfigMaterial.ALUMINUM.mustLoad() && Config.registerAluminum) {
+        if(ConfigMaterial.ALUMINUM.mustLoad() && CustomMaterialRegistry.getMaterial("aluminum") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_ALUMINUM, "aluminum");
         }
-        if(ConfigMaterial.ELECTRUM.mustLoad() && Config.registerElectrum) {
+        if(ConfigMaterial.ELECTRUM.mustLoad() && CustomMaterialRegistry.getMaterial("electrum") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_ELECTRUM, "electrum");
         }
-        if(ConfigMaterial.NICKEL.mustLoad() && Config.registerNickel) {
+        if(ConfigMaterial.NICKEL.mustLoad() && CustomMaterialRegistry.getMaterial("nickel") != CustomMaterialRegistry.NONE) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_NICKEL, "nickel");
         }
 
-        //Add support for MFR metals not covered in Embers
-        stampAdder(FluidInit.molten_steel, "steel");
-        stampAdder(FluidInit.molten_pig_iron, "pig_iron");
-        stampAdder(FluidInit.molten_black_steel, "black_steel");
-        stampAdder(FluidInit.molten_blue_steel, "blue_steel");
-        stampAdder(FluidInit.molten_red_steel, "red_steel");
-        stampAdder(FluidInit.molten_adamantium, "adamantium");
-        stampAdder(FluidInit.molten_mithril, "mithril");
-        stampAdder(FluidInit.molten_ignotumite, "ignotumite");
-        stampAdder(FluidInit.molten_mithium, "mithium");
-        stampAdder(FluidInit.molten_enderforge, "ender");
-        stampAdder(FluidInit.molten_tungsten, "tungsten");
+        //Add support for MFR metals not covered in Embers. Now done dynamically!
+        FluidInit.moltenFluids.forEach(moltenFluid -> {
+            stampAdder(moltenFluid, moltenFluid.getName());
+        });
 
         //And some other misc stamper recipes
         Ingredient stampFlat = Ingredient.fromItem(ItemRegister.STAMP_FLAT);

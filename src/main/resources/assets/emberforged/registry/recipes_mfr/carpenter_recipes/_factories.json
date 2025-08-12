@@ -1,0 +1,5 @@
+{
+    "conditions": {
+        "enablecarpenterchanges": "com.Lenvill.recipe.factories.EnableChanges"
+    }
+}

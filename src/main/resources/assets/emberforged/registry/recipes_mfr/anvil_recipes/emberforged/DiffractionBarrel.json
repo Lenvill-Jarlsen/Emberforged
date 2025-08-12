@@ -1,0 +1,35 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 2,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    "IPS"
+  ],
+  "key": {
+    "P": {
+      "item": "#PLATE_IRON"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "S": {
+      "item": "embers:superheater"
+    }
+  },
+  "result": {
+    "item": "embers:diffraction_barrel"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}

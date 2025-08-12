@@ -1,0 +1,40 @@
+{
+  "type": "anvil_shaped_recipe",
+  "skill": "artisanry",
+  "research": "",
+  "tool_type": "hammer",
+  "is_tool_recipe": false,
+  "anvil_tier": -1,
+  "recipe_time": 2,
+  "recipe_hammer": -1,
+  "skill_xp": 2,
+  "vanilla_xp": 0.5,
+  "output_hot": false,
+  "pattern": [
+    " C ",
+    "PEP",
+    "CMC"
+  ],
+  "key": {
+    "C": {
+      "item": "#BAR_COPPER"
+	},
+    "P": {
+      "item": "#PLATE_COPPER"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    },
+    "E": {
+      "item": "embers:ember_cluster"
+    }
+  },
+  "result": {
+    "item": "embers:combustor"
+  },
+  "conditions" : [
+    {
+      "type": "enablechanges"
+    }
+  ]
+}
