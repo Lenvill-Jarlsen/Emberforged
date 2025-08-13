@@ -23,6 +23,14 @@
             "nbt": "{mf_custom_materials:{main_material:\"aluminum\"}}"
         }
     },
+    {
+        "name": "CHAIN_DAWNSTONE",
+        "ingredient": {
+          "type": "minecraft:item_nbt",
+          "item": "minefantasyreforged:chain_mesh",
+          "nbt": "{mf_custom_materials:{main_material:\"dawnstone\"}}"
+        }
+    },
 	{
 		"name": "PLATE_DAWNSTONE",
         "ingredient": {

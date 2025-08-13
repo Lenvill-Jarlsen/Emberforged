@@ -12,12 +12,15 @@
   "output_hot": false,
   "pattern": [
     "P P",
-    "PPP",
-    "PPP"
+    "CCC",
+    "CCC"
   ],
   "key": {
     "P": {
       "item": "#PLATE_DAWNSTONE"
+    },
+    "C": {
+      "item": "#CHAIN_DAWNSTONE"
     }
   },
   "result": {

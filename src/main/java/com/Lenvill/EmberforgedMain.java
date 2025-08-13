@@ -28,9 +28,6 @@ public class EmberforgedMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        //MinecraftForge.EVENT_BUS.register(new Config());
-        //Config.init(event.getSuggestedConfigurationFile());
-        //IOInit.initRecipes(event);
         FluidInit.preInitFluids(event);
         EmberforgedItems.initItems();
     }
@@ -62,7 +59,6 @@ TO-DO list:
         Further expand research integration
         Add support for the optional Embers metals
         Add support for Embers addons
-        Make baubles optional
         Support Mystical Mechanics
     4.0 Plans:
         Add the ability to add custom Embers recipes via JSON files
