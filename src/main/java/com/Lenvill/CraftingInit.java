@@ -39,7 +39,7 @@ public class CraftingInit {
                 if (ConfigMaterial.ELECTRUM.mustLoad()) {
                     manualRemover(ItemRegister.PLATE_ELECTRUM);
                 }
-                if (ConfigMaterial.GOLD.isNotOff()) {
+                if (ConfigMaterial.GOLD.mustLoad()) {
                     manualRemover(ItemRegister.PLATE_GOLD);
                 }
                 if (ConfigMaterial.IRON.mustLoad()) {
@@ -75,6 +75,8 @@ public class CraftingInit {
             recipeRegistry.remove(getRL("stamp_flat_raw"));
             recipeRegistry.remove(getRL("stamp_plate_raw"));
             recipeRegistry.remove(getRL("stamp_gear_raw"));
+            recipeRegistry.remove(getRL("stamp_rod_raw"));
+            recipeRegistry.remove(getRL("stamp_round_raw"));
 
             recipeRegistry.remove(getRL("caster_orb"));
             recipeRegistry.remove(getRL("catalyzer"));

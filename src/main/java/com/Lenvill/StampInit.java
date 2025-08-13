@@ -11,6 +11,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreIngredient;
 import teamroots.embers.config.ConfigMachine;
 import teamroots.embers.config.ConfigMaterial;
+import teamroots.embers.config.ConfigMisc;
 import teamroots.embers.recipe.ItemStampingRecipe;
 import teamroots.embers.recipe.RecipeRegistry;
 import teamroots.embers.register.FluidRegister;
@@ -21,11 +22,6 @@ import static minefantasy.mfr.init.MineFantasyItems.PLATE;
 public class StampInit {
 
     public static void initStamps() {
-        //Iterative stamping, take 1
-        if(Config.recipeChanges) {
-
-        }
-
         //Removes old embers recipes and adds in new MFR equivalents
         if(Config.recipeChanges) {
             stampTransformer(FluidRegister.FLUID_MOLTEN_COPPER, "copper");
@@ -105,12 +101,12 @@ public class StampInit {
 
     //Combo function to just make everything super easy
     private static void stampTransformer(Fluid fluid, String material) {
-        int plateAmount = ConfigMachine.STAMPER.stampPlateAmount * RecipeRegistry.INGOT_AMOUNT;
-        int mfrPlateAmount = 2 * RecipeRegistry.INGOT_AMOUNT;
+        int plateAmount = ConfigMachine.STAMPER.stampPlateAmount * ConfigMisc.ingotFluidAmount;
+        int mfrPlateAmount = 2 * ConfigMisc.ingotFluidAmount;
 
         //Bars first
-        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), new ItemStack(ItemRegister.STAMP_BAR, 1)));
-        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, RecipeRegistry.INGOT_AMOUNT), Ingredient.fromItem(ItemRegister.STAMP_BAR), MineFantasyItems.bar(material)));
+        RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, ConfigMisc.ingotFluidAmount), new ItemStack(ItemRegister.STAMP_BAR, 1)));
+        RecipeRegistry.stampingRecipes.add(new ItemStampingRecipe(Ingredient.EMPTY, new FluidStack(fluid, ConfigMisc.ingotFluidAmount), Ingredient.fromItem(ItemRegister.STAMP_BAR), MineFantasyItems.bar(material)));
 
         //Then plates
         RecipeRegistry.stampingRecipes.remove(RecipeRegistry.getStampingRecipe(ItemStack.EMPTY, new FluidStack(fluid, plateAmount), new ItemStack(ItemRegister.STAMP_PLATE, 1)));

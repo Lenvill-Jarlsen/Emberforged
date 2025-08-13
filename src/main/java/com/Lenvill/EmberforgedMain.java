@@ -60,6 +60,8 @@ TO-DO list:
     3.x Updates:
         Rewrite Embers Recipes to feel more thematic to MFR
         Further expand research integration
+        Add support for the optional Embers metals
+        Add support for Embers addons
         Make baubles optional
         Support Mystical Mechanics
     4.0 Plans:
