@@ -1,0 +1,19 @@
+{
+  "blocked_recipe_types": [
+    {
+      "type": "anvil_recipes",
+      "blocked_recipes": [
+        {
+          "mods": ["thaumcraft", "ancientwarfare"],
+          "all_mods_present": false,
+          "recipe_key": "minefantasyreforged:anvil_black_steel"
+        }
+      ]
+    },
+    {
+      "type": "carpenter_recipes",
+      "blocked_recipes": [
+      ]
+    }
+  ]
+}
